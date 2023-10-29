@@ -1,0 +1,19 @@
+h2 {
+    margin-bottom: 5px;
+    text-decoration: underline;
+}
+
+section {
+    margin: 25px 70px;
+
+    line-height: 1.5;
+}
+
+section .introduce {
+    font-size: 28px;
+    text-align: center;
+}
+
+section .contact {
+    margin-top: 30px;
+}
