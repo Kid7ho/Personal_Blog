@@ -36,7 +36,7 @@ section .main1 .text1 .description {
 }
 
 section .split1_2 {
-    width: 100%; height: 200px;
+    width: 100%; height: 175px;
     
     background-color: black;
 }
@@ -45,16 +45,16 @@ section .main2 {
     width: 100%; height: max-content;
     display: flex;
     background-color: rgba(0, 0, 0, 0.98);
+
+    padding-bottom: 50px;
     
     text-align: center;
     align-items: center;
     color: white;
 }
 section .main2 > img {
-    width: 60%;
-    float: left;
-    /*-webkit-filter: grayscale(80%);
-    filter: grayscale(80%);*/
+    width: 50%;
+    margin: 0 auto;
 }
 section .main2 .text2 {
     width: 40%; height: 100%;
@@ -74,8 +74,8 @@ section .main2 .text2 .description {
     font-size: 16px;
 }
 
-section .split2_3 {
-    width: 100%; height: 400px;
+/*section .split2_3 {
+    width: 100%; height: 300px;
     display: flex;
 
     background-image: linear-gradient(180deg, black 0%, black 20%, white 80%, white 100%);
@@ -85,7 +85,27 @@ section .split2_3 {
     align-items: center;
     color: white;
     text-shadow: 2px 1px 2px black;
+}*/
+.split2_3{
+    overflow:hidden;
+    position:relative;
+
+    width: 100%; height: 200px;
 }
+.split2_3::before{ 
+    content:'';
+    font-family:'shape divider from ShapeDividers.com';
+    position: absolute;
+    z-index: 3;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    bottom: -0.1vw;
+    left: -0.1vw;
+    right: -0.1vw;
+    top: -0.1vw; 
+    background-size: 100% 166px;
+    background-position: 50% 0%;  background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.28 2.17" preserveAspectRatio="none"><path d="M0 1c3.17.8 7.29-.38 10.04-.55 2.75-.17 9.25 1.47 12.67 1.3 3.43-.17 4.65-.84 7.05-.87 2.4-.02 5.52.88 5.52.88V0H0z" fill="%23000000"/></svg>'); 
+}     
 
 section .main3 {
     width: 100%; height: max-content;
