@@ -90,7 +90,7 @@ section .main2 .text2 .description {
     overflow:hidden;
     position:relative;
 
-    width: 100%; height: 200px;
+    width: 100%; height: 330px;
 }
 .split2_3::before{ 
     content:'';
