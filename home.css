@@ -142,7 +142,7 @@ main .main3 .text3 .description {
 
 
 main .split3_4 {
-    width: 100%; height: 175px;
+    width: 100%; height: 225px;
     
     background-color: white;
 }
@@ -179,7 +179,7 @@ main .main4 .text4 .description {
 }
 
 main .split4_footer {
-    width: 100%; height: 80px;
+    width: 100%; height: 150px;
 
     background-color: white;
 }
