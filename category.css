@@ -1,0 +1,40 @@
+h2 {
+    margin-bottom: 5px;
+}
+
+main {
+    clear: both;
+    
+    line-height: 1.5;
+}
+
+#category {
+    width: 25%; min-height: 70%;
+    float: right;
+    
+    border-left: solid black;
+}
+#category ul {
+    padding-left: 20px;
+}
+
+#category .title {
+    width: 100%; height: auto;
+    
+    padding: 15px 25px 13px;
+    border-bottom: solid black;
+    
+    color: white;
+    text-shadow: rgb(31, 31, 31) 2px 2px;
+    font-size: 18px;
+    font-weight: bold;
+}
+#category .details {
+    width: 100%; height: 100%;
+    
+    padding: 17px 17px;
+    
+    color: white;
+    text-shadow: rgb(65, 65, 65) 1px 1px;
+    font-size: 17px;
+}
