@@ -41,15 +41,14 @@ header .navbar .logo {
     text-align: center;
 }
 header .navbar nav {
-    margin: 0 auto;
-    margin-right: 100px;
+    margin: 0 100px;
 
     flex: 1;
     text-align: center;
 }
 header .navbar ul a {
     width: 90px; height: 35px;
-    margin: 0 30px;
+    margin: 0 25px;
     display: inline-block;
     list-style: none;
     
