@@ -1,0 +1,60 @@
+h2 {
+    margin-bottom: 5px;
+}
+
+main {
+    clear: both;
+
+    line-height: 1.5;
+}
+
+#contents {
+    width: 75%; min-height: 70%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px;
+}
+
+#contents article {
+    width: 90%; height: 400px;
+
+    margin: 0 auto;
+    margin-bottom: 50px;
+    padding: 12px 20px;
+
+    background-color: rgb(121, 121, 121);
+}
+
+
+
+#category {
+    width: 25%; min-height: 70%;
+    float: right;
+
+    border-left: solid black;
+}
+
+#category .title {
+    width: 100%; height: auto;
+    
+    padding: 15px 25px 13px;
+    border-bottom: solid black;
+    
+    color: white;
+    text-shadow: rgb(31, 31, 31) 2px 2px;
+    background-color: rgb(62, 62, 62);
+    font-size: 18px;
+    font-weight: bold;
+}
+#category .details {
+    width: 100%; height: 100%;
+    
+    padding: 17px 25px;
+    
+    color: white;
+    text-shadow: rgb(106, 106, 106) 1px 1px;
+    background-color: rgb(194, 194, 194);
+    font-size: 17px;
+}

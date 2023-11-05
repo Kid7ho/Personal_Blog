@@ -3,25 +3,27 @@ h2 {
     text-decoration: underline;
 }
 
-section {
+main {
+    flex-direction: column;
+
     margin: 25px 70px;
 
     line-height: 1.5;
 }
 
-section .introduce {
+main .introduce {
     font-size: 28px;
     text-align: center;
 }
-section .introduce .selfie {
+main .introduce .selfie {
     width: 175px; height: 225px;
     margin: 0 auto;
     background-color: aliceblue;
 }
 
-section .career {
+main .career {
     margin-top: 30px;
 }
-section .achievement {
+main .achievement {
     margin-top: 30px;
 }

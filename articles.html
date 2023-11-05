@@ -3,6 +3,7 @@
     <head>
         <title>Personal Blog</title>
         <link rel = "stylesheet" type = "text/css" href = "main.css">
+        <link rel = "stylesheet" type = "text/css" href = "articles.css">
     </head>
 
     <body>
@@ -20,11 +21,30 @@
             </div>
         </header>
 
-        <section>
-            <div>
+        <main>
+            <section id = "contents">
+                <article>
+                    <h2>첫 번째 글</h2>
+                    <div>
+                        hello world;
+                    </div>
+                </article>
+    
+                <article>
+                    <h2>두 번째 글</h2>
+                    <div>
+                        bye world;
+                    </div>
+                </article>
+            </section>
 
-            </div>
-        </section>
+            <aside id = "category">
+                <div class = "title">
+                    <h2>Category</h2>
+                </div>
+                <div class = "details"><span>this will be the category of my blog;</span></div>
+            </aside>
+        </main>
 
         <footer>
             @Copyright 2023 Jin-Myoung Hyun. All rights reserved.
