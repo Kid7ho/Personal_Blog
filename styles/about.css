@@ -16,9 +16,12 @@ main .introduce {
     text-align: center;
 }
 main .introduce .selfie {
-    width: 175px; height: 225px;
+    width: 200px; height: 300px;
     margin: 0 auto;
     background-color: aliceblue;
+}
+main .introduce .selfie > img {
+    max-width: 200px; max-height: 300px;
 }
 
 main .career {
