@@ -17,20 +17,25 @@
 
     border-radius: 5px;
     box-shadow: rgb(150, 150, 150) 3px 4px 7px;
+    transition: 0.25s ease-in-out;
+}
+#contents article:hover {
+    transform: scale(1.02);
+    box-shadow: rgb(150, 150, 150) 9px 11px 7px;
 }
 
-#contents article img {
+#contents article a img {
     width: 100%; height: 225px;
     overflow: hidden;
 }
-#contents article .title {
+#contents article a .title {
     padding: 4px 15px 0;
     
     font-weight: bold;
     font-size: 20px;
-    color: rgb(60, 60, 60);
+    color: rgb(25, 25, 25);
 }
-#contents article .description {
+#contents article a .description {
     display: list-item;
 
     padding: 2px 15px;

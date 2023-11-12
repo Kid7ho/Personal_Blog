@@ -1,0 +1,48 @@
+#contents {
+    width: 75%; min-height: 70%;
+    float: left;
+}
+
+#contents .title {
+    width: 100%; height: auto;
+
+    margin-top: 25px;
+    
+    text-align: center;
+    font-weight: bold;
+    font-size: 37px;
+}
+
+#contents .info {
+    width: 100%; height: 50px;
+
+    margin-top: 10px;
+    padding-right: 45px;
+
+    text-align: end;
+    font-size: 17px;
+}
+#contents .info a:hover {
+    text-decoration: underline;
+}
+
+#contents .content {
+    margin: 0 45px;
+
+    text-align: justify;
+
+    line-height: 180%;
+    font-size: 17px;
+}
+#contents .content span {
+    display: inline-block;
+    margin: 5px 0;
+}
+#contents .content span::before {
+    content: '\00a0\00a0\00a0\00a0';
+}
+#contents .content br {
+    display: block;
+    content: "";
+    margin-bottom: 30px;
+}

@@ -25,7 +25,8 @@ main {
     border-bottom: solid black;
     
     color: white;
-    text-shadow: rgb(31, 31, 31) 2px 2px;
+    background-color: rgba(0, 0, 0, 0.95);
+    text-shadow: rgb(101, 101, 101) 1px 1px;
     font-size: 18px;
     font-weight: bold;
 }
@@ -35,6 +36,7 @@ main {
     padding: 17px 17px;
     
     color: white;
-    text-shadow: rgb(65, 65, 65) 1px 1px;
+    background-color: rgba(0, 0, 0, 0.25);
+    text-shadow: rgb(53, 53, 53) 1px 1px;
     font-size: 17px;
 }
