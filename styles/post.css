@@ -1,6 +1,8 @@
 #contents {
     width: 75%; min-height: 70%;
     float: left;
+
+    margin-bottom: 25px;
 }
 
 #contents .title {
@@ -35,7 +37,7 @@
     font-size: 17px;
 }
 #contents .content span {
-    display: inline-block;
+    display: block;
     margin: 5px 0;
 }
 #contents .content span::before {
@@ -45,4 +47,7 @@
     display: block;
     content: "";
     margin-bottom: 30px;
+}
+#contents .content script {
+    width: 500px; height: 500px;
 }
