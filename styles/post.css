@@ -59,7 +59,7 @@
 #contents #content .info {
     width: 100%;
 
-    margin-top: 20px;
+    margin-top: 22px;
 
     text-align: center;
     font-size: 17px;
@@ -68,14 +68,36 @@
     height: 1px;
     background-color: black;
     border: none;
-    margin: 20px 0;
+    margin: 25px 0;
 }
 #contents #content .info a:hover {
     text-decoration: underline;
 }
+#contents #content p {
+    margin: 10px 0;
+}
 #contents #content p::before {
     content: '\00a0\00a0\00a0\00a0';
 }
+
+#contents #content p.caption1 {
+    padding: 20px 20px;
+
+    background-color: rgba(179,255,225,255);
+    box-shadow: 3px 3px rgb(88, 84, 34);
+    color: rgba(61,53,51,255);
+    text-shadow: 1px 1px white;
+    border-radius: 10px;
+}
+#contents #content p.caption2 {
+    padding: 20px 20px;
+
+    background-color: rgba(45,62,80,255);
+    box-shadow: 3px 3px rgb(88, 84, 34);
+    color: rgba(27,188,155,255);
+    border-radius: 10px;
+}
+
 #contents #content br {
     display: block;
     content: "";
