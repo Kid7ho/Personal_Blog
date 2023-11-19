@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Blog</title>
+        <meta charset="utf-8">
+        <link rel = "stylesheet" type = "text/css" href = "../styles/main.css">
+        <link rel = "stylesheet" type = "text/css" href = "../styles/post.css">
+        <script src = "https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src = "../scripts/source_code_table.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div class = "navbar">
+                <span class = "logo"><a href = "index.html">JIMMY</a></span>
+                <nav>
+                    <ul>
+                        <a href = "../index.html"><li>Home</li></a>
+                        <a href = "../articles.html"><li><strong>Articles</strong></li></a>
+                        <a href = "../projects.html"><li>Projects</li></a>
+                        <a href = "../about.html"><li>About</li></a>
+                        <a href = "../contact.html"><li>Contact</li></a>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <section id = "contents">
+                <div class = "title" style = "background-image: url(../images/articles/);">
+                    <button class = "return" type = "button" onclick = "location.href = '../articles.html'">&lt; Get Back to Articles</button>
+                    <div class = "text_black">백준 ####. ####</div>
+                </div>
+                
+                <div id = "content">
+                    <div class = "info">
+                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · #### / #### · ####.##.##
+                    </div>
+                    
+                    <hr>
+
+                    <p class = "caption2">백준 ####. ####: <a href = "https://www.acmicpc.net/problem">https://www.acmicpc.net/problem</a></p>
+                    <img src = "../images/articles/" alt = "problem main" style = "width: 100%;">
+                    
+                    <hr>
+
+                    <p><strong>소스 코드:</strong></p>
+                    <div class = "source_code_table">
+                        <ul class = "tabs">
+                            <li class = "tab_link current" data-tab = "tab1"><img src = "../images/articles/baekjoon/tab1.png" alt = "C/C++">C/C++</li>
+                            <li class = "tab_link" data-tab = "tab2"><img src = "../images/articles/baekjoon/tab2.png" alt = "C#">C#</li>
+                            <li class = "tab_link" data-tab = "tab3"><img src = "../images/articles/baekjoon/tab3.png" alt = "Java">Java</li>
+                            <li class = "tab_link" data-tab = "tab4"><img src = "../images/articles/baekjoon/tab4.png" alt = "Python 3">Python</li>
+                            <li class = "tab_link" data-tab = "tab5"><img src = "../images/articles/baekjoon/tab5.png" alt = "Kotlin">Kotlin</li>
+                            <li class = "tab_link" data-tab = "tab6"><img src = "../images/articles/baekjoon/tab6.png" alt = "Dart">Dart</li>
+                            <li class = "tab_link" data-tab = "tab7"><img src = "../images/articles/baekjoon/tab7.png" alt = "JavaScript">JavaScript</li>
+                        </ul>
+
+                        <div id = "tab1" class = "tab_content current">tab1</div>
+                        <div id = "tab2" class = "tab_content">tab2</div>
+                        <div id = "tab3" class = "tab_content">tab3</div>
+                        <div id = "tab4" class = "tab_content">tab4</div>
+                        <div id = "tab5" class = "tab_content">tab5</div>
+                        <div id = "tab6" class = "tab_content">tab6</div>
+                        <div id = "tab7" class = "tab_content">tab7</div>
+                    </div>
+
+                    <hr>
+
+                    <p></p>
+
+                </div>
+
+                <div id = "search">
+                    <div class = "category">All Articles 카테고리의 다른 글:</div>
+                    <ul class = "next_article">
+                        <li><a href = "research_knowledge-graph.html">What is Knowledge Graph?</a></li>
+                        <li><a href = "article-frame.html">article frame</a></li>
+                        <li><a href = "research_knowledge-graph.html">What is Knowledge Graph?</a></li>
+                        <li><a href = "article-frame.html">article frame</a></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class = "tag">
+                        <li>#Baekjoon</li>
+                        <li>#</li>
+                        <li>#</li>
+                        <li>#</li>
+                        <li>#</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            @Copyright 2023 Jin-Myoung Hyun. All rights reserved.
+        </footer>
+    </body>
+</html>
