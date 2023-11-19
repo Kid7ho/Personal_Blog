@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Analyzing NBA data with Clusterin and Regression",
+        "tag": ["Research", "AI"],
+        "data": "2023.11.12",
+        "image": "images/articles/research_nba/main.jpg",
+        "link": "articles/research_nba.html"
+    },
+    {
+        "id": 2,
+        "title": "What is Knowledge Graph?",
+        "tag": ["Research", "AI"],
+        "data": "2023.11.12",
+        "image": "images/articles/research_knowledge-graph/main.webp",
+        "link": "articles/research_knowledge-graph.html"
+    },
+    {
+        "id": 3,
+        "title": "백준 1000. A+B",
+        "tag": ["Algorithms", "Mathematics"],
+        "data": "2023.11.19",
+        "image": "images/articles/baekjoon_1000/main.png",
+        "link": "articles/baekjoon_1000.html"
+    }
+]
