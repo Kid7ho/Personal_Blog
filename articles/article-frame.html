@@ -3,7 +3,6 @@
     <head>
         <title>Personal Blog</title>
         <link rel = "stylesheet" type = "text/css" href = "../styles/main.css">
-        <link rel = "stylesheet" type = "text/css" href = "../styles/category.css">
         <link rel = "stylesheet" type = "text/css" href = "../styles/post.css">
     </head>
 
@@ -25,57 +24,21 @@
         
         <main>
             <section id = "contents">
-                <div class = "title">
-                    ...
+                <div class = "title" style = "background-image: url(../images/articles/);">
+                    <button class = "return" type = "button" onclick = "location.href = '../articles.html'">&lt; Get Back to Articles</button>
+                    <div class = "text">...</div>
                 </div>
-                <div class = "info">
-                    <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · ####.##.##
-                </div>
+                
+                <div id = "content">
+                    <div class = "info">
+                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · #### / #### · ####.##.##
+                    </div>
+                    
+                    <hr>
 
-                <div class = "content">
-                    <span>
-
-                    </span>
+                    <p></p>
                 </div>
             </section>
-
-            <aside id = "category">
-                <div class = "title">
-                    <h2>Category</h2>
-                </div>
-                <div class = "details">
-                    <ul>
-                        <li>Welcome</li>
-                        <li>Algorithms
-                            <ul>
-                                <li>Sorting</li>
-                                <li>DFS / BFS</li>
-                                <li>Dynamic Programming</li>
-                                <li>Brute Force</li>
-                                <li>Greedy Algorithm</li>
-                                <li>Divide and Conquer</li>
-                                <li>Dijkstra Algorithm</li>
-                            </ul>
-                        </li>
-                        <li>Data Structures
-                            <ul>
-                                <li>List</li>
-                                <li>Stack</li>
-                                <li>Queue</li>
-                                <li>Dictionary</li>
-                                <li>Deque</li>
-                                <li>Graph</li>
-                                <li>Tree</li>
-                            </ul>
-                        </li>
-                        <li>Research
-                            <ul>
-                                <li>Artificial Intelligence</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
         </main>
 
         <footer>
