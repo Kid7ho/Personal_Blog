@@ -9,13 +9,13 @@
 }
 
 #contents article {
-    width: 400px; height: 300px;
+    width: 375px; height: 400px;
 
     margin: 0 auto;
     margin-bottom: 50px;
     overflow: hidden;
 
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: rgb(150, 150, 150) 3px 4px 7px;
     transition: 0.25s ease-in-out;
 }
@@ -25,12 +25,12 @@
 }
 
 #contents article a img {
-    width: 100%; height: 225px;
+    width: 100%; height: 250px;
     overflow: hidden;
 }
 #contents article a .title {
-    width: 100%; height: 32px;
-    padding: 4px 15px 0;
+    width: 100%; 
+    padding: 0 15px;
     
     font-weight: bold;
     font-size: 20px;
@@ -39,11 +39,51 @@
 }
 #contents article a .description {
     display: list-item;
-
+    
     padding: 2px 15px;
-
+    
     list-style: circle inside;
-
+    
     font-size: 14px;
     color: rgb(120, 120, 120);
+}
+/* tags */
+#contents article a ul.tag {
+    width: 100%; height: 30px;
+
+    margin: 3px 0 2px;
+
+    display: flex;
+    flex-direction: row; justify-content: left;
+    flex-wrap: wrap;
+    list-style-type: none;
+    text-align: center;
+}
+#contents article a ul.tag li {
+    min-width: 75px; height: 26px;
+
+    margin-left: 10px;
+    padding: 0 15px;
+    overflow: hidden;
+    line-height: 1.75;
+
+    font-size: 14px;
+
+    border-radius: 20px;
+}
+#contents article a ul.tag .tag_alg, .tag_data, .tag_research {
+    background-color: rgb(255, 70, 70);
+    color: white;
+}
+#contents article a ul.tag .tag_sort, .tag_dbfs, .tag_dp, .tag_bf, .tag_greedy, .tag_dq, .tag_dijk, .tag_math, .tag_implement, .tag_etc1 {
+    background-color: orange;
+    color: white;
+}
+#contents article a ul.tag .tag_list, .tag_stk, .tag_que, .tag_dic, .tag_deq, .tag_graph, .tag_tree, .tag_etc2 {
+    background-color: rgb(24, 167, 24);
+    color: white;
+}
+#contents article a ul.tag .tag_AI, .tag_etc3 {
+    background-color: rgb(30, 138, 253);
+    color: white;
 }
