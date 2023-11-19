@@ -40,3 +40,7 @@ main {
     text-shadow: rgb(53, 53, 53) 1px 1px;
     font-size: 17px;
 }
+#category .details strong {
+    color: rgb(255, 255, 0);
+    text-decoration: underline;
+}
