@@ -4,12 +4,14 @@
     margin-bottom: 25px;
 }
 
+/* Title */
 #contents .title {
     width: 100%; height: 300px;
     margin: 0 auto;
 
     background-color: rgba(0, 0, 0, 0.8);
     background-position: center;
+    background-size: cover;
     
     border-bottom: 2px solid black;
 }
@@ -45,11 +47,24 @@
     color: white;
     text-shadow: 3px 3px black;
 }
+#contents .title .text_black {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 37px;
+    color: rgba(0, 0, 0, 0.9);
+    text-shadow: 3px 3px lightgrey;
+}
+
+/* */
+
+
+/* Contents */
 
 #contents #content {
     width: 75%;
     margin: 0 auto;
-
+    
     text-align: justify;
 
     line-height: 200%;
@@ -79,6 +94,10 @@
 #contents #content p::before {
     content: '\00a0\00a0\00a0\00a0';
 }
+#contents #content p a {
+    color: rgb(0, 60, 255);
+    text-decoration: underline;
+}
 
 #contents #content p.caption1 {
     padding: 20px 20px;
@@ -103,6 +122,67 @@
     content: "";
     margin-bottom: 30px;
 }
+
+/* */
+
+
+
+/* Source Code Table */
+
+#contents #content .source_code_table {
+    width: 100%;
+
+    margin: 0 auto;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+}
+#contents #content .source_code_table ul.tabs {
+    display: flex;
+    align-items: center; justify-content: center;
+    
+    margin: 0 auto;
+    padding: 0px;
+    list-style: none;
+}
+#contents #content .source_code_table ul.tabs li {
+    display: inline-block;
+    padding: 10px 15px;
+
+    background: none;
+    cursor: pointer;
+    color: #222;
+    font-size: 12px;
+    text-align: center;
+}
+#contents #content .source_code_table ul.tabs li:hover {
+    background-color: rgb(208, 208, 208);
+}
+#contents #content .source_code_table ul.tabs li.current {
+    background: #ededed;
+    color: #222;
+}
+#contents #content .source_code_table ul.tabs li img {
+    width: 35px; height: 35px;
+    margin: 0 auto;
+    display: block;
+}
+#contents #content .source_code_table .tab_content {
+    display: none;
+    background: #ededed;
+    padding: 15px;
+}
+#contents #content .source_code_table .tab_content.current {
+    display: inherit;
+}
+
+/* */
+
+
+
+
+/* Search for other Posts */
 
 #contents #search {
     width: 75%;
@@ -165,3 +245,5 @@
     border-bottom: 1px solid black;
     font-size: 18px;
 }
+
+/* */
