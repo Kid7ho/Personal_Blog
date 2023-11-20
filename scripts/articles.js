@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function init(posts) {
     const contents = document.getElementById('contents');
-    const search = document.querySelector('search');
+    const search = document.querySelector('.search');
     const submit = document.querySelector('.submit');
 
     //initialize
@@ -20,7 +20,7 @@ function init(posts) {
     updateDisplay();
 
     //wait for filter button click
-    filter_submit.addEventListener('click', syncFilter);
+    submit.addEventListener('click', syncFilter);
 
     //infinite scroll
     document.addEventListener('scroll', function() {
@@ -35,7 +35,7 @@ function init(posts) {
         searchGroup = [];
         finalGroup = [];
         
-        if(search.value.trim() === lastSearch) return;
+        if(search.value == null || search.value.trim() === lastSearch) return;
         else{
             lastSearch = search.value.trim();
             filterPosts();
@@ -51,7 +51,7 @@ function init(posts) {
         }
         else{
             const keyword = search.value.trim().toLowerCase();
-            finalGroup = finalGroup.filter(post => post.title.toLowerCase().includes(keyword));
+            finalGroup = posts.filter(post => post.title.toLowerCase().includes(keyword));
         }
 
         updateDisplay();
@@ -76,7 +76,7 @@ function init(posts) {
         }
     }
 
-    function showPosts(book) {
+    function showPosts(post) {
         const imageURL = `${post.image}`;
 
         const newPost = document.createElement('article');
@@ -115,7 +115,7 @@ function init(posts) {
         postTag.appendChild(tag1);
         postTag.appendChild(tag2);
 
-        let height = document.getElementById('filter').offsetHeight;
+        let height = contents.offsetHeight;
         if(height < newPost.offsetHeight){
             height = newPost.offsetHeight;
             console.log(`change height`);
@@ -126,7 +126,7 @@ function init(posts) {
         if(displayedPosts >= finalGroup.length) return;
 
         const displayUnitPosts = 6;
-        let startIndex = displayedBooks;
+        let startIndex = displayedPosts;
         let endIndex = Math.min((displayedPosts + displayUnitPosts), finalGroup.length + 1);
         displayedPosts = endIndex;
 
