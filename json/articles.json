@@ -25,5 +25,14 @@
         "date": "2023.11.19",
         "image": "images/articles/baekjoon_1000/main.png",
         "link": "articles/baekjoon_1000.html"
+    },
+    {
+        "id": 4,
+        "title": "Analyzing the Performance Difference of Language Model with Various Implementation Methods",
+        "tag": ["Research", "AI"],
+        "tag_class": ["tag_research", "tag_AI"],
+        "date": "2023.11.24",
+        "image": "images/articles/research_lm-implementation/main.jpg",
+        "link": "articles/research_lm-implementation.html"
     }
 ]

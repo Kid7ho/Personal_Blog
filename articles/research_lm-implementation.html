@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Blog</title>
+        <link rel = "stylesheet" type = "text/css" href = "../styles/main.css">
+        <link rel = "stylesheet" type = "text/css" href = "../styles/post.css">
+    </head>
+
+    <body>
+        <header>
+            <div class = "navbar">
+                <span class = "logo"><a href = "../index.html">JIMMY</a></span>
+                <nav>
+                    <ul>
+                        <a href = "../index.html"><li>Home</li></a>
+                        <a href = "../articles.html"><li><strong>Articles</strong></li></a>
+                        <a href = "../projects.html"><li>Projects</li></a>
+                        <a href = "../about.html"><li>About</li></a>
+                        <a href = "../contact.html"><li>Contact</li></a>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <section id = "contents">
+                <div class = "title" style = "background-image: url(../images/articles/research_lm-implementation/main.jpg);">
+                    <button class = "return" type = "button" onclick = "location.href = '../articles.html'">&lt; Get Back to Articles</button>
+                    <div class = "text">Analyzing the Performance Difference of Language Model with Various Implementation Methods</div>
+                </div>
+                
+                <div id = "content">
+                    <div class = "info">
+                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · Research / Articifial Intelligence · 2023/11/24
+                    </div>
+                    
+                    <hr>
+
+                    <p><strong>1. Introduction</strong></p>
+                    <p>There are many ways to implement Language Models and the way of implementing Language Models affects Language Models' reasoning abilities. In this article, we will actually try different kinds of implementations of Language Models and will compare the performances of each implementation to find out how we can improve Language Models' reasoning abilities.</p>
+                    <p>In this article, we will use OPT-350m, OPT-1.3B, OPT-2.7B, and LLaMA2-7B which are provided through API running on the lab server. As the dataset for our experiment, we will load the GSM8K dataset and use that for training (Check Step 0-2. of the attached file for more detail and for actual source code).</p>
+                    <p>Note that in this article, when I refer to 'Step \#-\#.', that means to check that particular step in the attached file of "Assignment-3_SourceCode_2022148033.ipynb", and when I refer to '#-#. xxxx', which means to check that particular part in this document.</p>
+
+                    <hr>
+                </div>
+
+                <div id = "search">
+                    <div class = "category">All Articles 카테고리의 다른 글:</div>
+                    <ul class = "next_article">
+                        <li><a href = "research_knowledge-graph.html">What is Knowledge Graph?</a></li>
+                        <li><a href = "article-frame.html">article frame</a></li>
+                        <li><a href = "research_knowledge-graph.html">What is Knowledge Graph?</a></li>
+                        <li><a href = "article-frame.html">article frame</a></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class = "tag">
+                        <li>#Artificial Intelligence</li>
+                        <li>#Language Model</li>
+                        <li>#Chain of Thought Prompting</li>
+                        <li>#Zero Shot Prompting</li>
+                        <li></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            @Copyright 2023 Jin-Myoung Hyun. All rights reserved.
+        </footer>
+    </body>
+</html>
