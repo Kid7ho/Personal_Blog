@@ -62,10 +62,10 @@ main {
     }
 }
 #category .details .search-form .search-input {
-    width: 82%; height: 20px;
+    width: 83%; height: 20px;
     position: absolute;
 
-    top: 10px; left: 40px;
+    top: 25%; left: 13%;
     font-size: 14px;
     background: none;
     color: #5a6674;
@@ -73,24 +73,27 @@ main {
     appearance: none;
     outline: none;
 
-    & ::-webkit-search-cancel-button {
+
+    &::-webkit-search-cancel-button {
         appearance: none;
     }
 }
 #category .details .search-form .search-button {
-    width: 6%; height: 20px;
+    width: 10%; height: 20px;
     position: absolute;
     
-    top: 10px; left: 14px;
+    top: 25%; left: 3%;
     margin: 0; padding: 0;
     
     border: none;
     background: none;
     outline: none!important;
     cursor: pointer;
+
+    
     
     & svg {
-        width: 20px; height: 20px;
+        width: 100%; height: 100%;
         fill: #5a6674;
     }
 }
