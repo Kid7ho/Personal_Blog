@@ -9,19 +9,20 @@ document.addEventListener('DOMContentLoaded', function() {
 function init(posts) {
     const contents = document.getElementById('contents');
     const search = document.querySelector('.search-input');
-    const submit = document.querySelector('.search-button');
+    const submit1 = document.querySelector('.search-button');
+    const submit2 = document.querySelector('.submit');
     const category = document.getElementsByName('category');
     
     //initialize
     let displayedPosts = 0;
     let finalGroup;
-    let lastCategory = "";
 
     finalGroup = posts;
     updateDisplay();
 
     //wait for filter button click
-    submit.addEventListener('click', syncFilter);
+    submit1.addEventListener('click', syncFilter);
+    submit2.addEventListener('click', syncFilter);
 
     //infinite scroll
     document.addEventListener('scroll', function() {

@@ -75,21 +75,6 @@ main .main2 .text2 .description {
     font-size: 16px;
 }
 
-/*
-- Black & White Gradient로 경계선을 만드는 방식
-main .split2_3 {
-    width: 100%; height: 300px;
-    display: flex;
-
-    background-image: linear-gradient(180deg, black 0%, black 20%, white 80%, white 100%);
-
-    font-size: 24px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-shadow: 2px 1px 2px black;
-}
-*/
 .split2_3{
     overflow:hidden;
     position:relative;
@@ -191,7 +176,7 @@ main .buttons {
     justify-content: center;
 }
 main .white_button {
-    width: 100px; height: 40px;
+    width: 110px; height: 40px;
     
     float: left;
     margin: 15px 5px 0;
@@ -202,12 +187,14 @@ main .white_button {
     line-height: 38px;
 
     color: black;
+
+    transition: all 0.15s ease;
 }
 main .white_button:hover {
     background-color: lightgray;
 }
 main .black_button {
-    width: 100px; height: 40px;
+    width: 110px; height: 40px;
     
     float: left;
     margin: 15px 5px 0;
@@ -218,6 +205,8 @@ main .black_button {
     line-height: 38px;
     
     color: white;
+
+    transition: all 0.15s ease;
 }
 main .black_button:hover {
     background-color: rgba(0, 0, 0, 0.8);

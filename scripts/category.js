@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   searchFocus();
   categorySelect();
+  changeSelectedCategory();
 });
 
 function searchFocus() {
@@ -17,14 +18,10 @@ function searchFocus() {
 function categorySelect() {
   let categoryList = document.querySelector('.category_list'); 
   let listItems = categoryList.querySelectorAll('label');
+  let inputRadios = document.getElementsByName('category');
 
-  listItems.forEach(function(item, index) {
+  listItems.forEach(function(item) {
     let category = item.innerHTML.split("\n")[0];
-    /*item.addEventListener('change', function(e){
-      if(this.childNodes.checked) this.classList.remove('selected');
-      else this.classList.add('selected');
-      //filterCategory(category);
-    });*/
     item.addEventListener('mouseover', function(e){
       if(this.className != 'selected') this.classList.add('hover');
     });
@@ -32,4 +29,19 @@ function categorySelect() {
       this.classList.remove('hover');
     });
   });
+
+  inputRadios.forEach(function(input) {
+    input.addEventListener('change', function(e) {
+      changeSelectedCategory();
+    });
+  });
+}
+
+function changeSelectedCategory() {
+  let inputRadios = document.getElementsByName('category');
+
+  for(let i=0; i<inputRadios.length; i++){
+    if(inputRadios[i].checked) inputRadios[i].parentNode.classList.add('selected');
+    else inputRadios[i].parentNode.classList.remove('selected');
+  }
 }

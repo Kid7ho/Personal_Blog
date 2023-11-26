@@ -54,6 +54,9 @@ main {
         box-shadow: 0 3px 4px rgba(0, 0, 0, 0.14);
     }
 }
+#category .details .search-form:hover {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.14);
+}
 #category .details .search-form .search-input {
     width: 83%; height: 20px;
     position: absolute;
@@ -88,6 +91,10 @@ main {
     }
 }
 
+#category .details hr {
+    margin-top: 4px; margin-bottom: 2px;
+}
+
 #category .details .category_list {
     padding: 0 10px;
 
@@ -98,21 +105,36 @@ main {
 }
 #category .details .category_list label.sub_category {
     font-size: 16px;
-}
-#category .details .category_list label.sub_category::before {
-    content: "\00a0\00a0\00a0\00a0";
+    margin-left: 17px;
 }
 #category .details .category_list label input {
     margin-top: -2px; margin-right: 3px;
     vertical-align: middle;
 }
 #category .details .category_list label.selected {
-    color: rgb(255, 255, 0);
+    transition: all 0.15s ease;
     font-weight: bold;
+    text-decoration: underline;
+    color: rgb(255, 255, 0);
 }
 #category .details .category_list label.hover {
+    transition: all 0.15s ease;
     color: rgb(255, 225, 0);
 }
-#category .details .category_list hr {
-    margin-top: 4px; margin-bottom: 2px;
+
+#category .details .submit {
+    width: 100%; height: 40px;
+    
+    margin-top: 5px; margin-bottom: 9px;
+    
+    border-radius: 40px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+    text-shadow: rgb(53, 53, 53) 1px 1px;
+    color: white;
+    background: grey; 
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+#category .details .submit:hover {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.14);
 }

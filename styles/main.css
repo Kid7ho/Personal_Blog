@@ -47,16 +47,18 @@ header .navbar nav {
     text-align: center;
 }
 header .navbar ul a {
-    width: 90px; height: 35px;
+    width: 95px; height: 35px;
     margin: 0 25px;
     display: inline-block;
     list-style: none;
     
     line-height: 34px;
     font-size: 17px;
+    border-radius: 23px;
+    
+    transition: all 0.15s ease;
 }
 header .navbar ul a:hover {
-    border-radius: 17px;
     background-color: lightgrey;
     color: rgb(250, 250, 250);
 }
