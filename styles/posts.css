@@ -6,6 +6,8 @@
     grid-auto-rows: 400px;
     grid-gap: 10px;
 
+    justify-content: center;
+
     padding: 25px;
 }
 

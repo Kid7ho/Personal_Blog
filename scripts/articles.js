@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function init(posts) {
     const contents = document.getElementById('contents');
-    const search = document.querySelector('.search');
-    const submit = document.querySelector('.submit');
+    const search = document.querySelector('.search-input');
+    const submit = document.querySelector('.search-button');
 
     //initialize
     let lastSearch = '';
