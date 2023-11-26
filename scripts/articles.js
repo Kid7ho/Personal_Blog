@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(err => console.error(`Fetch Problem: ${err.message}`));
 });
 
-
 function init(posts) {
     const contents = document.getElementById('contents');
     const search = document.querySelector('.search-input');

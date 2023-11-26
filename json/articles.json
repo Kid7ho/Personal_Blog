@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "title": "Analyzing NBA data with Clusterin and Regression",
+        "title": "Analyzing NBA data with Clustering and Regression",
         "tag": ["Research", "AI"],
         "tag_class": ["tag_research", "tag_AI"],
         "date": "2023.11.12",
