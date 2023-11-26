@@ -14,9 +14,6 @@ main {
     
     border-left: solid black;
 }
-#category ul {
-    padding-left: 20px;
-}
 
 #category .title {
     width: 100%; height: auto;
@@ -40,23 +37,19 @@ main {
     text-shadow: rgb(53, 53, 53) 1px 1px;
     font-size: 17px;
 }
-#category .details strong {
-    color: rgb(255, 255, 0);
-    text-decoration: underline;
-}
 
 
 #category .details .search-form {
     width: 100%; height: 40px;
     position: relative;
-
-    margin-bottom: 7px;
-
+    
+    margin-bottom: 9px;
+    
     border-radius: 40px;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
     background: #fff;
     transition: all 0.3s ease;
-
+    
     &.focus {
         box-shadow: 0 3px 4px rgba(0, 0, 0, 0.14);
     }
@@ -64,7 +57,7 @@ main {
 #category .details .search-form .search-input {
     width: 83%; height: 20px;
     position: absolute;
-
+    
     top: 25%; left: 13%;
     font-size: 14px;
     background: none;
@@ -72,8 +65,7 @@ main {
     border: none;
     appearance: none;
     outline: none;
-
-
+    
     &::-webkit-search-cancel-button {
         appearance: none;
     }
@@ -88,12 +80,39 @@ main {
     border: none;
     background: none;
     outline: none!important;
-    cursor: pointer;
-
-    
+    cursor: pointer;    
     
     & svg {
         width: 100%; height: 100%;
         fill: #5a6674;
     }
+}
+
+#category .details .category_list {
+    padding: 0 10px;
+
+    list-style-type: none;
+}
+#category .details .category_list label {
+    display: block;
+}
+#category .details .category_list label.sub_category {
+    font-size: 16px;
+}
+#category .details .category_list label.sub_category::before {
+    content: "\00a0\00a0\00a0\00a0";
+}
+#category .details .category_list label input {
+    margin-top: -2px; margin-right: 3px;
+    vertical-align: middle;
+}
+#category .details .category_list label.selected {
+    color: rgb(255, 255, 0);
+    font-weight: bold;
+}
+#category .details .category_list label.hover {
+    color: rgb(255, 225, 0);
+}
+#category .details .category_list hr {
+    margin-top: 4px; margin-bottom: 2px;
 }

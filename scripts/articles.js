@@ -5,16 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(err => console.error(`Fetch Problem: ${err.message}`));
 });
 
+
 function init(posts) {
     const contents = document.getElementById('contents');
     const search = document.querySelector('.search-input');
     const submit = document.querySelector('.search-button');
-
+    const category = document.getElementsByName('category');
+    
     //initialize
-    let lastSearch = '';
-
-    let finalGroup;
     let displayedPosts = 0;
+    let finalGroup;
+    let lastCategory = "";
 
     finalGroup = posts;
     updateDisplay();
@@ -32,14 +33,9 @@ function init(posts) {
 
         displayedPosts = 0;
 
-        searchGroup = [];
         finalGroup = [];
         
-        if(search.value == null || search.value.trim() === lastSearch) return;
-        else{
-            lastSearch = search.value.trim();
-            filterPosts();
-        }
+        filterPosts();
     }
 
     function filterPosts() {
@@ -53,6 +49,15 @@ function init(posts) {
             const keyword = search.value.trim().toLowerCase();
             finalGroup = posts.filter(post => post.title.toLowerCase().includes(keyword));
         }
+
+        //category
+        let currentCategory = "";
+        category.forEach((tag) => {
+            if(tag.checked) currentCategory = tag.value;
+        });
+        currentCategory = currentCategory.toLowerCase();
+        finalGroup = finalGroup.filter(post => post.tag_class[0].toLowerCase().includes(currentCategory) || post.tag_class[1].toLowerCase().includes(currentCategory));
+        //
 
         updateDisplay();
     }
