@@ -237,6 +237,9 @@
 #contents #search ul.next_article li a {
     color: rgb(40, 40, 253);
 }
+#contents #search ul.next_article li a::before {
+    content: "- ";
+}
 #contents #search ul.next_article li a:hover {
     color:rgb(40, 136, 253);
 }

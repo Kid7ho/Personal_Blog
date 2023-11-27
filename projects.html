@@ -2,12 +2,13 @@
 <html>
     <head>
         <title>Personal Blog</title>
+        <meta charset = "utf-8">
         <link rel = "stylesheet" type = "text/css" href = "styles/main.css">
         <link rel = "stylesheet" type = "text/css" href = "styles/category.css">
         <link rel = "stylesheet" type = "text/css" href = "styles/posts.css">
         <link rel = "stylesheet" type = "text/css" href = "styles/projects.css">
         <script src = "scripts/category.js"></script>
-        <script src = "scripts/posts.js"></script>
+        <script src = "scripts/projects.js"></script>
     </head>
 
     <body>
@@ -35,45 +36,53 @@
                 <div class = "title">
                     <h2>Category</h2>
                 </div>
-                <div class = "details">
-                    <ul>
-                        <li>All Projects</li>
+                <form method = "get" class = "details">
+                    <div class = "search-form">
+                        <input type = "search" class = "search-input" name = "search" value = "" placeholder = "Search Article Title" autocomplete = "off">
+                        <button type = "submit" class = "search-button">
+                            <svg class = "submit-button">
+                                <use xmlns:xlink = "http://www.w3.org/1999/xlink" xlink:href = "#search"></use>
+                            </svg>
+                        </button>
+                        
+                        <svg xmlns = "http://www.w3.org/2000/svg" width = "0" height = "0" display = "none">
+                            <symbol id = "search" viewBox = "0 0 32 32">
+                                <path d = "M 19.5 3 C 14.26514 3 10 7.2651394 10 12.5 C 10 14.749977 10.810825 16.807458 12.125 18.4375 L 3.28125 27.28125 L 4.71875 28.71875 L 13.5625 19.875 C 15.192542 21.189175 17.250023 22 19.5 22 C 24.73486 22 29 17.73486 29 12.5 C 29 7.2651394 24.73486 3 19.5 3 z M 19.5 5 C 23.65398 5 27 8.3460198 27 12.5 C 27 16.65398 23.65398 20 19.5 20 C 15.34602 20 12 16.65398 12 12.5 C 12 8.3460198 15.34602 5 19.5 5 z" />
+                            </symbol>
+                        </svg>
+                    </div>
+
+                    <hr>
+                    <div class = "category_list">
+                        <label><input type = "radio" name = "category" value = "" checked>All Projects</label>
                         <hr>
-                        <li>Unity
-                            <ul>
-                                <li>Molly Molly</li>
-                                <li>Flappy Bird</li>
-                                <li>Angry Bird</li>
-                                <li>Tank Game</li>
-                                <li>Omok</li>
-                                <li>Othello</li>
-                                <li>Tile Game</li>
-                                <li>Kinetic Wall Clock</li>
-                                <li>Hexavity</li>
-                                <li>Portfolio (High School)</li>
-                                <li>Galaga</li>
-                            </ul>
-                        </li>
+                        <label><input type = "radio" name = "category" value = "tag_unity">Unity</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_molly-molly">Molly Molly</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_flappy-bird">Flappy Bird</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_angry-bird">Angry Bird</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_tank-game">Tank Game</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_omok">Omok</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_othello">Othello</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_tile-game">Tile Game</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_kinetic-WC">Kinetic Wall Clock</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_hexavity">Hexavity</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_portfolio">Portfolio (High School)</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_galaga">Galaga</label>
                         <hr>
-                        <li>Mobile Application
-                            <ul>
-                                <li>..</li>
-                            </ul>
-                        </li>
+                        <label><input type = "radio" name = "category" value = "tag_mobile">Mobile Applications</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_"></label>
                         <hr>
-                        <li>Artificial Intelligence
-                            <ul>
-                                <li>..</li>
-                            </ul>
-                        </li>
+                        <label><input type = "radio" name = "category" value = "tag_AI">Artificial Intelligence</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_"></label>
                         <hr>
-                        <li>Website
-                            <ul>
-                                <li>쓰레기 공작소</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                        <label><input type = "radio" name = "category" value = "tag_web">Websites</label>
+                        <label class = "sub_category"><input type = "radio" name = "category" value = "tag_trash-collect">쓰레기 공작소</label>
+                    </div>
+
+                    <hr>
+
+                    <input type = "submit" class = "submit" value = "Search">
+                </form>
             </aside>
         </main>
 
