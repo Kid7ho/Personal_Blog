@@ -29,4 +29,10 @@ main .career {
 }
 main .achievement {
     margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+main .achievement a {
+    text-decoration: underline;
+    color: blue;
 }
