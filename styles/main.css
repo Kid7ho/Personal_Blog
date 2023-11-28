@@ -72,14 +72,24 @@ main {
 /* Footer */
 footer {
     box-sizing: border-box;
-    width: 100%; height: 200px;
-    display: flex;
+    width: 100%; height: 250px;
+    display: flex; flex-direction: column;
     position: relative;
 
-    padding: 40px 40px;
+    padding: 40px 200px;
     border-top: solid black;
 
+    font-size: 15px;
+
     background-color: lightgrey;
+}
+footer .logo {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+footer p {
+    margin: 2px 0;
 }
 
 /* ETC */
