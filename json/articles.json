@@ -2,6 +2,7 @@
     {
         "id": 1,
         "title": "Analyzing NBA data with Clustering and Regression",
+        "author": "Jin-Myoung Hyun",
         "tag": ["Research", "AI"],
         "tag_class": ["tag_research", "tag_AI"],
         "date": "2023.11.12",
@@ -11,6 +12,7 @@
     {
         "id": 2,
         "title": "What is Knowledge Graph?",
+        "author": "Jin-Myoung Hyun",
         "tag": ["Research", "AI"],
         "tag_class": ["tag_research", "tag_AI"],
         "date": "2023.11.12",
@@ -20,6 +22,7 @@
     {
         "id": 3,
         "title": "백준 1000. A+B",
+        "author": "Jin-Myoung Hyun",
         "tag": ["Algorithms", "Mathematics"],
         "tag_class": ["tag_alg", "tag_math"],
         "date": "2023.11.19",
@@ -29,6 +32,7 @@
     {
         "id": 4,
         "title": "Analyzing the Performance Difference of Language Model with Various Implementation Methods",
+        "author": "Jin-Myoung Hyun",
         "tag": ["Research", "AI"],
         "tag_class": ["tag_research", "tag_AI"],
         "date": "2023.11.24",
