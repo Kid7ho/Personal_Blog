@@ -111,12 +111,17 @@ function init(posts) {
         postDescription.setAttribute('class', 'description');
         postDescription.innerText = `Date: ${post.date}`;
 
+        const postAuthor = document.createElement('div');
+        postAuthor.setAttribute('class', 'author');
+        postAuthor.innerHTML = `By: <strong>${post.author}</strong>`;
+
         contents.appendChild(newPost);
         newPost.appendChild(postLink);
         postLink.appendChild(postImage);
         postLink.appendChild(postTag);
         postLink.appendChild(postTitle);
         postLink.appendChild(postDescription);
+        postLink.appendChild(postAuthor);
         postTag.appendChild(tag1);
         postTag.appendChild(tag2);
 
