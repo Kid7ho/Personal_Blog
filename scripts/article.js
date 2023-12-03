@@ -27,14 +27,37 @@ function setNextArticles(articles) {
     if(tag1 == "" && tag2 == "") categoryText.innerHTML = "All Articles 카테고리의 다른 글:";
     else categoryText.innerHTML = tag1Name + " / "+ tag2Name + " 카테고리의 다른 글:";
     
-
     let sameTagArticles = articles.filter(article => article.tag_class[0].toLowerCase().includes(tag1) || article.tag_class[1].toLowerCase().includes(tag2));
-    let totalArticles = 0; let maxArticles = 4;
 
     const nextArticles = document.querySelector('.next_article');
+    
+    displayArticles(sameTagArticles, nextArticles, title);
+    
+    setNewArticles(articles);
+}
 
-    for(let i=sameTagArticles.length-1; i>=0; i--){        
-        if(sameTagArticles[i].title == title) continue;
+function setNewArticles(articles) {
+    let title = "";
+    if(document.querySelector('.text') !== null) title = document.querySelector('.text').innerHTML;
+    else if(document.querySelector('.text_black') !== null) title = document.querySelector('.text_black').innerHTML;
+
+    let allArticles = articles;
+    
+    const newArticles = document.querySelector('.new_article');
+
+    displayArticles(allArticles, newArticles, title);
+}
+
+function displayArticles(finalArticles, articlesElement, currentArticleTitle) {
+    let totalArticles = 0; let maxArticles = 4;
+
+    if(finalArticles == null){
+        articlesElement.innerHTML = "<strong>No Other Articles Found.</strong>";
+        return;
+    }
+
+    for(let i=finalArticles.length-1; i>=0; i--){        
+        if(finalArticles[i].title == currentArticleTitle) continue;
         
         totalArticles += 1;
         if(totalArticles > maxArticles) break;
@@ -43,34 +66,34 @@ function setNextArticles(articles) {
         const nextArticle = document.createElement('article');
 
         const articleLink = document.createElement('a');
-        const articleURL = `../${sameTagArticles[i].link}`;
+        const articleURL = `../${finalArticles[i].link}`;
         articleLink.href = articleURL;
 
         const articleImage = document.createElement('img');
-        const imageURL = `https://kid7ho.github.io/Personal_Blog/${sameTagArticles[i].image}`;
+        const imageURL = `https://kid7ho.github.io/Personal_Blog/${finalArticles[i].image}`;
         articleImage.src = imageURL;
-        articleImage.alt = sameTagArticles[i].title;
+        articleImage.alt = finalArticles[i].currentArticleTitle;
 
         const articleTag = document.createElement('ul');
         articleTag.setAttribute('class', 'tag_article');
 
         const tag1 = document.createElement('li');
-        tag1.setAttribute('class', `${sameTagArticles[i].tag_class[0]}`);
-        tag1.innerText = sameTagArticles[i].tag[0];
+        tag1.setAttribute('class', `${finalArticles[i].tag_class[0]}`);
+        tag1.innerText = finalArticles[i].tag[0];
         const tag2 = document.createElement('li');
-        tag2.setAttribute('class', `${sameTagArticles[i].tag_class[1]}`);
-        tag2.innerText = sameTagArticles[i].tag[1];
+        tag2.setAttribute('class', `${finalArticles[i].tag_class[1]}`);
+        tag2.innerText = finalArticles[i].tag[1];
 
         const articleTitle = document.createElement('div');
         articleTitle.setAttribute('class', 'next_title');
-        articleTitle.innerText = sameTagArticles[i].title;
+        articleTitle.innerText = finalArticles[i].title;
 
         const articleDescription = document.createElement('div');
         articleDescription.setAttribute('class', 'description');
-        articleDescription.innerText = `Date: ${sameTagArticles[i].date}`;
+        articleDescription.innerText = `Date: ${finalArticles[i].date}`;
 
         //Link Elements
-        nextArticles.appendChild(nextArticle);
+        articlesElement.appendChild(nextArticle);
         nextArticle.appendChild(articleLink);
         articleLink.appendChild(articleImage);
         articleLink.appendChild(articleTag);
@@ -81,6 +104,6 @@ function setNextArticles(articles) {
     }
 
     if(totalArticles == 0){
-        nextArticles.innerHTML = "<strong>No Other Articles Found.</strong>";
+        articlesElement.innerHTML = "<strong>No Other Articles Found.</strong>";
     }
 }
