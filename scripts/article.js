@@ -27,14 +27,60 @@ function setNextArticles(articles) {
     if(tag1 == "" && tag2 == "") categoryText.innerHTML = "All Articles 카테고리의 다른 글:";
     else categoryText.innerHTML = tag1Name + " / "+ tag2Name + " 카테고리의 다른 글:";
     
-    let sameTagArticles = articles.filter(article => article.tag_class[0].toLowerCase().includes(tag1) || article.tag_class[1].toLowerCase().includes(tag2));
-    let nextArticles = document.querySelector('.next_article');
-    let nextArticle = nextArticles.querySelectorAll('li');
 
-    for(let i=0; i<sameTagArticles.length && i<6; i++){
-        let article = nextArticle[i];
+    let sameTagArticles = articles.filter(article => article.tag_class[0].toLowerCase().includes(tag1) || article.tag_class[1].toLowerCase().includes(tag2));
+    let totalArticles = 0; let maxArticles = 4;
+
+    const nextArticles = document.querySelector('.next_article');
+
+    for(let i=sameTagArticles.length-1; i>=0; i--){        
+        if(sameTagArticles[i].title == title) continue;
         
-        article.querySelector('a').href = sameTagArticles[i].link.split("/")[1];
-        article.querySelector('a').innerHTML = sameTagArticles[i].title;
+        totalArticles += 1;
+        if(totalArticles > maxArticles) break;
+
+        //Create Articles
+        const nextArticle = document.createElement('article');
+
+        const articleLink = document.createElement('a');
+        const articleURL = `../${sameTagArticles[i].link}`;
+        articleLink.href = articleURL;
+
+        const articleImage = document.createElement('img');
+        const imageURL = `https://kid7ho.github.io/Personal_Blog/${sameTagArticles[i].image}`;
+        articleImage.src = imageURL;
+        articleImage.alt = sameTagArticles[i].title;
+
+        const articleTag = document.createElement('ul');
+        articleTag.setAttribute('class', 'tag_article');
+
+        const tag1 = document.createElement('li');
+        tag1.setAttribute('class', `${sameTagArticles[i].tag_class[0]}`);
+        tag1.innerText = sameTagArticles[i].tag[0];
+        const tag2 = document.createElement('li');
+        tag2.setAttribute('class', `${sameTagArticles[i].tag_class[1]}`);
+        tag2.innerText = sameTagArticles[i].tag[1];
+
+        const articleTitle = document.createElement('div');
+        articleTitle.setAttribute('class', 'next_title');
+        articleTitle.innerText = sameTagArticles[i].title;
+
+        const articleDescription = document.createElement('div');
+        articleDescription.setAttribute('class', 'description');
+        articleDescription.innerText = `Date: ${sameTagArticles[i].date}`;
+
+        //Link Elements
+        nextArticles.appendChild(nextArticle);
+        nextArticle.appendChild(articleLink);
+        articleLink.appendChild(articleImage);
+        articleLink.appendChild(articleTag);
+        articleLink.appendChild(articleTitle);
+        articleLink.appendChild(articleDescription);
+        articleTag.appendChild(tag1);
+        articleTag.appendChild(tag2);
+    }
+
+    if(totalArticles == 0){
+        nextArticles.innerHTML = "<strong>No Other Articles Found.</strong>";
     }
 }

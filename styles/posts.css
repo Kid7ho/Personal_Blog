@@ -47,13 +47,13 @@
     -webkit-line-clamp: 2; 
     -webkit-box-orient: vertical;
     font-size: 20px;
-    line-height: 1.4;
+    line-height: 1.3;
     color: rgb(25, 25, 25);
 }
 #contents article a .description {
     display: list-item;
     
-    padding: 1px 15px;
+    padding: 2px 15px;
     
     list-style: circle inside;
     
