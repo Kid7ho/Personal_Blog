@@ -21,7 +21,6 @@ function categorySelect() {
   let inputRadios = document.getElementsByName('category');
 
   listItems.forEach(function(item) {
-    let category = item.innerHTML.split("\n")[0];
     item.addEventListener('mouseover', function(e){
       if(this.className != 'selected') this.classList.add('hover');
     });

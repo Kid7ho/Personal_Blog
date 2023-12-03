@@ -16,6 +16,8 @@ function init(posts) {
     let displayedPosts = 0;
     let finalGroup;
 
+    numberOfArticles(posts);
+
     finalGroup = posts;
     updateDisplay();
 
@@ -144,6 +146,43 @@ function init(posts) {
 
         for(const post of tmp){
             showPosts(post);
+        }
+    }
+
+
+    function numberOfArticles(posts) {
+        //prints the number of articles of each category
+
+        let articleNumber = {};
+        articleNumber["tag_all"] = 0;
+        
+        for(let i=0; i<posts.length; i++){
+            let tag1 = posts[i].tag_class[0];
+            let tag2 = posts[i].tag_class[1];
+            
+            articleNumber["tag_all"] += 1;
+            if(articleNumber[tag1] == null) articleNumber[tag1] = 1;
+            else articleNumber[tag1] += 1;
+            if(articleNumber[tag2] == null) articleNumber[tag2] = 1;
+            else articleNumber[tag2] += 1;
+        }
+
+        
+        const inputCategory = document.getElementsByName('category');
+        for(let i=0; i<inputCategory.length; i++){
+            let attribute = inputCategory[i].getAttribute('value');
+            let numberSpan = document.createElement("span");
+
+            if(attribute == "") {
+                if(articleNumber["tag_all"] == null) numberSpan.innerHTML = ` (0)`;
+                else numberSpan.innerHTML = ` (${articleNumber["tag_all"]})`;
+            }
+            else {
+                if(articleNumber[attribute] == null) numberSpan.innerHTML = ` (0)`;
+                else numberSpan.innerHTML = ` (${articleNumber[attribute]})`;
+            }
+
+            inputCategory[i].parentElement.appendChild(numberSpan);
         }
     }
 }
