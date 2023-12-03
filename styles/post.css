@@ -113,6 +113,7 @@
     content: '';
 }
 
+/* Article Captions */
 #contents #content p.caption1 {
     padding: 20px 20px;
 
@@ -131,10 +132,25 @@
     border-radius: 10px;
 }
 
+#contents #content span.red {
+    color: red;
+}
+#contents #content span.bold {
+    font-weight: bold;
+}
+#contents #content span.underline {
+    text-decoration: underline;
+}
+
+/* */
+
 #contents #content br {
     display: block;
     content: "";
     margin-bottom: 30px;
+}
+#contents #content p br {
+    margin: 0 auto;
 }
 
 /* */
@@ -197,7 +213,7 @@
     width: 75%;
 
     margin: 0 auto;
-    margin-top: 100px; margin-bottom: 25px;
+    margin-top: 50px; margin-bottom: 25px;
 
     border-top: 3px solid black;
 }

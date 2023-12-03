@@ -38,5 +38,15 @@
         "date": "2023.11.24",
         "image": "images/articles/research_lm-implementation/main.jpg",
         "link": "articles/research_lm-implementation.html"
+    },
+    {
+        "id": 5,
+        "title": "백준 2747. 피보나치 수",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Algorithms", "Dynamic Programming"],
+        "tag_class": ["tag_alg", "tag_dp"],
+        "date": "2023.12.03",
+        "image": "images/articles/baekjoon_2747/main.png",
+        "link": "articles/baekjoon_2747.html"
     }
 ]
