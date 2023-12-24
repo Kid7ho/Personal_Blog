@@ -16,7 +16,7 @@ function init(posts) {
     let displayedPosts = 0;
     let finalGroup;
 
-    numberOfArticles(posts);
+    numberOfProjects(posts);
 
     finalGroup = posts;
     updateDisplay();
@@ -150,21 +150,21 @@ function init(posts) {
     }
 
 
-    function numberOfArticles(posts) {
-        //prints the number of articles of each category
+    function numberOfProjects(posts) {
+        //prints the number of projects of each category
 
-        let articleNumber = {};
-        articleNumber["tag_all"] = 0;
+        let projectNumber = {};
+        projectNumber["tag_all"] = 0;
         
         for(let i=0; i<posts.length; i++){
             let tag1 = posts[i].tag_class[0];
             let tag2 = posts[i].tag_class[1];
             
-            articleNumber["tag_all"] += 1;
-            if(articleNumber[tag1] == null) articleNumber[tag1] = 1;
-            else articleNumber[tag1] += 1;
-            if(articleNumber[tag2] == null) articleNumber[tag2] = 1;
-            else articleNumber[tag2] += 1;
+            projectNumber["tag_all"] += 1;
+            if(projectNumber[tag1] == null) projectNumber[tag1] = 1;
+            else projectNumber[tag1] += 1;
+            if(projectNumber[tag2] == null) projectNumber[tag2] = 1;
+            else projectNumber[tag2] += 1;
         }
 
         
@@ -174,12 +174,12 @@ function init(posts) {
             let numberSpan = document.createElement("span");
 
             if(attribute == "") {
-                if(articleNumber["tag_all"] == null) numberSpan.innerHTML = ` (0)`;
-                else numberSpan.innerHTML = ` (${articleNumber["tag_all"]})`;
+                if(projectNumber["tag_all"] == null) numberSpan.innerHTML = ` (0)`;
+                else numberSpan.innerHTML = ` (${projectNumber["tag_all"]})`;
             }
             else {
-                if(articleNumber[attribute] == null) numberSpan.innerHTML = ` (0)`;
-                else numberSpan.innerHTML = ` (${articleNumber[attribute]})`;
+                if(projectNumber[attribute] == null) numberSpan.innerHTML = ` (0)`;
+                else numberSpan.innerHTML = ` (${projectNumber[attribute]})`;
             }
 
             inputCategory[i].parentElement.appendChild(numberSpan);

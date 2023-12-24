@@ -4,9 +4,9 @@
         "title": "Molly Molly",
         "author": "Jin-Myoung Hyun",
         "tag": ["Unity", "Molly Molly"],
-        "tag_class": ["tag_unity", "tag_mollymolly"],
+        "tag_class": ["tag_unity", "tag_molly-molly"],
         "date": "2023.12.24",
-        "image": "images/projects/unity_mollymolly/main.png",
-        "link": "projects/unity_mollymolly.html"
+        "image": "images/projects/unity_molly-molly/main.png",
+        "link": "projects/unity_molly-molly.html"
     }
 ]
