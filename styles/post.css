@@ -207,7 +207,14 @@
 }
 /* */
 
+/* Unity WebGL using Itch.io */
+#contents #content .webgl {
+    display: flex;
+    justify-content: center;
+}
 
+
+/* */
 
 /* Article Tag */
 #contents #search ul.tag {
