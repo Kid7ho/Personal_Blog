@@ -62,7 +62,7 @@
 /* Contents */
 
 #contents #content {
-    width: 75%;
+    width: 63%;
     margin: 0 auto;
     
     text-align: justify;
@@ -213,31 +213,29 @@
 #contents #search ul.tag {
     width: 100%;
     display: flex;
-    flex-direction: row; justify-content: center;
+    flex-direction: row; justify-content: left;
     flex-wrap: wrap;
     list-style-type: none;
 }
 #contents #search ul.tag li {
-    width: 100px; min-height: 36px;
+    min-height: 36px;
     display: flex;
     align-items: center;
 
     padding: 0 5px; padding-bottom: 2px;
-    
-    flex: 1;
 
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     word-break: break-all;
     
-    font-size: 18px;
+    font-size: 16px;
 }
 /* */
 
 /* Search for other Posts */
 #contents #search {
-    width: 75%;
+    width: 63%;
 
     margin: 0 auto;
     margin-top: 50px; margin-bottom: 25px;
