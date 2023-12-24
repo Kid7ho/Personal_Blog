@@ -101,11 +101,11 @@
 
     border-radius: 20px;
 }
-#contents article a ul.tag .tag_alg, .tag_data, .tag_research {
+#contents article a ul.tag .tag_alg, .tag_data, .tag_research, .tag_unity {
     background-color: rgb(255, 70, 70);
     color: white;
 }
-#contents article a ul.tag .tag_sort, .tag_dbfs, .tag_dp, .tag_bf, .tag_greedy, .tag_dq, .tag_dijk, .tag_math, .tag_implement, .tag_etc1 {
+#contents article a ul.tag .tag_sort, .tag_dbfs, .tag_dp, .tag_bf, .tag_greedy, .tag_dq, .tag_dijk, .tag_math, .tag_implement, .tag_etc1, .tag_mollymolly {
     background-color: orange;
     color: white;
 }
