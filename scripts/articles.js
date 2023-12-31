@@ -139,13 +139,15 @@ function init(posts) {
 
         finalGroup.reverse();
         
-        const displayUnitPosts = 6;
+        const displayUnitPosts = 3;
         let startIndex = displayedPosts;
         let endIndex = Math.min((displayedPosts + displayUnitPosts), finalGroup.length + 1);
         displayedPosts = endIndex;
 
         let tmp = finalGroup.slice(startIndex, endIndex);
 
+        finalGroup.reverse();
+        
         for(const post of tmp){
             showPosts(post);
         }
