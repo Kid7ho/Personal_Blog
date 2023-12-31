@@ -606,14 +606,14 @@
     background-color: rgb(255, 70, 70);
     color: white;
 }
-#contents #search .next_project article a ul.tag_project .tag_mollymolly, .tag_flappy-bird, .tag_angry-bird, .tag_tank-game, .tag_omok, .tag_othello, .tag_tile-game, .tag_kinetic-WC, .tag_hexavity, .tag_portfolio, .tag_galaga {
+#contents #search .next_project article a ul.tag_project .tag_molly-molly, .tag_flappy-bird, .tag_angry-bird, .tag_tank-game, .tag_omok, .tag_othello, .tag_tile-game, .tag_kinetic-WC, .tag_hexavity, .tag_portfolio, .tag_galaga {
     background-color: orange;
     color: white;
 }
-#contents #search .next_project article a ul.tag_project  {
+/*#contents #search .next_project article a ul.tag_project  {
     background-color: rgb(24, 167, 24);
     color: white;
-}
+}*/
 #contents #search .next_project article a ul.tag_project .tag_trash-collect {
     background-color: rgb(30, 138, 253);
     color: white;
@@ -721,10 +721,10 @@
     background-color: orange;
     color: white;
 }
-#contents #search .new_project article a ul.tag_project  {
+/*#contents #search .new_project article a ul.tag_project  {
     background-color: rgb(24, 167, 24);
     color: white;
-}
+}/*
 #contents #search .new_project article a ul.tag_project .tag_trash-collect {
     background-color: rgb(30, 138, 253);
     color: white;

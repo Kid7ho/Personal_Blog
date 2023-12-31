@@ -4,6 +4,7 @@
         <title>Personal Blog</title>
         <link rel = "stylesheet" type = "text/css" href = "../styles/main.css">
         <link rel = "stylesheet" type = "text/css" href = "../styles/post.css">
+        <link rel = "stylesheet" type = "text/css" href = "../styles/projects/unity_flappy-bird.css">
         <script src = "../scripts/project.js"></script>
     </head>
 
@@ -27,7 +28,7 @@
             <section id = "contents">
                 <div class = "title" style = "background-image: url(../images/projects/unity_flappy-bird/main.png);">
                     <button class = "return" type = "button" onclick = "location.href = '../projects.html'">&lt; Get Back to Projects</button>
-                    <div class = "text">...</div>
+                    <div class = "text">Flappy Bird</div>
                 </div>
                 
                 <div id = "content">
@@ -37,7 +38,7 @@
                     
                     <hr>
 
-                    <p>이 프로젝트는 게임 엔진 Unity에 대해 이것 저것 시도하고 배우다가 2018년에 처음으로 제작한 나름의 게임으로서의 형태와 흐름을 가진 두더지 게임이다.</p>
+                    <p>이 프로젝트는 'Molly Molly' 이후 인터넷에서 'Flappy Bird'라는 간단한 게임을 우연히 발견해 이를 Unity를 이용해 구현해본 것이다.</p>
 
                     <hr>
 
@@ -48,7 +49,39 @@
 
                     <hr>
 
+                    <p><strong>프로젝트 설명:</strong></p>
+                    <p>'Flappy Bird'는 베트남 개발자인 응우옌 하 동(Nguyễn Hà Đông)이 만든 모바일 게임으로, <a href = "https://flappybird.io/">https://flappybird.io/</a>에서 직접 플레이해볼 수 있다. 해당 게임의 플레이 방식은 매우 간단한데, 화면을 클릭하면 게임 속 '새'가 위로 튀어오르고 아무것도 누르지 않고 있으면 중력의 영향으로 '새'가 아래로 떨어진다. 이 속성을 이용해 우측에 등장하는 장애물들을 피해 최대한 먼 거리를 이동하는 것이 목표인 게임이다.</p>
+                    <p>'Flappy Bird'는 등장하는 장애물의 폭과 특유의 조작감, 그리고 한 번만 장애물이나 바닥에 닿으면 바로 게임 오버가 되기 때문에 난이도가 생각보다 높은 것으로 유명한데, 해당 프로젝트에서는 게임을 오래 플레이하는 것을 목표로 하기 때문에 '새'의 목숨을 3개로 설정하고 장애물 사이의 거리를 늘렸다.</p>
+                    <p>'Flappy Bird'를 Unity를 통해 구현하는데 있어서 가장 중요했던 두 가지 요소는 바로 <strong>충돌 감지</strong>와 <strong>중력</strong>이었다. '새'가 바닥이나 장애물에 닿으면 게임이 끝나야 하기 때문에 '새'가 충돌을 감지하는 것이 중요하다. 이를 구현하기 위해 Unity의 충돌 시스템인 'Collider'를 '새', 바닥, 그리고 장애물들에 각각 추가한 다음 '새'로 하여금 충돌이 감지되면 목숨 하나를 소비하고 일시적으로 충돌이 감지되지 않는 '무적 상태'에 들어가도록 만들었다. 이때 '새'의 Collider를 IsTrigger 상태로 만들어 바닥이나 장애물과 충돌이 일어나더라도 '새' 자체의 위치가 바뀌거나 회전이 일어나지 않도록 구현했다 ('새'의 Collider에 대한 자세한 내용은 Figure 5 참고). 화면을 클릭하면 '새'가 위로 튀어올라야 하고, 화면을 클릭하지 않으면 '새'가 중력의 영향을 받아야 하기 때문에 이를 쉽게 구현하기 위해 Unity에서 미리 만들어둔 'RigidBody' Component를 추가해 중력의 영향을 추가했다.</p>
+                    <p>해당 프로젝트에서는 하나의 장애물을 지나면 10점이 늘어나도록 구현했다. 본 게임 구현하는데 있어서 오락실 게임기의 레트로함을 더하고 싶어 <strong>기록 시스템</strong>을 추가했다. 게임을 시작하기 전, 오락실 게임기들처럼 플레이어 이름을 적을 수 있는데, 만약 최종 점수가 최고 기록 10위 안에 들었다면, 해당 플레이어의 이름과 점수가 저장 및 갱신될 수 있도록 구현했다 (Figure 4 참고).</p>
 
+                    <div class = "figures">
+                        <figure>
+                            <img src = "../images/projects/unity_flappy-bird/figure1.png">
+                            <figcaption>Figure 1</figcaption>
+                        </figure>
+                        <figure>
+                            <img src = "../images/projects/unity_flappy-bird/figure2.png">
+                            <figcaption>Figure 2</figcaption>
+                        </figure>
+                        <figure>
+                            <img src = "../images/projects/unity_flappy-bird/figure3.png">
+                            <figcaption>Figure 3</figcaption>
+                        </figure>
+                    </div>
+                    <div class = "figures">
+                        <figure>
+                            <img src = "../images/projects/unity_flappy-bird/figure4.png">
+                            <figcaption>Figure 4</figcaption>
+                        </figure>
+                        <figure>
+                            <img src = "../images/projects/unity_flappy-bird/figure5.png">
+                            <figcaption>Figure 5</figcaption>
+                        </figure>
+                    </div>
+
+
+                    <p>완성된 게임은 'WebGL' 형식으로 Build를 진행한 다음 <a href = "https://www.itch.io">itch.io</a>에 publish를 진행했다. Itch.io의 경우, 게임을 개발자들이 편하게 올리며 공유할 수 있는 인디 게임 유통 사이트로 'Embed Game' 방식을 통해 자신의 HTML 코드에 쉽게 자신의 게임을 추가할 수 있기 때문에 이를 이용해 위와 같이 해당 사이트에 게임을 직접 적용해보았다. </p>
 
                     <p class = "caption1"><a href = "https://kid7ho.itch.io/flappy-bird">- Itch.io에서 해당 게임 플레이해보기</a></p>
                     
