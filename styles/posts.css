@@ -101,11 +101,11 @@
 
     border-radius: 20px;
 }
-#contents article a ul.tag .tag_alg, .tag_data, .tag_research, .tag_unity {
+#contents article a ul.tag .tag_alg, .tag_data, .tag_research, .tag_unity, .tag_mobile, .tag_web {
     background-color: rgb(255, 70, 70);
     color: white;
 }
-#contents article a ul.tag .tag_sort, .tag_dbfs, .tag_dp, .tag_bf, .tag_greedy, .tag_dq, .tag_dijk, .tag_math, .tag_implement, .tag_etc1, .tag_mollymolly {
+#contents article a ul.tag .tag_sort, .tag_dbfs, .tag_dp, .tag_bf, .tag_greedy, .tag_dq, .tag_dijk, .tag_math, .tag_implement, .tag_etc1, .tag_molly-molly, .tag_flappy-bird, .tag_angry-bird, .tag_tank-game, .tag_omok, .tag_othello, .tag_tile-game, .tag_kinetic-WC, .tag_hexavity, .tag_portfolio, .tag_galaga {
     background-color: orange;
     color: white;
 }
@@ -113,7 +113,7 @@
     background-color: rgb(24, 167, 24);
     color: white;
 }
-#contents article a ul.tag .tag_AI, .tag_etc3 {
+#contents article a ul.tag .tag_AI, .tag_etc3, .tag_trash-collect {
     background-color: rgb(30, 138, 253);
     color: white;
 }

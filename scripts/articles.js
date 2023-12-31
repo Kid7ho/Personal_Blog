@@ -143,6 +143,7 @@ function init(posts) {
         displayedPosts = endIndex;
 
         let tmp = finalGroup.slice(startIndex, endIndex);
+        tmp.reverse();
 
         for(const post of tmp){
             showPosts(post);

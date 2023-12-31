@@ -212,9 +212,30 @@
     display: flex;
     justify-content: center;
 }
-
-
 /* */
+
+#contents #content .pv {
+    width: 80%;
+    margin: 0 auto;
+}
+#contents #content .pv video {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Article Tag */
 #contents #search ul.tag {
@@ -374,7 +395,7 @@
 }
 /* */
 
-/* Next Articles */
+/* New Articles */
 #contents #search .new_article {
     width: 100%;
     display: flex; flex-direction: row;
@@ -480,6 +501,230 @@
     color: white;
 }
 #contents #search .new_article article a ul.tag_article .tag_AI, .tag_etc3 {
+    background-color: rgb(30, 138, 253);
+    color: white;
+}
+/* */
+
+
+
+/* Next Projects */
+#contents #search .next_project {
+    width: 100%;
+    display: flex; flex-direction: row;
+    justify-content: space-evenly;
+
+    padding-bottom: 15px;
+}
+#contents #search .next_project article {
+    width: 21%; height: 250px;
+
+    margin: 0 auto;
+    overflow: hidden;
+
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgb(150, 150, 150) 3px 4px 7px;
+    transition: 0.25s ease-in-out;
+}
+#contents #search .next_project article:hover {
+    transform: scale(1.02);
+    box-shadow: rgb(150, 150, 150) 9px 11px 7px;
+}
+
+#contents #search .next_project article a {
+    width: 100%; height: 100%;
+    display: block;
+    position: relative;
+}
+#contents #search .next_project article a img {
+    width: 100%; height: 60%;
+    overflow: hidden;
+}
+#contents #search .next_project article a .next_title {
+    width: 100%; height: 45px;
+    padding: 2px 15px;
+    
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    font-size: 16px;
+    line-height: 1.3;
+    background-color: white;
+    color: rgb(25, 25, 25);
+}
+#contents #search .next_project article a .description {
+    width: 100%;
+    
+    display: list-item;
+    position: absolute;
+    
+    bottom: 7px;
+    padding: 2px 15px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    
+    list-style: circle inside;
+    font-size: 12px;
+    color: rgb(120, 120, 120);
+}
+#contents #search .next_project article a ul.tag_project {
+    width: 100%; height: 22px;
+
+    margin: 0 7px;
+    margin-top: 1px;
+
+    display: flex;
+    flex-direction: row; justify-content: left;
+    flex-wrap: wrap;
+    list-style-type: none;
+    text-align: center;
+
+    overflow: scroll;
+}
+#contents #search .next_project article a ul.tag_project li {
+    min-width: 50px; height: 22px;
+
+    margin: 0 4px;
+    padding: 0 15px;
+    overflow: hidden;
+    line-height: 2;
+
+    font-size: 11px;
+
+    border-radius: 20px;
+}
+#contents #search .next_project article a ul.tag_project .tag_unity, .tag_mobile, .tag_AI, .tag_web {
+    background-color: rgb(255, 70, 70);
+    color: white;
+}
+#contents #search .next_project article a ul.tag_project .tag_mollymolly, .tag_flappy-bird, .tag_angry-bird, .tag_tank-game, .tag_omok, .tag_othello, .tag_tile-game, .tag_kinetic-WC, .tag_hexavity, .tag_portfolio, .tag_galaga {
+    background-color: orange;
+    color: white;
+}
+#contents #search .next_project article a ul.tag_project  {
+    background-color: rgb(24, 167, 24);
+    color: white;
+}
+#contents #search .next_project article a ul.tag_project .tag_trash-collect {
+    background-color: rgb(30, 138, 253);
+    color: white;
+}
+/* */
+
+/* New Projects */
+#contents #search .new_project {
+    width: 100%;
+    display: flex; flex-direction: row;
+    justify-content: space-evenly;
+
+    padding-bottom: 15px;
+}
+#contents #search .new_project article {
+    width: 21%; height: 250px;
+
+    margin: 0 auto;
+    overflow: hidden;
+
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgb(150, 150, 150) 3px 4px 7px;
+    transition: 0.25s ease-in-out;
+}
+#contents #search .new_project article:hover {
+    transform: scale(1.02);
+    box-shadow: rgb(150, 150, 150) 9px 11px 7px;
+}
+
+#contents #search .new_project article a {
+    width: 100%; height: 100%;
+    display: block;
+    position: relative;
+}
+#contents #search .new_project article a img {
+    width: 100%; height: 60%;
+    overflow: hidden;
+}
+#contents #search .new_project article a .next_title {
+    width: 100%; height: 45px;
+    padding: 2px 15px;
+    
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    font-size: 16px;
+    line-height: 1.3;
+    background-color: white;
+    color: rgb(25, 25, 25);
+}
+#contents #search .new_project article a .description {
+    width: 100%;
+    
+    display: list-item;
+    position: absolute;
+    
+    bottom: 7px;
+    padding: 2px 15px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    
+    list-style: circle inside;
+    font-size: 12px;
+    color: rgb(120, 120, 120);
+}
+#contents #search .new_project article a ul.tag_project {
+    width: 100%; height: 22px;
+
+    margin: 0 7px;
+    margin-top: 1px;
+
+    display: flex;
+    flex-direction: row; justify-content: left;
+    flex-wrap: wrap;
+    list-style-type: none;
+    text-align: center;
+
+    overflow: scroll;
+}
+#contents #search .new_project article a ul.tag_project li {
+    min-width: 50px; height: 22px;
+
+    margin: 0 4px;
+    padding: 0 15px;
+    overflow: hidden;
+    line-height: 2;
+
+    font-size: 11px;
+
+    border-radius: 20px;
+}
+#contents #search .new_project article a ul.tag_project .tag_unity, .tag_mobile, .tag_AI, .tag_web {
+    background-color: rgb(255, 70, 70);
+    color: white;
+}
+#contents #search .new_project article a ul.tag_project .tag_molly-molly, .tag_flappy-bird, .tag_angry-bird, .tag_tank-game, .tag_omok, .tag_othello, .tag_tile-game, .tag_kinetic-WC, .tag_hexavity, .tag_portfolio, .tag_galaga {
+    background-color: orange;
+    color: white;
+}
+#contents #search .new_project article a ul.tag_project  {
+    background-color: rgb(24, 167, 24);
+    color: white;
+}
+#contents #search .new_project article a ul.tag_project .tag_trash-collect {
     background-color: rgb(30, 138, 253);
     color: white;
 }

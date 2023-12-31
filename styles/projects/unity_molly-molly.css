@@ -1,0 +1,56 @@
+#contents #content .figures {
+    width: 100%;
+    display: flex;
+    flex-direction: row; justify-content: space-evenly;
+    text-align: center;
+    line-height: 1.4;
+    font-style: italic;
+}
+#contents #content .figures figure {
+    width: 33%;
+}
+#contents #content .figures figure img {
+    width: 100%;
+    aspect-ratio: 5 / 3;
+    margin-bottom: 0;
+}
+#contents #content .figures figure figcaption {
+    top: 0;
+}
+
+#contents #content .figure4 {
+    width: 100%;
+    display: flex;
+    flex-direction: row; justify-content: space-evenly;
+    text-align: center;
+    line-height: 1.4;
+    font-style: italic;
+}
+#contents #content .figure4 figure {
+    width: 80%;
+}
+#contents #content .figure4 figure img {
+    width: 100%;
+    aspect-ratio: 5 / 3;
+    margin-bottom: 0;
+}
+#contents #content .figure4 figure figcaption {
+    top: 0;
+}
+
+#contents #content .brown {
+    color: rgb(98, 52, 0);
+    font-weight: bold;
+}
+#contents #content .blue {
+    color: rgb(62, 181, 220);
+    font-weight: bold;
+}
+#contents #content .yellow {
+    color: rgb(231, 231, 1);
+    font-weight: bold;
+}
+#contents #content .dirt {
+    color: rgb(137, 29, 29);
+    font-weight: bold;
+}

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(err => console.error(`Fetch Problem: ${err.message}`));
 });
 
-function setNextProjectss(projects) {
+function setNextProjects(projects) {
     let title = "";
     if(document.querySelector('.text') !== null) title = document.querySelector('.text').innerHTML;
     else if(document.querySelector('.text_black') !== null) title = document.querySelector('.text_black').innerHTML;
@@ -63,7 +63,7 @@ function displayProjects(finalProjects, projectsElement, currentProjectTitle) {
         if(totalProjects > maxProjects) break;
 
         //Create Projects
-        const nextProject = document.createElement('project');
+        const nextProject = document.createElement('article');
 
         const projectLink = document.createElement('a');
         const projectURL = `../${finalProjects[i].link}`;
