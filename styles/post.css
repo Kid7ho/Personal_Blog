@@ -390,7 +390,7 @@
     background-color: rgb(24, 167, 24);
     color: white;
 }
-#contents #search .next_article article a ul.tag_article .tag_AI, .tag_etc3 {
+#contents #search .next_article article a ul.tag_article .tag_AI, .tag_NLP, .tag_etc3 {
     background-color: rgb(30, 138, 253);
     color: white;
 }
@@ -501,7 +501,7 @@
     background-color: rgb(24, 167, 24);
     color: white;
 }
-#contents #search .new_article article a ul.tag_article .tag_AI, .tag_etc3 {
+#contents #search .new_article article a ul.tag_article .tag_AI, .tag_NLP, .tag_etc3 {
     background-color: rgb(30, 138, 253);
     color: white;
 }

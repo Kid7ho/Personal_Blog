@@ -113,7 +113,7 @@
     background-color: rgb(24, 167, 24);
     color: white;
 }
-#contents article a ul.tag .tag_AI, .tag_etc3, .tag_trash-collect {
+#contents article a ul.tag .tag_AI, .tag_NLP, .tag_etc3, .tag_trash-collect {
     background-color: rgb(30, 138, 253);
     color: white;
 }
