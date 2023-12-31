@@ -10,22 +10,24 @@ function setNextProjects(projects) {
     if(document.querySelector('.text') !== null) title = document.querySelector('.text').innerHTML;
     else if(document.querySelector('.text_black') !== null) title = document.querySelector('.text_black').innerHTML;
 
-    let tag1 = "";
-    let tag1Name = "";
+    let tag1 = "", tag2 = "";
+    let tag1Name = "", tag2Name = "";
 
     for(let i=0; i<projects.length; i++){
         if(projects[i].title == title){
             tag1 = projects[i].tag_class[0];
+            tag2 = projects[i].tag_class[1];
             tag1Name = projects[i].tag[0];
+            tag2Name = projects[i].tag[1];
             break;
         }
     }
 
     let categoryText = document.querySelector('.category');
-    if(tag1 == "") categoryText.innerHTML = "All Projects 카테고리의 다른 글:";
-    else categoryText.innerHTML = tag1Name + " 카테고리의 다른 글:";
+    if(tag1 == "" && tag2 == "") categoryText.innerHTML = "All Projects 카테고리의 다른 글:";
+    else categoryText.innerHTML = tag1Name + " / "+ tag2Name + " 카테고리의 다른 글:";
     
-    let sameTagProjects = projects.filter(project => project.tag_class[0].toLowerCase().includes(tag1));
+    let sameTagProjects = projects.filter(project => project.tag_class[0].toLowerCase().includes(tag1.toLowerCase()) && project.tag_class[1].toLowerCase().includes(tag2.toLowerCase()));
 
     const nextProjects = document.querySelector('.next_project');
     

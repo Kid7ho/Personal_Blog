@@ -27,7 +27,7 @@ function setNextArticles(articles) {
     if(tag1 == "" && tag2 == "") categoryText.innerHTML = "All Articles 카테고리의 다른 글:";
     else categoryText.innerHTML = tag1Name + " / "+ tag2Name + " 카테고리의 다른 글:";
     
-    let sameTagArticles = articles.filter(article => article.tag_class[0].toLowerCase().includes(tag1) || article.tag_class[1].toLowerCase().includes(tag2));
+    let sameTagArticles = articles.filter(article => article.tag_class[0].toLowerCase().includes(tag1.toLowerCase()) && article.tag_class[1].toLowerCase().includes(tag2.toLowerCase()));
 
     const nextArticles = document.querySelector('.next_article');
     
