@@ -137,13 +137,14 @@ function init(posts) {
     function loadPosts() {
         if(displayedPosts >= finalGroup.length) return;
 
+        finalGroup.reverse();
+        
         const displayUnitPosts = 6;
         let startIndex = displayedPosts;
         let endIndex = Math.min((displayedPosts + displayUnitPosts), finalGroup.length + 1);
         displayedPosts = endIndex;
 
         let tmp = finalGroup.slice(startIndex, endIndex);
-        tmp.reverse();
 
         for(const post of tmp){
             showPosts(post);
