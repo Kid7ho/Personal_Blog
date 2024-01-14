@@ -18,5 +18,15 @@
         "date": "2023.12.31",
         "image": "images/projects/unity_flappy-bird/main.png",
         "link": "projects/unity_flappy-bird.html"
+    },
+    {
+        "id": 3,
+        "title": "Kinetic Wall Clock",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Unity", "Kinetic Wall Clock"],
+        "tag_class": ["tag_unity", "tag_kinetic-WC"],
+        "date": "2023.1.14",
+        "image": "images/projects/unity_kinetic-wall-clock/main.png",
+        "link": "projects/unity_kinetic-wall-clock.html"
     }
 ]
