@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Blog</title>
+        <link rel = "stylesheet" type = "text/css" href = "../styles/main.css">
+        <link rel = "stylesheet" type = "text/css" href = "../styles/post.css">
+        <script src = "../scripts/article.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div class = "navbar">
+                <span class = "logo"><a href = "../index.html">JIMMY</a></span>
+                <nav>
+                    <ul>
+                        <a href = "../index.html"><li>Home</li></a>
+                        <a href = "../articles.html"><li><strong>Articles</strong></li></a>
+                        <a href = "../projects.html"><li>Projects</li></a>
+                        <a href = "../about.html"><li>About</li></a>
+                        <a href = "../contact.html"><li>Contact</li></a>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <section id = "contents">
+                <div class = "title" style = "background-image: url(../images/articles/research_transformer-review/main.jpg);">
+                    <button class = "return" type = "button" onclick = "location.href = '../articles.html'">&lt; Get Back to Articles</button>
+                    <div class = "text">Transformer 논문 리뷰: Attention Is All You Need</div>
+                </div>
+                
+                <div id = "content">
+                    <div class = "info">
+                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · Research / Natural Language Processing · 2023.12.31
+                    </div>
+                    
+                    <hr>
+
+                    <p class = "caption3">※ 본 글은 Transformer 논문, <strong>"Attention Is All You Need"</strong> 를 이해하고 공부하며 기록해두는 목적에서 논문의 내용을 리뷰 및 필기하기 위해 작성된 글임으로 틀리거나 논문과는 다른 내용이 존재할 수 있다.</p>
+                    
+
+                    <p></p>
+                </div>
+
+                <div id = "search">
+                    <ul class = "tag">
+                        <li>#Research</li>
+                        <li>#Natural Language Processing</li>
+                        <li>#Transformer</li>
+                        <li>#Attention</li>
+                    </ul>
+                    <div class = "category"></div>
+                    <div class = "next_article"></div>
+                    <div class = "recent">최근 글:</div>
+                    <div class = "new_article"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class = "logo">JIMMY</div>
+
+            <p>@Copyright 2023 Jin-Myoung Hyun. All rights reserved.</p>
+            <br>
+            <p>Address: 155, Dongpangyo-ro, Bundang-gu, Seongnam-si, Gyeonggi-do, Republic of Korea</p>
+            <p>E-mail: jinmyoung.hyun@gmail.com</p>
+            <p>Tel: 010-4015-3961</p>
+        </footer>
+    </body>
+</html>

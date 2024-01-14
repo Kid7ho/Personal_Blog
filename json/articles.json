@@ -68,5 +68,35 @@
         "date": "2023.12.31",
         "image": "images/articles/research_bert-review/main.png",
         "link": "articles/research_bert-review.html"
+    },
+    {
+        "id": 8,
+        "title": "[CS224N 리뷰] Lecture 1: Word Vectors",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Research", "NLP"],
+        "tag_class": ["tag_research", "tag_NLP"],
+        "date": "2023.1.14",
+        "image": "images/articles/research_CS224N-lecture1/main.jpg",
+        "link": "articles/research_CS224N-lecture1.html"
+    },
+    {
+        "id": 9,
+        "title": "[CS224N 리뷰] Lecture 2: Neural Classifiers",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Research", "NLP"],
+        "tag_class": ["tag_research", "tag_NLP"],
+        "date": "2023.1.14",
+        "image": "images/articles/research_CS224N-lecture2/main.png",
+        "link": "articles/research_CS224N-lecture2.html"
+    },
+    {
+        "id": 10,
+        "title": "[CS224N 리뷰] Lecture 3: Backprop and Neural Networks",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Research", "NLP"],
+        "tag_class": ["tag_research", "tag_NLP"],
+        "date": "2023.1.14",
+        "image": "images/articles/research_CS224N-lecture3/main.jpg",
+        "link": "articles/research_CS224N-lecture3.html"
     }
 ]
