@@ -47,7 +47,7 @@
                     <p>Text 안에 있는 <strong>이름(name)</strong>을 찾아내고 분류하는 task <strong>(find & classify)</strong></p>
                     <div class = "figures">
                         <figure class = "single-figure">
-                            <img style = "width: 35%" src = "../images/articles/research_CS224N-lecture3/figure1.png">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure1.png">
                             <figcaption>Figure 1</figcaption>
                         </figure>
                     </div>
@@ -55,8 +55,130 @@
                         <li>정확하게 분류를 하려면, 단순히 사전만을 이용해서는 부족하고, ‘문맥’을 같이 이해해야 한다</li>
                     </ul>
 
+                    <br>
 
-                    <p></p>
+                    <p class = "section">Simple NER</p>
+                    <p>Classify each word in its context window of neighboring words</p>
+                    <p class = "subsection">방법:</p>
+                    <ul class = "non-number_list">
+                        <li>Train logistic classifier on hand-labeled data to classify center word {yes/no} for each class based on a concatenation of word vectors in a window</li>
+                        <li>문맥을 위해 여러 window들로 나눈 다음, 여러 분류 class들에 대해 각각 window의 핵심 요소가 해당 class에 포함되는지 확인. 각각의 class에 대해 반복</li>
+                    </ul>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure2.png">
+                            <figcaption>Figure 2</figcaption>
+                        </figure>
+                    </div>
+                    <p class = "subsection">In Detail:</p>
+                    <ul class = "non-number_list">
+                        <li>N 차원의 vector를 neural network에 넣는다</li>
+                        <ul class = "non-number_list">
+                            <li>Neural Network에서는 주어진 벡터를 행렬과 곱하고 bias를 더한다</li>
+                            <li>Softmax와 같은 non-linearity를 거친다</li>
+                        </ul>
+                        <li>만들어진 hidden vector를 하나의 실수로 만든 다음 확률을 계산</li>
+                        <li>이후 앞서 배운 Stochastic Gradient Descent를 통해 최적화를 진행</li>
+                    </ul>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure3.png">
+                            <figcaption>Figure 3</figcaption>
+                        </figure>
+                    </div>
+
+                    <hr>
+
+                    <p class = "section">Gradient</p>
+                    <p>Stochastic Gradient Descent를 통해 최적화를 진행할 때 <strong>Gradient</strong>를 계산해야 한다</p>
+                    <p class = "subsection">방법:</p>
+                    <ol class = "number_list">
+                        <li>손으로 계산 -> 행렬 계산 이용</li>
+                        <li>Backpropagation Algorithm</li>
+                    </ol>
+
+                    <hr>
+
+                    <p class = "section">Jacobian Matrix</p>
+                    <div class = "figures">
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure4.png">
+                            <figcaption>Figure 4</figcaption>
+                        </figure>
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure5.png">
+                            <figcaption>Figure 5</figcaption>
+                        </figure>
+                    </div>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img style = "width: 75%" src = "../images/articles/research_CS224N-lecture3/figure6.png">
+                            <figcaption>Figure 6</figcaption>
+                        </figure>
+                    </div>
+                    <br>
+                    <div class = "figures">
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure7.png">
+                            <figcaption>Figure 7</figcaption>
+                        </figure>
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure8.png">
+                            <figcaption>Figure 8</figcaption>
+                        </figure>
+                    </div>
+                    <p>다만, Jacobian을 이용한 계산 과정에서 많은 부분에서 계산이 겹치는데, 이렇게 계산이 겹치는 것은 좋지 않다</p>
+
+                    <hr>
+
+                    <p class = "section">Backpropagation</p>
+                    <p>중복되는 상황을 방지하고 앞선 계산을 알고리즘의 형식으로 표현한 것이 <strong>Backpropagation Algorithm</strong>이다</p>
+                    <ul class = "non-number_list">
+                        <li>Directed Graph의 형태를 취하는데, internal node로 연산들을 갖는다</li>
+                        <li><strong>검은색 화살표</strong> 방향으로 마치 컴파일러를 돌리듯이 값을 계산하는데, 이를 <strong>Forward Propagation</strong>이라고 한다</li>
+                        <li>중복되는 계산을 피하기 위해 <span class = "bold blue">파란색 화살표</span>로 gradient들을 돌려주는데, 이 두 방식을 결합해 최종 결과값을 계산하게 된다</li>
+                    </ul>
+                    <div class = "figures">
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure9.png">
+                            <figcaption>Figure 9</figcaption>
+                        </figure>
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure10.png">
+                            <figcaption>Figure 10</figcaption>
+                        </figure>
+                    </div>
+                    <p>뒤쪽에 위치한 Layer에서 계산한 derivative들을 backpropagation을 하면서 재활용해, 같은 연산을 여러 번 하는 것을 방지하게 된다</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure11.png">
+                        </figure>
+                    </div>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure11-1.png">
+                            <figcaption>Figure 11</figcaption>
+                        </figure>
+                    </div>
+                    <br>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure12.png">
+                            <figcaption>Figure 12</figcaption>
+                        </figure>
+                    </div>
+                    <br>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture3/figure13.png">
+                            <figcaption>Figure 13</figcaption>
+                        </figure>
+                    </div>
+
+                    <hr>
+
+                    <p class = "section">마무리</p>
+                    <p>이번 강의에서 확인할 수 있었던 것처럼, NLP에서도 수학이 굉장히 많이 사용된다. 따라서 미적분이나 행렬과 같은 수학적 지식들은 앞으로 까먹지 않도록 주의하며 지속적인 연습이 필요할 것으로 보인다.</p>
                 </div>
 
                 <div id = "search">

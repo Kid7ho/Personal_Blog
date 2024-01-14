@@ -167,6 +167,9 @@
 #contents #content span.red {
     color: red;
 }
+#contents #content span.blue {
+    color: rgb(0, 60, 255);
+}
 #contents #content span.bold {
     font-weight: bold;
 }
