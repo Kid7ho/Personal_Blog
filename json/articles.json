@@ -75,7 +75,7 @@
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "NLP"],
         "tag_class": ["tag_research", "tag_NLP"],
-        "date": "2023.1.14",
+        "date": "2024.01.14",
         "image": "images/articles/research_CS224N-lecture1/main.jpg",
         "link": "articles/research_CS224N-lecture1.html"
     },
@@ -85,7 +85,7 @@
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "NLP"],
         "tag_class": ["tag_research", "tag_NLP"],
-        "date": "2023.1.14",
+        "date": "2024.01.14",
         "image": "images/articles/research_CS224N-lecture2/main.png",
         "link": "articles/research_CS224N-lecture2.html"
     },
@@ -95,7 +95,7 @@
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "NLP"],
         "tag_class": ["tag_research", "tag_NLP"],
-        "date": "2023.1.14",
+        "date": "2024.01.14",
         "image": "images/articles/research_CS224N-lecture3/main.jpg",
         "link": "articles/research_CS224N-lecture3.html"
     }
