@@ -4,6 +4,7 @@
         <title>Personal Blog</title>
         <link rel = "stylesheet" type = "text/css" href = "../styles/main.css">
         <link rel = "stylesheet" type = "text/css" href = "../styles/post.css">
+        <link rel = "stylesheet" type = "text/css" href = "../styles/articles/research_CS224N-lecture.css">
         <script src = "../scripts/article.js"></script>
     </head>
 
@@ -38,9 +39,228 @@
                     <hr>
 
                     <p class = "caption3">※ 본 글은 Stanford 대학교의 CS224N 수업 영상을 이해하고 공부하며 기록해두는 목적에서 수업의 내용을 리뷰 및 필기해 작성된 글임으로 틀리거나 수업의 내용과는 다른 내용이 존재할 수 있다.</p>
-                    
 
-                    <p></p>
+                    <hr>
+
+                    <p class = "section">글을 시작하기 전에...</p>
+                    <p>본 글은 CS224N의 두 번째 강의를 기반으로 작성된 글로, 본 강의는 <br><a href = "https://www.youtube.com/watch?v=gqaHkPEZAew&list=PLoROMvodv4rMFqRtEuo6SGjY4XbRIVRd4&index=2">https://www.youtube.com/watch?v=gqaHkPEZAew&list=PLoROMvodv4rMFqRtEuo6SGjY4XbRIVRd4&index=2</a>에서 직접 시청할 수 있다.</p>
+
+                    <hr>
+
+                    <p class = "section">Bag of Words Model</p>
+                    <p>Outside vector & Center vector의 dot product와 softmax로 모델을 학습하는 방식: <span class = "bold red">“Bag of Words”</span> model</p>
+                    <p class = "subsection">특징:</p>
+                    <ol class = "number_list">
+                        <li>단어의 등장 순서와 위치는 전혀 고려하지 않는 방식</li>
+                        <li>예측 확률은 단어의 등장 순서와 위치가 달라져도 같게 산출</li>
+                        <li>이상해 보이지만, 생각보다 단어들의 성질을 잘 이해</li>
+                    </ol>
+
+                    <hr>
+
+                    <p class = "section">Optimization - Gradient Descent</p>
+                    <p>An algorithm to minimize 𝐽(𝜃) by changing 𝜃</p>
+                    <p class = "subsection">Idea</p>
+                    <ul class = "non-number_list">
+                        <li>From current value of 𝜃, calculate gradient of 𝐽(𝜃), then take <span class = "bold red">small step in the direction of negative gradient</span>. Repeat.</li>
+                    </ul>
+                    <div class = "figures">
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture2/figure1.png">
+                            <figcaption>Figure 1</figcaption>
+                        </figure>
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture2/figure2.png">
+                            <figcaption>Figure 2</figcaption>
+                        </figure>
+                    </div>
+                    <p class = "subsection">주의사항:</p>
+                    <ul class = "non-number_list">
+                        <li>너무 Step을 작게 가져가면, 최적화 시간이 길어진다</li>
+                        <li>너무 Step을 크게 가져가면, 최적화가 불가능하거나 시간이 길어진다</li>
+                    </ul>
+
+                    <br>
+
+                    <p class = "section">Optimization – Stochastic Gradient Descent</p>
+                    <p>Gradient Descent를 이용하는 것은 너무 비효율적이다</p>
+                    <ul class = "non-number_list">
+                        <li>𝐽(𝜃)가 모든 window에 대한 함수이기 때문에, 계산을 하는 시간이 매우 오래 걸린다</li>
+                        <li>따라서, <span class = "bold red">Stochastic Gradient Descent</span> 를 사용</li>
+                    </ul>
+                    <p>Loss Function을 계산할 때, 전체 데이터 대신 일부 데이터의 모음을 사용하여 Loss Function을 계산</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture2/figure3.png">
+                            <figcaption>Figure 3</figcaption>
+                        </figure>
+                    </div>
+                    <ul class = "non-number_list">
+                        <li>다소 부정확할 수 있지만, 계산 속도가 훨씬 빠르다</li>
+                        <li>여러 번 반복할 경우, 전체 데이터를 사용한 결과로 수렴한다</li>
+                    </ul>
+
+                    <hr>
+
+                    <p class = "section">Negative Sampling</p>
+                    <p>학습을 진행할 때 naïve softmax 방식보다 효율적인 방식</p>
+                    <ul class = "non-number_list">
+                        <li>Cf&rpar; Naïve한 방식은 dot product를 굉장히 많이 해야 하기 때문에 계산이 비효율적이다</li>
+                    </ul>
+                    <p class = "subsection">Idea:</p>
+                    <ul class = "non-number_list">
+                        <li>Train binary logistic regressions for a true pair (center word and a word in its context window) versus several noise pairs (the center word paired with a random word)</li>
+                        <li>K개의 negative sample들을 뽑아 J를 최적화하는 방식</li>
+                    </ul>
+                    <div class = "figures">
+                        <figure class = "double-figure">
+                            <img style = "width: 70%" src = "../images/articles/research_CS224N-lecture2/figure4.png">
+                            <figcaption>Figure 4</figcaption>
+                        </figure>
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture2/figure5.png">
+                            <figcaption>Figure 5</figcaption>
+                        </figure>
+                    </div>
+
+                    <hr>
+
+                    <p class = "section">Co-occurrence matrix</p>
+                    <p>문장에 포함되어 있는 단어들이 얼마나 같이 등장하는지를 나타내는 행렬</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture2/figure6.png">
+                            <figcaption>Figure 6</figcaption>
+                        </figure>
+                    </div>
+                    <p class = "subsection">방식:</p>
+                    <ol class = "number_list">
+                        <li>Window: Use window around each word -> Captures some syntactic and semantic info</li>
+                        <li>Full Document: Give general topics leading to “Latent Semantic Analysis”</li>
+                    </ol>
+                    <p>높은 차원과 Sparsity를 갖는다는 문제점을 가진다</p>
+                    <ul class = "non-number_list">
+                        <li>따라서 <span class = "bold red">차원을 줄이면 더 효과적</span>으로 사용할 수 있다 (Ex: SVD 적용)</li>
+                        <li>Cf&rpar; 단순히 SVD만 적용하면 성능이 좋지 않을 수 있다 -> 추가적인 과정이 더 필요</li>
+                    </ul>
+
+                    <hr>
+
+                    <p class = "section">GloVe</p>
+                    <p>아래 두 방식을 연결하고자 노력:</p>
+                    <ul class = "non-number_list">
+                        <li>Count Based: Linear algebra 기반</li>
+                        <li>Iterative Neural Algorithm Based</li>
+                    </ul>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture2/figure7.png">
+                            <figcaption>Figure 7</figcaption>
+                        </figure>
+                    </div>
+
+                    <br>
+
+                    <p class = "section">Encoding meaning components in vector differences</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture2/figure8.png">
+                            <figcaption>Figure 8</figcaption>
+                        </figure>
+                    </div>
+                    <p>Meaning component를 찾고자 할 때 매우 유용</p>
+                    <ul class = "non-number_list">
+                        <li>Ex&rpar; ‘gas’ -> ‘solid’를 찾고자 할 때 위 표를 활용할 수 있다</li>
+                    </ul>
+
+                    <br>
+
+                    <p class = "section">GloVe – Combining the best of both worlds</p>
+                    <p>Question: How can we capture ratios of co-occurrence probabilities as linear meaning components in a world vector space?</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture2/figure9.png">
+                            <figcaption>Figure 9</figcaption>
+                        </figure>
+                    </div>
+                    <div class = "figures">
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture2/figure10.png">
+                            <figcaption>Figure 10</figcaption>
+                        </figure>
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture2/figure11.png">
+                            <figcaption>Figure 11</figcaption>
+                        </figure>
+                    </div>
+                    <p>위 식과 같은 Explicit Loss Function을 사용해 co-occurrence model과 neural model 사이의 간격을 줄인다</p>
+                    <p class = "subsection">특징:</p>
+                    <ol class = "number_list">
+                        <li>Fast training</li>
+                        <li>f 함수를 이용해 common word들에 의해 압도되는 것을 방지 (Figure 12. 참고)</li>
+                        <li>Small corpus와 small vectors에 대해서도 높은 성능</li>
+                    </ol>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img style = "width: 35%" src = "../images/articles/research_CS224N-lecture2/figure12.png">
+                            <figcaption>Figure 12</figcaption>
+                        </figure>
+                    </div>
+
+                    <hr>
+
+                    <p class = "section">Evaluate Word Vectors</p>
+                    <p class = "subsection">방식:</p>
+                    <ol class = "number_list">
+                        <li><strong>Intrinsic</strong> : Evaluation on specific/intermediate subtask</li>
+                        <ul class = "non-number_list">
+                            <li>Fast to compute</li>
+                            <li>Helps to understand the system</li>
+                            <li>전체 시스템에 대해서는 효과가 없을 수도 있다</li>
+                            <li>Not clear if really helpful unless correlation to real task is established</li>
+                        </ul>
+                        <li><strong>Extrinsic</strong> : Evaluation on a real task</li>
+                        <ul class = "non-number_list">
+                            <li>Can take a long time to compute accuracy</li>
+                            <li>Unclear if the subsystem is the problem or its interaction or other subsystems</li>
+                            <li>If replacing exactly one subsystem with another improves accuracy</li>
+                        </ul>
+                    </ol>
+
+                    <br>
+
+                    <p class = "section">Intrinsic Evaluation</p>
+                    <p class = "subsection">예시:</p>
+                    <ul class = "non-number_list">
+                        <li>Word vector들을 intuitive semantic and syntactic analogy question들에 대해 산출한 cosine 거리를 측정해 평가</li>
+                    </ul>
+                    <div class = "figures">
+                        <figure class = "double-figure">
+                            <img style = "width: 140%" src = "../images/articles/research_CS224N-lecture2/figure13.png">
+                            <figcaption>Figure 13</figcaption>
+                        </figure>
+                        <figure class = "double-figure">
+                            <img style = "width: 70%" src = "../images/articles/research_CS224N-lecture2/figure14.png">
+                            <figcaption>Figure 14</figcaption>
+                        </figure>
+                    </div>
+                    <p>인간이 어떻게 평가하는지를 이용하는 Intrinsic Evaluation도 존재</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img style = "width: 45%" src = "../images/articles/research_CS224N-lecture2/figure15.png">
+                            <figcaption>Figure 15</figcaption>
+                        </figure>
+                    </div>
+
+                    <br>
+
+                    <p class = "section">Extrinsic Evaluation</p>
+                    <p>사실 NLP에 대한 모든 task들은 Extrinsic Evaluation의 일부분이라고 할 수 있다</p>
+
+                    <hr>
+
+                    <p class = "section">마무리</p>
+                    <p>전체적인 흐름을 파악한 상태에서 강의를 이해하면 왜 이러한 개념을 지금 설명하는지에 대해 더 잘 이해할 수 있을 것 같다는 느낌을 받을 수 있었고, 이에 앞으로 보게될 강의에서는 조금 더 거시적인 과점에서 강의를 바라봐야겠다는 생각을 하게 되었다.</p>
                 </div>
 
                 <div id = "search">

@@ -2,6 +2,10 @@ ol.number_list {
     padding-left: 2.5em;
 }
 
+ul.non-number_list {
+    padding-left: 2.5em;
+}
+
 #contents #content .figures {
     width: 100%;
     display: flex;
