@@ -1,0 +1,29 @@
+ol.number_list {
+    padding-left: 2.5em;
+}
+
+#contents #content .figures {
+    width: 100%;
+    display: flex;
+    flex-direction: row; justify-content: space-evenly;
+    text-align: center;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+
+#contents #content .figures figure.single-figure {
+    width: 50%;
+}
+#contents #content .figures figure.double-figure {
+    width: 30%;
+}
+
+
+#contents #content .figures figure img {
+    width: 100%;
+    margin-bottom: 0;
+}
+#contents #content .figures figure figcaption {
+    top: 0;
+}

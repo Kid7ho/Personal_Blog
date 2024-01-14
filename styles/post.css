@@ -100,17 +100,17 @@
 }
 #contents #content p.section {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
 }
 #contents #content p.section::before {
     content: '';
 }
 #contents #content p.subsection {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
 }
 #contents #content p.subsection::before {
-    content: '';
+    content: '\00a0\00a0';
 }
 
 /* Article Captions */

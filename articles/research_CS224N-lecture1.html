@@ -4,6 +4,7 @@
         <title>Personal Blog</title>
         <link rel = "stylesheet" type = "text/css" href = "../styles/main.css">
         <link rel = "stylesheet" type = "text/css" href = "../styles/post.css">
+        <link rel = "stylesheet" type = "text/css" href = "../styles/articles/research_CS224N-lecture.css">
         <script src = "../scripts/article.js"></script>
     </head>
 
@@ -25,30 +26,156 @@
         
         <main>
             <section id = "contents">
-                <div class = "title" style = "background-image: url(../images/articles/research_transformer-review/main.jpg);">
+                <div class = "title" style = "background-image: url(../images/articles/research_CS224N-lecture1/main.jpg);">
                     <button class = "return" type = "button" onclick = "location.href = '../articles.html'">&lt; Get Back to Articles</button>
-                    <div class = "text">Transformer 논문 리뷰: Attention Is All You Need</div>
+                    <div class = "text_black">[CS224N 리뷰] Lecture 1: Word Vectors</div>
                 </div>
                 
                 <div id = "content">
                     <div class = "info">
-                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · Research / Natural Language Processing · 2023.12.31
+                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · Research / Natural Language Processing · 2023.01.14
                     </div>
                     
                     <hr>
 
-                    <p class = "caption3">※ 본 글은 Transformer 논문, <strong>"Attention Is All You Need"</strong> 를 이해하고 공부하며 기록해두는 목적에서 논문의 내용을 리뷰 및 필기하기 위해 작성된 글임으로 틀리거나 논문과는 다른 내용이 존재할 수 있다.</p>
-                    
+                    <p class = "caption3">※ 본 글은 Stanford 대학교의 CS224N 수업 영상을 이해하고 공부하며 기록해두는 목적에서 수업의 내용을 리뷰 및 필기해 작성된 글임으로 틀리거나 수업의 내용과는 다른 내용이 존재할 수 있다.</p>
 
-                    <p></p>
+                    <hr>
+
+                    <p class = "section">글을 시작하기 전에...</p>
+                    <p>이번에 NLP에 대해 기초부터 전문적으로 배우기 위해 CS224N의 수업을 수강해보기로 결정했다. 본 강의를 같은 랩 인턴들과 함께 수강한 다음, 1주일에 한 번씩 만나 스터디의 형식으로 서로 강의 내용을 발표하고 질문하며 토론하는 시간을 갖기로 결정했다. 이에 앞으로 블로그에 작성되는 CS224N에 대한 글들은 해당 스터디에 참여하기 위해 CS224N의 강의들을 수강하면서 직접 필기한 내용들을 기반으로 한다는 것이기 때문에 강의 내용을 잘못 이해해 사실과는 다른 내용들이 존재할 수 있다는 점을 유의해주길 바란다.</p>
+
+                    <hr>
+
+                    <p class = "section">WordNet</p>
+                    <p>컴퓨터는 <strong>WordNet</strong>을 통해 동의어나 하의어의 집합을 학습해서 뜻을 이해한다.</p>
+                    <p class = "subsection">Problems:</p>
+                    <ol class = "number_list">
+                        <li>하나의 단어가 상황에 따라 다른 의미를 가질 수 있다</li>
+                        <li>모든 의미를 학습시키기 위해 인간의 노동력이 많이 필요하다</li>
+                        <li>단어의 의미를 다른 단어들을 이용해 100% 정확하게 표현할 수 없을 수도 있다</li>
+                        <li>단어의 새로운 의미를 학습하기 어렵다 (Impossible to keep up-to-date)</li>
+                    </ol>
+
+                    <hr>
+
+                    <p class = "section">기존의 NLP: One-hot Vector</p>
+                    <p><strong>One-hot Vector</strong>를 통해 단어를 표시; 원하는 단어를 뜻하는 인덱스만 ‘1’로 표시 & 나머지는 모두 ‘0’으로 표시 (Figure 1. 참고)</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture1/figure1.png">
+                            <figcaption>Figure 1</figcaption>
+                        </figure>
+                    </div>
+                    <p class = "subsection">Problems:</p>
+                    <ol class = "number_list">
+                        <li>유사한 의미를 가진 단어들 사이의 관계를 표시할 수 없다</li>
+                        <li>모든 단어를 표시하기 위해서는 굉장히 큰 차원의 벡터가 필요</li>
+                    </ol>
+
+                    <hr>
+
+                    <p class = "section">Distributional Semantics</p>
+                    <p>기존 NLP에서 단어 사이의 유사성을 표기할 수 없다는 한계를 해결하기 위한 방식: 주변 단어의 <span class = "bold red">문맥(Context)</span>를 통해 단어의 의미를 표시하는 것 (Figure 2. 참고)</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img style = "aspect-ratio: 7/2;" src = "../images/articles/research_CS224N-lecture1/figure2.png">
+                            <figcaption>Figure 2</figcaption>
+                        </figure>
+                    </div>
+                    <p>하나의 단어에 대해 사용될 수 있는 여러 용법의 문맥들을 모두 학습 -> 단어의 의미를 모두 파악 & 적재적소에 해당 의미를 추출할 수 있다</p>
+
+                    <hr>
+
+                    <p class = "section">Word Embeddings</p>
+                    <p>단어의 의미들을 <strong>Vector</strong>로 표현 (보통 300차원으로 구성). 생성된 Vector를 분석해보면, 유사한 의미를 지닌 단어들끼리 인접하게 위치</p>
+                    <div class = "figures">
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture1/figure3.png">
+                            <figcaption>Figure 3</figcaption>
+                        </figure>
+                        <figure class = "double-figure">
+                            <img src = "../images/articles/research_CS224N-lecture1/figure4.png">
+                            <figcaption>Figure 4</figcaption>
+                        </figure>
+                    </div>
+
+                    <hr>
+
+                    <p class = "section">Word2Vec</p>
+                    <p class = "subsection">방법:</p>
+                    <ol class = "number_list">
+                        <li>모든 단어들에 대해 Vector를 생성</li>
+                        <li>모든 단어들을 iterate하면서 중심 단어 ‘c’와 c의 문맥 ‘o’를 통해 다음에 나올 단어를 예측</li>
+                        <li>실제로 어떤 단어가 등장했는지를 이용해 해당 단어의 Vector를 세부적으로 조절</li>
+                        <li>문맥에 더 걸맞는 다음 단어를 생성할 수 있도록 수정</li>
+                    </ol>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture1/figure5.png">
+                            <figcaption>Figure 5</figcaption>
+                        </figure>
+                    </div>
+                    <p>Ex&#41; ‘into’ 다음에 어떤 단어가 등장할지 예측 & 실제 단어인 ‘banking’과 비교</p>
+
+                    <br>
+
+                    <p class = "section">Word2Vec – Objective Function</p>
+                    <p><strong>Question</strong>: 결론적으로 Objective Function의 값을 줄여서 모델의 학습시키고 싶은데, 모델의 확률을 어떻게 계산할까?</p>
+                    <p><strong>Answer</strong>: 하나의 단어 w에 대해 두 개의 벡터를 부여</p>
+                    <ol class = "number_list">
+                        <li>𝑣_𝑤  Center word</li>
+                        <li>𝑢_𝑤: Context word</li>
+                    </ol>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture1/figure6.png">
+                            <figcaption>Figure 6</figcaption>
+                        </figure>
+                    </div>
+
+                    <br>
+
+                    <p class = "section">Word2Vec – Prediction Function</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture1/figure7.png">
+                            <figcaption>Figure 7</figcaption>
+                        </figure>
+                    </div>
+                    <p class = "subsection">방법:</p>
+                    <ol class = "number_list">
+                        <li>〖𝑢_0〗^𝑇 𝑣_𝑐 의 dot production을 통해 수치 계산</li>
+                        <li>확률을 원함으로 음수를 방지하기 위해 제곱(exp)</li>
+                        <li>c에 대응되는 문맥인 o를 포함한 모든 단어들에 대해 같은 수치를 계산 & 합을 2.에서 구한 수에서 나누어 확률을 계산 (수치가 0~1 사이에 위치하도록 만들기 위해)</li>
+                    </ol>
+                    <p><span class = "bold red">Softmax Function</span> 이라고도 볼 수 있다: 어떤 임의의 𝑅^𝑛 벡터를 (0, 1) 사이의 확률값으로 재배열 및 변환해주는 함수</p>
+
+                    <hr>
+
+                    <p class = "section">Gradient</p>
+                    <p class = "subsection">구한 확률값과 미적분을 이용해 loss가 최소가 될 때까지 모델을 수정: 모든 vector gradient를 계산 & parameter들을 최적화</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture1/figure8.png">
+                            <figcaption>Figure 8</figcaption>
+                        </figure>
+                    </div>
+                    <p>𝑙𝑜𝑔𝐿(𝜃)에서 𝑣_𝑐에 대해 편미분: 결론적으로 ‘관찰된 값 – 실제 값’이 결과가 된다</p>
+
+                    <hr>
+
+                    <p class = "section">마무리</p>
+                    <p>CS224N의 Lecture 1을 수강하면서 생각보다 심화적인 기초 지식들이 많다는 것을 알 수 있었고, 영국식 영어로 수업이 진행되기 때문에 수업의 내용을 이해하기 그렇게 쉽지는 않았다. 그럼에도 끝까지 견디면서 들으면 충분히 많은 지식들을 얻어갈 수 있을 것 같다는 생각이 드는 수업이었고, 이에 남아있는 강의들도 열심히 수강해야겠다는 생각을 하게 된다.</p>
                 </div>
 
                 <div id = "search">
                     <ul class = "tag">
                         <li>#Research</li>
                         <li>#Natural Language Processing</li>
-                        <li>#Transformer</li>
-                        <li>#Attention</li>
+                        <li>#Stanford</li>
+                        <li>#CS224N</li>
+                        <li>#Word Vectors</li>
                     </ul>
                     <div class = "category"></div>
                     <div class = "next_article"></div>
