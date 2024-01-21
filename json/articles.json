@@ -98,5 +98,45 @@
         "date": "2024.01.14",
         "image": "images/articles/research_CS224N-lecture3/main.jpg",
         "link": "articles/research_CS224N-lecture3.html"
+    },
+    {
+        "id": 11,
+        "title": "[CS224N 리뷰] Lecture 5: Dependency Parser, Neural Network, and Language Model",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Research", "NLP"],
+        "tag_class": ["tag_research", "tag_NLP"],
+        "date": "2024.01.19",
+        "image": "images/articles/research_CS224N-lecture5/main.png",
+        "link": "articles/research_CS224N-lecture5.html"
+    },
+    {
+        "id": 12,
+        "title": "[CS224N 리뷰] Lecture 6: RNN & LSTM",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Research", "NLP"],
+        "tag_class": ["tag_research", "tag_NLP"],
+        "date": "2024.01.21",
+        "image": "images/articles/research_CS224N-lecture6/main.jpg",
+        "link": "articles/research_CS224N-lecture6.html"
+    },
+    {
+        "id": 13,
+        "title": "[CS224N 리뷰] Lecture 7: Translation, Seq2Seq, Attention",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Research", "NLP"],
+        "tag_class": ["tag_research", "tag_NLP"],
+        "date": "2024.01.21",
+        "image": "images/articles/research_CS224N-lecture7/main.jpg",
+        "link": "articles/research_CS224N-lecture7.html"
+    },
+    {
+        "id": 14,
+        "title": "[CS224N 리뷰] Lecture 8: Self-Attention and Transformer",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Research", "NLP"],
+        "tag_class": ["tag_research", "tag_NLP"],
+        "date": "2024.01.21",
+        "image": "images/articles/research_CS224N-lecture8/main.png",
+        "link": "articles/research_CS224N-lecture8.html"
     }
 ]
