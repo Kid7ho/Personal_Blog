@@ -33,8 +33,8 @@
         "id": 4,
         "title": "Analyzing the Performance Difference of Language Model with Various Implementation Methods",
         "author": "Jin-Myoung Hyun",
-        "tag": ["Research", "AI"],
-        "tag_class": ["tag_research", "tag_AI"],
+        "tag": ["Research", "NLP"],
+        "tag_class": ["tag_research", "tag_nlp"],
         "date": "2023.11.24",
         "image": "images/articles/research_lm-implementation/main.jpg",
         "link": "articles/research_lm-implementation.html"
