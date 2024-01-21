@@ -47,7 +47,91 @@
                     
                     <hr>
 
+                    <p class = "section">Parsing 참고 자료</p>
+                    <p><strong>Parsing</strong>: 각 문장의 문법적인 구성 또는 구문을 분석하는 과정</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ 문장의 의미를 보다 정확하게 파악하기 위해 Parsing을 통해 분석하는 것</p>
+                    <br>
+
+                    <ul class = "non-number_list">
+                        <li><strong>Constituency Parsing</strong>: 문장의 구성 요소를 파악해 구조를 분석하는 방법</li>
+                        <li><strong>Dependency Parsing</strong>: 단어 간 의존 관계를 파악해 구조를 분석하는 방법</li>
+                    </ul>
+                    <br>
                     
+                    <p><strong>Constituency parsing</strong>은 문장의 구조를 파악하는 것이 주목적이며, <strong>Dependency parsing</strong>은 단어 간 관계를 파악하는 것이 주목적</p>
+                    <br>
+
+                    <p class = "subsection">Constituency Parsing</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture5/figure1.png">
+                            <figcaption>Figure 1</figcaption>
+                        </figure>
+                    </div>
+                    <ul class = "non-number_list">
+                        <li>구성하고 있는 구(phrase)를 파악하여 문장 구조를 분석</li>
+                        <ul class = "non-number_list">
+                            <li>보통 각 단어들은 해당 단어의 문법적 의미를 갖고 있다</li>
+                            <li>Ex&rpar; 'the'는 '관형사(Det)', 'cat'은 '명사(N)</li>
+                        </ul>
+                    </ul>
+                    <br>
+
+                    <p class = "subsection">Dependency Parsing</p>
+                    <ul class = "non-number_list">
+                        <li>문장을 이루는 단어 사이에 서로 영향을 미치는 어떠한 관계가 있음을 전제</li>
+                        <ul class = "non-number_list">
+                            <li>한국어와 같이 자유 어순을 가지거나 문장성분이 생략 가능한 언어에서 선호</li>
+                        </ul>
+                        <div class = "figures">
+                            <figure class = "single-figure">
+                                <img src = "../images/articles/research_CS224N-lecture5/figure2.png">
+                                <figcaption>Figure 2</figcaption>
+                            </figure>
+                        </div>
+                        <li>단어 간 관계를 정립하게 되면 우측과 같이 문장을 트리 구조로 표현해서 어떻게 화살표가 이동하고 어떤 단어가 수식을 받는지, 안 받는지 등을 파악</li>
+                    </ul>
+                    <br>
+
+                    <p class = "subsection">문장 구조를 분석하는 이유: 모호성 (Ambiguity)이 존재</p>
+                    <ol class = "number_list">
+                        <li><strong>Phrase Attachment Ambiguity</strong>: 형용사구, 동사구, 전치사구 등이 어떤 단어를 수식하는지에 따라 의미가 달라지는 모호성</li>
+                        <li><strong>Coordination Scope Ambiguity</strong>: 특정 단어가 작용(수식)하는 대상의 범위가 달라짐에 따라 의미가 변하는 모호성</li>
+                    </ol>
+                    <p>즉, 문장의 모호한 해석을 올바르게 이해하기 위해 분석과 이해가 필요</p>
+
+                    <hr>
+
+                    <p class = "section">Dependency Parser 내용 마무리</p>
+                    <ul class = "non-number_list">
+                        <li>Dependency Parsing의 방법 중 <strong>Transition-Based</strong> 방법을 이전 시간에 소개</li>
+                        <ul class = "non-number_list">
+                            <li>두 단어의 의존 여부를 차례대로 결정하면서 점진적으로 dependency structure를 구성하는 방법</li>
+                            <li>효율적인 linear time method (모든 경우를 고려하지는 못해 정확도는 비교적 낮지만, 분석 속도가 빠르다)</li>
+                        </ul>
+                    </ul>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_CS224N-lecture5/figure3.png">
+                            <figcaption>Figure 3</figcaption>
+                        </figure>
+                    </div>
+
+                    <p class = "subsection">한계:</p>
+                    <ul class = "non-number_list">
+                        <li>그 당시 많은 machine learning model들처럼 <strong>indicator feature</strong>를 활용 (transition을 만드는 과정에서 여러 state들이 형성되는데, state를 임베딩하기 위해 사용)</li>
+                        <li>STACK 안에 존재하는 토큰들로 구성된 state를 기반으로 shift, right-arc, left-arc 중 어떤 일을 수행할지 SNM이나 NN과 같은 모델을 적용해 결정하는데, 이 과정에서 state를 모델이 input으로 받기 위해 state 임베딩 과정이 필요</li>
+                    </ul>
+                    <br>
+                    <ol class = "number_list">
+                        <li>Features are very <strong>Sparse</strong></li>
+                        <li>Features are <strong>Incomplete</strong></li>
+                        <ul class = "non-number_list">
+                            <li>학습이 어떻게 되었는지에 따라 처음보는 상황에 대해 작동하거나, 잘못 작동할 수 있음</li>
+                        </ul>
+                        <li>차원을 모두 계산해야 하기 때문에 Feature Computation takes <strong>expensive computation</strong></li>
+                    </ol>
+
 
                     <hr>
 
@@ -61,8 +145,8 @@
                         <li>#Natural Language Processing</li>
                         <li>#Stanford</li>
                         <li>#CS224N</li>
-                        <li>#</li>
-                        <li>#</li>
+                        <li>#Dependency Parser</li>
+                        <li>#Language Model</li>
                     </ul>
                     <div class = "category"></div>
                     <div class = "next_article"></div>

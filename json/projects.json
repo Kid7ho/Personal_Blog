@@ -28,5 +28,15 @@
         "date": "2024.01.14",
         "image": "images/projects/unity_kinetic-wall-clock/main.png",
         "link": "projects/unity_kinetic-wall-clock.html"
+    },
+    {
+        "id": 4,
+        "title": "Tile-Game",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Unity", "Tile Game"],
+        "tag_class": ["tag_unity", "tag_tile-game"],
+        "date": "2024.01.21",
+        "image": "images/projects/unity_tile-game/main.png",
+        "link": "projects/unity_tile-game.html"
     }
 ]
