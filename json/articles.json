@@ -138,5 +138,15 @@
         "date": "2024.01.21",
         "image": "images/articles/research_CS224N-lecture8/main.png",
         "link": "articles/research_CS224N-lecture8.html"
+    },
+    {
+        "id": 15,
+        "title": "Python Pandas를 이용해 NBA 2020-2021 시즌 데이터 분석 및 시각화",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Research", "AI"],
+        "tag_class": ["tag_research", "tag_AI"],
+        "date": "2024.01.21",
+        "image": "images/articles/research_nba2/main.webp",
+        "link": "articles/research_nba2.html"
     }
 ]
