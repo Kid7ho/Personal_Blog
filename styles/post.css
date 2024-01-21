@@ -176,6 +176,9 @@
 #contents #content span.underline {
     text-decoration: underline;
 }
+#contents #content span.italic {
+    font-style: italic;
+}
 
 #contents #content ol.number_list {
     padding-left: 2.5em;

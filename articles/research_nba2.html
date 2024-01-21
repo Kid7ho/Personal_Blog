@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Blog</title>
+        <link rel = "stylesheet" type = "text/css" href = "../styles/main.css">
+        <link rel = "stylesheet" type = "text/css" href = "../styles/post.css">
+        <script src = "../scripts/article.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div class = "navbar">
+                <span class = "logo"><a href = "../index.html">JIMMY</a></span>
+                <nav>
+                    <ul>
+                        <a href = "../index.html"><li>Home</li></a>
+                        <a href = "../articles.html"><li><strong>Articles</strong></li></a>
+                        <a href = "../projects.html"><li>Projects</li></a>
+                        <a href = "../about.html"><li>About</li></a>
+                        <a href = "../contact.html"><li>Contact</li></a>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <section id = "contents">
+                <div class = "title" style = "background-image: url(../images/articles/research_nba2/main.webp);">
+                    <button class = "return" type = "button" onclick = "location.href = '../articles.html'">&lt; Get Back to Articles</button>
+                    <div class = "text">Python Pandas를 이용해 NBA 2020-2021 시즌 데이터 분석 및 시각화</div>
+                </div>
+                
+                <div id = "content">
+                    <div class = "info">
+                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · Research / ETC · 2024.01.21
+                    </div>
+                    
+                    <hr>
+
+                    앞서 작성한 "Analyzing NBA data with Clustering and Regression" 글에서 언급한 것처럼, 농구와 같은 스포츠에서 발생하는 여러 수치들을 가공해 새로운 의미있는 지표로 분석하는 방법들은 다양하다. 본 글은 앞선 글과 비슷하게 NBA의 여러 스탯들을 분석하는데, 다만 해당 글은 필자가 <span class = "red bold">고등학교 3학년</span> 재학 당시 생기부를 위해 작성한 보고서의 내용으로 구성되어 있다. 때문에 고등학교 3학년 때는 인공지능에 관해 얼마만큼의 지식을 갖고 있었으며, 수치들을 분석할 때 어떤 방식을 이용했으며, 얼마나 수학적인 이해를 갖고 모델들을 적용했는지를 앞선 글과 비교해보며 읽으면 대학교 1~2학년 동안 얼마나 성장했는지 엿볼 수 있을 것이라고 생각한다.
+                    
+                    <hr>
+                    <p class = "caption2">다음은 고등학교 2학년 때, 실제로 동아리 프로젝트를 위해 직접 작성한 보고서의 내용이다.</p>
+                    <br>
+
+                    <p class = "section">1. 탐구 주제:</p>
+                    <p>Python Pandas를 이용해 NBA 2020-2021 시즌 데이터 분석 및 시각화</p>
+
+                    <hr>
+
+                    <p class = "section">2. 주제 선정 이유:</p>
+                    <p>우리가 흔히 ‘인공지능' 이라 부르는 것의 개발 단계를 분류해보면, 빅데이터 -> 인공신경망 -> 머신러닝, 으로 분류할 수 있다. 인공지능의 성능은 전적으로 인공지능을 학습하는데 사용되는 데이터가 질적이고 양적으로 얼마나 학습에 적합한지에 달려있다. 이때 인공신경망은 학습에 사용되는 데이터를 인간이 분류해 학습시키게 되고, 머신러닝은 데이터가 주어지면 스스로 데이터를 분류하고 스스로 해당 데이터를 사용해 학습하게 된다. 때문에 인공신경망을 학습시킬 때 데이터를 분류 및 분석해주는 것이 매우 중요하며, 이를 위해 빅데이터 분석 분야에서는 주로 컴퓨터 프로그래밍 언어인 ‘R’ 또는 ‘Python’ 중 하나를 선택해 사용한다.</p>
+                    <p>’R’ 은 통계학자들에 의해, 통계학을 위해 개발된 프로그래밍 언어이다. 때문에 빅데이터를 시각화하는 것이 매우 용이하며, 통계학에 관련된 개념과 아이디어들이 수많은 패키지로써 이미 제작이 되어있다. 다만 앞서 말했듯, 통계학자들에 의해 제작이 되었기 때문에 효율이 좋지 않아 속도가 느리며, 제작되어 있는 패키지의 수가 굉장히 많기 때문에 처음 배우는데 진입 장벽이 높은 편에 속한다.</p>
+                    <p>’Python’ 은 최근 프로그래밍 분야에서 굉장히 많이 사용이 되고 있는 언어로, 사람이 사용하는 언어와 매우 유사하기 때문에 배우기 굉장히 쉽고 직관적이다. 또한 Python은 특정 분야를 위한 언어가 아니기 때문에 데이터 분석을 제외하고도 시스템 유틸리티 제작, 사물 인터넷 제작, 웹 프로그래밍 등 많은 분야에서 사용된다. 다만 Python은 R과는 다르게 데이터를 시각화하는 기능이 떨어지며 데이터 분석에 사용되는 패키지의 수가 비교적 적다는 단점을 지니고 있다. Python의 라이브러리인 Pandas는 데이터 분석을 위해 제작된 라이브러리로 Python을 이용해 데이터 분석을 할 때 필수적으로 사용되는 라이브러리이다.</p>
+                    <p>인공지능 개발자가 되기 위해 데이터 분석에 사용되는 언어들에 대해 공부를 해야겠다는 생각을 하게 되었고 이 과정에서 앞서 서술했듯이 난이도가 비교적 높은 R 보다는 이미 배운적 있는 Python을 통해 Pandas 라이브러리의 사용에 익숙해져야겠다 생각했다. 평소 농구를 굉장히 좋아해 NBA를 자주 챙겨 보는데, 여기서 영감을 받아 NBA 2020-2021 시즌 여러 기록들이 담겨 있는 파일을 Python Pandas를 이용해 분석하고 분석한 데이터를 바탕으로 시각화시키는 연습을 해봐야겠다는 생각에 이 주제를 선정하게 되었다.</p>
+                    <p>가장 먼저 NBA 2020-2021 시즌에 뛰었던 모든 선수들의 스탯이 담겨 있는 파일을 분석해 나이를 기준으로 야투 시도 횟수 및 성공률을 분석하고 이를 토대로 Python의 그래프를 그리는 라이브러리인 Matplotlib를 통해 그래프를 그려보았으며, 두 번째로 NBA 2020-2021 시즌의 모든 경기를 분석해 과연 홈 어드밴티지가 존재하는지를 알아보고, 만약 존재한다면 어느 정도의 경기력 향상에 이바지하는지를 분석해보았다.</p>
+
+                    <hr>
+
+                    <p class = "section">3. 탐구 내용:</p>
+                    <p class = "subsection">3-1. 탐구 내용 간략 설명 (선수 개인별 스탯 분석):</p>
+                    <p>NBA 2020-2021 정규 시즌에 뛰었던 모든 선수들의 스탯이 담겨 있는 파일 (<a href = "https://www.nbastuffer.com/2020-2021-nba-player-stats/">https://www.nbastuffer.com/2020-2021-nba-player-stats/</a>) 을 분석해 3점 시도 횟수, 3점 성공률, 2점 시도 횟수, 2점 성공률을 나이대별로 분석해 그래프로 전환시키면 다음과 같이 그래프가 생성이 된다.</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_nba2/figure1.png">
+                            <figcaption>Figure 1</figcaption>
+                        </figure>
+                    </div>
+                    <p>위 분석을 통해 농구가 신체 능력이 굉장히 큰 작용을 하는 스포츠인만큼 나이대가 젊은 선수들의 수가 굉장히 많음을 알 수 있었고, 나이대가 올라감에 따라 뛰고 있는 선수들의 수가 기하급수적으로 감소한다는 것을 알 수 있었다. 나이가 젊으면 뛰어난 신체 능력을 이용해 득점을 하기 비교적 쉽기 때문에 2점 시도 횟수와 성공률 모두 나이가 어린 집단에서의 수치가 나이가 많은 집단의 평균값보다 크다는 것을 알 수 있었지만, 3점슛은 NBA가 다른 리그보다 3점 기준 거리가 멀고 수비력이 좋은 선수들을 상대로 정교하게 쏘는 것이 어렵기 때문에서인지 비교적 리그에 적응한 나이가 많은 집단의 평균 3점 성공률이 나이가 어린 집단보다 높다는 것을 알 수 있었다.</p>
+
+                    <p class = "subsection">3-2. 탐구 내용 간략 설명 (홈 어드밴티지 분석):</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/articles/research_nba2/figure2.png">
+                            <figcaption>Figure 2</figcaption>
+                        </figure>
+                    </div>
+                    <p class = "caption6">
+                        <strong style = "text-decoration: underline;">분석을 위해 사용된 프로그램의 코드:</strong><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;2020-2021 시즌 모든 경기의 기록이 담겨 있는 파일인 ‘games.csv’ 를 이용해 홈 팀의 승률, 어웨이 팀의 승률, 두 팀의 평균 득점, 어시스트, 리바운드 수치를 분석한다.
+                    </p>
+                    <br>
+
+                    <p>
+                        총 24677 게임 분석:
+                        <ol class = "number_list">
+                            <li>홈팀이 승리한 게임 : 14536 경기</li>
+                            <li>어웨이팀이 승리한 게임 : 10141 경기</li>
+                            <li>홈에서 경기시 승률 : 58.91%</li>
+                            <li>득점 평균, 홈 vs 어웨이 = 102.77점 vs 99.91점</li>
+                            <li>어시스트 평균, 홈 vs 어웨이 = 22.65개 vs 21.30개</li>
+                            <li>리바운드 평균, 홈 vs 어웨이 = 43.27개 vs 41.97개</li>
+                        </ol>
+                    </p>
+                    <p>2020-2021 시즌의 총 24,677 경기를 분석한 결과, 홈 팀이 승리한 경우는 58.91%로 모든 팀이 홈 경기에서 보다 많은 승리를 하는 것으로 분석되었다. 또한 경기의 주요 데이터인 득점, 어시스트 그리고 리바운드의 평균값을 통해 NBA의 모든 팀들이 홈에서 경기할 때 경기력이 미약하지만 향상되었음을 알 수 있었다.</p>
+
+                    <hr>
+
+                    <p class = "section">4. 탐구 활동 중 새롭게 알게된 점 (탐구 활동을 통해 느낀점):</p>
+                    <p>첫 번째 데이터 분석을 통해 선수들의 나이대별 스탯을 살펴보니 확실히 신체 능력이 농구를 함에 있어 매우 중요한 역할을 한다는 것을 알 수 있었다. 다만 분석을 진행함에 있어 정규 시즌을 통틀어 겨우 1~2 경기를 뛴 선수이지만 뛴 시간동안 모든 야투를 성공시켜 야투율이 100%인 선수들이 있었다. 이런 선수들의 존재로 인해 데이터를 일반화하는데 어려움을 겪었고 생각보다 이렇게 분석에 방해가 되는 데이터들이 많다는 것을 알 수 있었다.</p>
+                    <p>두 번째 데이터 분석을 통해 홈 어드밴티지가 실제로 존재한다는 것을 알 수 있었지만 처음에 예상했던 것보다 경기력 향상이 크지 않음을 알 수 있었다. 홈 어드밴티지가 발생하는 원인에는 자유투시 홈 팀 팬들의 야유 및 응원, 구장의 분위기 등의 영향으로 인해 어웨이 팀 선수들이 심리적으로 위축되었을 것이라 예측할 수 있었다.</p>
+                    <p>탐구 활동을 진행하며 데이터의 양이 커짐에 따라 관리하는 것이 기하급수적으로 어려워진다는 것 느낄 수 있었고, 인터넷에서 다운 받은 데이터이기 때문에 앞서 말했던 것과 같이 중간중간에 의도치 않은 공백과 분석에 방해가 되는 데이터들이 존재해 원하는 분석 프로그램을 만들기 위해 코딩을 할 때 어려움을 겪었다. 또한 데이터를 분류하는 기준을 조금만 바꾸어도 분류되는 데이터의 종류와 양이 기존과는 완전히 달라지기 때문에 질적으로 학습에 적합한 데이터를 만드는 것이 얼마나 힘들고 중요한 일인지에 대해 몸소 느낄 수 있었다. 이번 기회를 통해 Python Pandas를 더욱 자유자재로 사용할 수 있게된 것 같아 인공지능 개발자에 한발짝 더 가까워졌다는 생각이 들었다.</p>
+
+                    <hr>
+
+                    <p class = "section">마무리</p>
+                    <p>현재의 지식에서 고등학교 3학년 때의 보고서를 바라보면, 전체적으로 '2. 주제 선정 이유'에 적혀 있는 배경 지식들이 너무나도 기초적인 내용들이라고 생각한다. 사실상 인공지능에 대한 깊은 지식은 전혀 없었다는 것을 간접적으로 느낄 수 있었고, 인공지능을 다룰 것처럼 발언은 했지만, 실제로 인공지능 모델을 사용하는 부분은 전혀 없었다. 소스코드 역시 코드의 내용을 이해하고 사용했다기보다 인터넷에 있는 코드를 단순히 그대로 가져다가 사용한 것 같다는 느낌을 받을 수 있었고, Pandas를 이용해 생성한 결과물들 역시 전처리나 후처리가 전혀 없기 때문에 결과값에 영향을 줄 수 있는 무의미한 데이터들이 너무 많다는 생각이 든다.</p>
+                    <p>여러모로 지식적인 측면에서 2년이라는 시간 동안 굉장히 많이 성장했다는 것을 느낄 수 있었던 보고서였다. 그럼에도, 고등학교 3학년의 나이로 다른 사람들이 모두 생각할 수 있는 간단한 데이터를 통해 뻔한 분석을 진행한 것이 아니라, 나름대로 자신이 좋아하는 분야(NBA)에서 데이터를 추출해 꽤나 의미 있는 결과를 직접 도출해냈다는 점에서, '입시'라는 시야를 좁게 만들며 '수능'을 제외한 모든 것들은 대충대충 넘어가게 만드는 벽이 있었음에도 그 당시에 이렇게 창의력있는 사고를 하며 완성도 있는 결과물을 만들었던 내 자신에게 칭찬의 말을 건내주고 싶다.</p>
+                    <p>2년 뒤에 내가 "Analyzing NBA data with Clustering and Regression"의 글을 볼 때, 지금과 똑같이 그때의 '나'는 지식이 부족했구나 라는 생각이 들 수 있도록 더욱 열심히 공부해야겠다는 생각을 하게 된다.</p>
+                </div>
+
+                <div id = "search">
+                    <ul class = "tag">
+                        <li>#Pandas</li>
+                        <li>#NBA</li>
+                        <li>#High School Project</li>
+                    </ul>
+                    <div class = "category"></div>
+                    <div class = "next_article"></div>
+                    <div class = "recent">최근 글:</div>
+                    <div class = "new_article"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class = "logo">JIMMY</div>
+
+            <p>@Copyright 2023 Jin-Myoung Hyun. All rights reserved.</p>
+            <br>
+            <p>Address: 155, Dongpangyo-ro, Bundang-gu, Seongnam-si, Gyeonggi-do, Republic of Korea</p>
+            <p>E-mail: jinmyoung.hyun@gmail.com</p>
+            <p>Tel: 010-4015-3961</p>
+        </footer>
+    </body>
+</html>
