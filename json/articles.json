@@ -148,5 +148,15 @@
         "date": "2024.01.21",
         "image": "images/articles/research_nba2/main.webp",
         "link": "articles/research_nba2.html"
+    },
+    {
+        "id": 16,
+        "title": "C, Python 3, Java 비교 분석과 각 언어의 가능성 탐구",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Research", "ETC"],
+        "tag_class": ["tag_research", "tag_etc3"],
+        "date": "2024.01.21",
+        "image": "images/articles/research_language-compare/main.jpg",
+        "link": "articles/research_language-compare.html"
     }
 ]
