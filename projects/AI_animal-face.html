@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personal Blog</title>
+        <link rel = "stylesheet" type = "text/css" href = "../styles/main.css">
+        <link rel = "stylesheet" type = "text/css" href = "../styles/post.css">
+        <script src = "../scripts/project.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div class = "navbar">
+                <span class = "logo"><a href = "../index.html">JIMMY</a></span>
+                <nav>
+                    <ul>
+                        <a href = "../index.html"><li>Home</li></a>
+                        <a href = "../articles.html"><li>Articles</li></a>
+                        <a href = "../projects.html"><li><strong>Projects</strong></li></a>
+                        <a href = "../about.html"><li>About</li></a>
+                        <a href = "../contact.html"><li>Contact</li></a>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <section id = "contents">
+                <div class = "title" style = "background-image: url(../images/projects/AI_animal-face/main.png);">
+                    <button class = "return" type = "button" onclick = "location.href = '../projects.html'">&lt; Get Back to Projects</button>
+                    <div class = "text">알파고(AlphaGo)에 사용된 알고리즘 분석 및 동물상 테스트 인공지능 학습</div>
+                </div>
+                
+                <div id = "content">
+                    <div class = "info">
+                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · Artificial Intelligence / Animal Face · 2024.01.28
+                    </div>
+                    
+                    <hr>
+
+                    <p class = "caption2">다음은 고등학교 2학년 때, 정보 수업 생기부를 위해 공부하고 직접 수행한 실험에 대한 보고서이다. '알파고 (AlphaGO)'에 대한 논문인 <span class = "bold italic">Mastering the game of Go with deep neural networks and tree search</span>을 분석한 내용을 담고 있으며, Teachable Machine을 이용해 직접 인공지능을 학습해본 과정을 담고 있다.</p>
+                    
+                    <hr>
+
+                    <p class = "section" style = "text-align: center;">요약</p>
+                    <p>본 연구에서는 구글 딥마인드(DeepMind Technologies Limited)에서 개발한 알파고(AlphaGo)에 적용된 알고리즘을 분석해 알파고가 어떻게 인공지능의 본질적인 한계를 뛰어넘어 인간을 초월할 수 없는 영역이라 여겨지던 바둑에서 인간을 능가할 수 있는 성능을 지니게 되었는지에 대해 알아보고자 한다. 이후, 구글에서 개발한 Teachable Machine이라는 프로그램을 통해 다양한 연예인들의 사진을 바탕으로 사람의 동물상을 판단할 수 있는 머신을 학습시키고, 이를 바탕으로 HTML을 이용해 실제로 사용할 수 있는 동물상 테스트 웹사이트를 만드는 것을 목표로 한다.</p>
+                    
+                    <hr>
+
+                    <p class = "section" style = "text-align: center;">목차</p>
+                    <p class = "subsection">I. 서론</p>
+                    <ol class = "number_list">
+                        <li>연구 배경 및 목적
+                            <ol class = "number_list">
+                                <li>연구 배경</li>
+                                <li>연구 목적</li>
+                            </ol>
+                        </li>
+                        <li>연구 방법 및 절차
+                            <ol class = "number_list">
+                                <li>연구 대상</li>
+                                <li>연구 방법</li>
+                            </ol>
+                        </li>
+                    </ol>
+                    <p class = "subsection">II. 이론적 배경 및 선행 연구</p>
+                    <ol class = "number_list">
+                        <li>알파고란?</li>
+                        <li>바둑이란?</li>
+                        <li>알파고의 작동 방식 및 알고리즘 분석</li>
+                        <li>관련 이론
+                            <ol class = "number_list">
+                                <li>MCTS 알고리즘 (Monte-Carlo Tree Search)</li>
+                                <li>브루트 포스 (Brute Force)</li>
+                            </ol>
+                        </li>
+                        <li>선행 연구
+                            <ol class = "number_list">
+                                <li>Teachable Machine</li>
+                            </ol>
+                        </li>
+                    </ol>
+                    <p class = "subsection">III. 개발 방법 및 절차</p>
+                    <p class = "subsection">IV. 개발 결과</p>
+                    <p class = "subsection">V. 결론</p>
+                    <ol class = "number_list">
+                        <li>최종 정리 및 의견</li>
+                        <li>한계점
+                            <ol class = "number_list">
+                                <li>연구 한계점</li>
+                                <li>개발 한계점</li>
+                            </ol>
+                        </li>
+                    </ol>
+
+                    <hr>
+
+                    <p class = "section">I. 서론</p>
+                    
+                    <p class = "subsection">1. 연구 배경 및 목적</p>
+                    <p><strong>1&rpar; 연구 배경</strong></p>
+                    <p>감독 윌리 피스터가 제작한 영화 ‘트랜센던스 (Transcendence) 를 본적 있는가? 간단히 줄거리에 대해 설명하자면 한 천재 과학자 ‘윌’ 은 의문의 테러 집단에 의해 공격을 받아 목숨을 잃게 된다. 그의 연인 ‘에블린’ 은 ‘윌’ 이 만든 인공지능에 그의 뇌를 업로드해 의식만은 되살리게 되지만, 인공지능의 엄청난 지식과 힘을 이용해 그는 인간들을 지배하는 지경에 이르게 된다. 이 영화는 2014년 5월에 개봉한 영화로 당시까지만 해도 사람들은 인공지능을 조금은 동떨어진 주제로 인식하고 있었다. 뚜렷한 인공지능의 결과물을 대다수의 사람들이 볼 수 없었기 때문에 이런 인식이 지배적이었다고 유추할 수 있다. 그러나 2016년, 인류 역사에 한 획을 그을 인공지능이 한국 최고의 바둑 기사에 승부를 걸게 되고, 인공지능에 대한 모두의 인식이 바뀌게 된다.</p>
+                    <p>인공지능 알파고는 전문가들이 인공지능은 절대로 인간을 능가할 수 없을 것이라 호언장담했던 ‘바둑’ 이라는 분야에서 인간을 상대로 승리했다는 점에서 큰 의의를 지닌다. 세계적인 바둑 기사 이세돌이 인공지능에게 패배하는 모습은 나를 비롯한 세계에 충격을 안겨주게 되고 이를 통해 인공지능에 대한 인식이 바로잡히게 된다. 사람들은 인공지능의 성장 속도가 우리가 생각했던 것보다 훨씬 빠르며, 인간을 초월하는 능력을 보여주고 있다는 점을 깨닫고 인간이 미래에 살아남을 수 있을 방안에 대해 알아보기 시작했다. 현재 인공지능 개발자를 꿈꾸는 사람으로서 인공지능에 대해 배우기 위해 알파고를 공부하다 보니 어떻게 알파고는 인공지능의 본질적인 한계를 뛰어 넘을 수 있었으며 실제로 이와 비슷한 인공지능 모듈을 직접 만드는 것이 가능한지 의문이 들었다. 이에 알파고에 사용된 알고리즘들이 어떤 것이 있으며 이를 바탕으로 직접 학습 가능한 인공지능을 만들어 보기로 결정했다.</p>
+                    <br>
+                    <p><strong>2&rpar; 연구 목적</strong></p>
+                    <p>알파고에 사용된 알고리즘과 전략에 대해 분석해보고 구글에서 제공하는 ‘Teachable Machine’ 이라는 프로그램을 통해 실제로 사용 가능한 인공지능을 만들어 보는 것을 목표로 한다.</p>
+
+                    <br>
+
+                    <p class = "subsection">2. 연구 방법 및 절차</p>
+                    <p><strong>1&rpar; 연구 대상</strong></p>
+                    <p>알파고</p>
+                    <p><strong>2&rpar; 연구 방법</strong></p>
+                    <p>알파고 개발진이 2015년 10월 프로 바둑 기사 판 후이와의 대국 이후 작성한 논문인 ‘Mastering the game of Go with deep neural networks and tree search’ 와 인터넷 검색을 통해 알파고의 사용된 여러 이론들에 대해 분석하고 연구한다.</p>
+
+                    <hr>
+
+                    <p class = "section">II. 이론적 배경 및 선행 연구</p>
+
+                    <p class = "subsection">1. 알파고란?</p>
+                    <p>알파고(AlphaGo)는 구글(Google)의 딥마인드(DeepMind Technologies Limited)가 개발한 인공지능 바둑 프로그램으로 2015년 10월 유럽 바둑 챔피언십(EGC)에서 3차례 우승한 프랑스의 판 후이 2단과의 5번기를 승리하고, 2016년 3월 여러 국제 기전에서 18차례 우승했던 세계 최상위급 프로 기사인 이세돌 9달과의 5번기 공개 대국에서 4승 1패로 승리해 프로 바둑 기사를 이긴 최초의 컴퓨터 인공지능이 되었다. 사실 바둑을 제외한 체스나 오델로 같은 보드 게임 분야에서는 이미 1900년대부터 인공지능은 인간의 능력을 능가하는 모습을 보여주었다. 대표적으로 IBM의 딥블루는 1997년 세계 체스 챔피언 가리 카스파로프를 상대로 승리하는 모습을 보여주었다. 딥블루는 10수 앞을 내다봤던 카스파로프와는 달리 12수 앞을 내다보며 체스는 더 이상 인간이 기계를 능가할 수 없는 영역이라 평가받게 되었다. 하지만 바둑은 체스를 비롯한 보드 게임과는 차원이 다른 분야이다. 19 x 19 영역에 자신의 돌이 타인의 돌 안에 위치하면 안되고, 자신의 집 안에 얼마나 공간이 있는지를 기반으로 점수를 측정하기 때문에 바둑의 경우의 수는 250150 ~ 10360으로 우주의 원자 수인 1080보다 훨씬 큰 수이다. 이는 현존하는 기술로는 절대 모든 경우의 수를 주어진 시간 안에 고려할 수 없다고 한다. 따라서 인공지능이 바둑이라는 분야에서 승리하기 위해서는 탐색 범위를 최적화하는 것이 가장 중요하다.</p>
+                    <br>
+
+                    <p class = "subsection">2. 바둑이란?</p>
+                    <p>우선 바둑이라는 분야에 대해 먼저 설명하자면 바둑은 19 x 19 사각형의 판 위에서 검은 돌과 흰 돌을 번갈아가며 사용해 상대방보다 더 많은 집을 지으면 이기는 게임이다. 만약 상대방 돌에 의해 자신의 돌이 완전히 둘러싸이게 되면 판에서 제거되는데 이런 지점을 ‘집' 으로 계산하게 된다. 공식적인 바둑 시합에서는 보통 제한시간을 준 후 그것을 다 사용하면 초읽기를 하게 된다. 예를 들어, 한 판에 각자 제한시간이 1시간인 경우 1시간을 모두 사용하고 나면 1분이나 30초 안에 한 수를 착수해야 하는데 이를 초읽기라 한다. 이는 다시 말해 알파고가 제한시간을 모두 사용하고 나면 1분이나 30초 안에 탐색을 종료해 착수해야 한다는 것을 의미하고, 이러한 한계 때문에 탐색 경우의 수를 최대한 줄이는 것이 바둑 인공지능의 가장 핵심적인 요소이다.</p>
+                    <br>
+
+                    <p class = "subsection">3. 알파고의 작동 방식 및 알고리즘 분석</p>
+                    <p>딥마인드에서는 탐색 경우의 수를 줄이기 위해 두 가지 방법을 사용했는데, 우선 첫째로 ‘action’ 후보군을 줄이는 것이었다 (Breadth Reduction). 다시 말해 알파고는 몬테카를로 트리 탐색 (MCTS, Monte Carlo Tree Search) 알고리즘을 통해 상대방의 수를 예측해 사람이 선택할 경우의 수만을 탐색한 것이다. 때문에 사람이 절대로 선택할 가능성이 없는 수들과 같이 탐색의 가치가 적은 수들을 무시함으로써 탐색 범위를 크게 줄였다.</p>
+                    <p>둘째로, 알파고는 Value Network를 통해 결과를 더 빨리 예측하고 판세를 실시간으로 평가해 탐색 범위를 크게 줄였다. Value Network란 판세를 평가하는 네트워크로 시뮬레이션을 끝까지 돌릴 필요 없이 이길 가능성이 없는 경우를 배제하기 위해 사용되는 알고리즘이다. 이때 Value Network는 사람의 기보뿐만 아니라, 다른 버전의 알파고끼리의 Self-Play 방식을 통해 학습시키는 RL Policy Network를 통해 학습시키게 된다. 이런 학습 방식을 통해 알파고는 이전 버전의 자기 자신을 80%의 승률로 이길 수 있게 되었으며, 판세를 실시간으로 평가해 최적의 탐색 방식을 스스로 고안해내게 된다. </p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/projects/AI_animal-face/figure1.png">
+                            <figcaption>Figure 1</figcaption>
+                        </figure>
+                    </div>
+                    <p>이러한 알고리즘적 방법 이외에도 알파고는 40개의 Search Threads, 1202개의 CPU, 176개의 GPU를 사용해 하드웨어적으로 탐색 속도를 높이기 위해 노력했다.</p>
+                    <p>앞서 언급한 알고리즘과 방법들을 통해 알파고는 아래의 그래프와 같이 기존에 존재하던 브루트 포스를 이용한 바둑 인공지능들을 압도하는 성능을 보여주게 되었으며, 결국 프로 바둑 기사를 이긴 최초의 바둑 인공지능 프로그램이 되었다.</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/projects/AI_animal-face/figure2.png">
+                            <figcaption>Figure 2</figcaption>
+                        </figure>
+                    </div>
+                    <br>
+                    
+                    <p class = "subsection">4. 관련 이론</p>
+                    <p><strong>1&rpar; MCTS 알고리즘 (Monte-Carlo Tree Search)</strong></p>
+                    <p>MCTS는 주로 게임 AI에 사용되는 알고리즘으로 시뮬레이션을 통해 가장 승률이 좋은 행동을 하도록 계산하는 알고리즘이다. MCTS는 3가지 조건이 만족될 때 사용할 수 있는데, 우선 가장 점수가 높은 경우를 따져야 하기 때문에 최대, 최소 값이 존재해야 한다. 둘째로 게임의 규칙이 존재해야 하며,  마지막으로 게임의 길이가 제한되어 트리가 무한 루프에 빠지지 않도록 해야한다.</p>
+                    <p>MCTS는 총 4가지 단계를 거친다. 첫째로 현재 노드에서 어떤 자식 노드로 이동할지 결정하기 위해 각 노드에서 Selection 이라는 단계를 거치게 된다. 이때 사용되는 Selection Function 은 Figure 3.의 식을 갖는데, w_i는 i 번 움직인 후의 승리 횟수를, n_i는 i 번 움직인 후의 시뮬레이션 횟수를, t는 시뮬레이션의 전체 횟수를 의미한다. Selection 이후 자식 노드에 도착하게 되면, 해당 노드의 자식 노드를 확장하게 되는데 이 과정을 Expansion 이라 부른다. 알파고의 경우 Rollout Policy와 SL Policy Network를 통해 Expansion 과정을 진행했는데, Rollout Policy는 사람의 기보를 통해 학습시키는 방법으로 레이어가 얇아 빠르게 시뮬레이션을 해야할 때 사용하고, SL Policy Network 역시 사람의 기보를 통해 학습시키지만 레이어가 두꺼워 한 수 한 수 착수 해야할 때 사용했다고 한다. Expansion 과정에서 만들어진 노드를 기반으로 게임이 끝날 때까지 실행해보게 되는데 이 과정을 Simulation, 그리고 Simulation을 기반으로 선택한 노드의 가치를 트래킹 과정을 통해 부여하는 것을 Backpropagation 이라 부른다. MCTS는 이렇게 4가지 단계를 매 수마다 반복해 승리할 수 있는 최적의 수를 탐색하게 된다.</p>
+                    <div class = "figures">
+                        <figure class = "single-figure" style = "width: 17%;">
+                            <img src = "../images/projects/AI_animal-face/figure3.png">
+                            <figcaption>Figure 3</figcaption>
+                        </figure>
+                    </div>
+                    <br>
+
+                    <p><strong>2&rpar; 브루트 포스 (Brute Force)</strong></p>
+                    <p>브루트 포스는 “무식한 힘” 이라는 해석 그대로 탐색해야 하는 자료를 처음부터 끝까지 DFS나 BFS의 방식을 통해 모두 탐색하는 완전 탐색 알고리즘이다. 예외 없이 모든 구간을 탐색하기 때문에 100%의 정확도를 자랑하지만 그만큼 탐색 속도나 효율적인 측면에서 떨어지는 알고리즘이다.</p>
+                    <div class = "figures">
+                        <figure class = "single-figure">
+                            <img src = "../images/projects/AI_animal-face/figure4.png">
+                            <figcaption>Figure 4</figcaption>
+                        </figure>
+                    </div>
+                    <br>
+
+                    <p class = "subsection">5. 선행 연구</p>
+                    <p>1&rpar; Teachable Machine</p>
+                    <p>Teachable Machine은 공부하기도 가르치기도 개발하기도 어려운 머신러닝을 학생들, 메이커들, 예술가들을 위해 구글에서 TensorFlow를 통해 개발한 머신러닝 모델이다. PC를 사용할 수 있는 사람이라면 누구라도 무료로 사용할 수 있는 도구로 이미지, 소리, 자세 (Pose), 웹캠 등을 통해 별도의 프로그램 설치 필요없이 머신을 학습시켜 사용하고자 하는 웹 페이지에 적용할 수 있다.</p>
+
+                    <hr>
+
+                    <p class = "section">III. 개발 방법 및 절차</p>
+                    <p class = "caption3">본 실험은 유튜버 ‘조코딩’ 의 ‘실전 수익형 웹, 앱 서비스 동물상 테스트 만들기’라는 컨텐츠에 기반해 진행되었음을 미리 알린다. (<a href = "https://www.youtube.com/playlist?list=PLU9-uwewPMe2-vtJAgWB6SNhHcTjJDgEO" style = "color: white">https://www.youtube.com/playlist?list=PLU9-uwewPMe2-vtJAgWB6SNhHcTjJDgEO</a>)</p>
+                    <p><strong>과정 1</strong>. 분류할 동물상의 개수와 종류를 정한 후, 각 동물상에 해당하는 연예인 (배우, 가수, 아이돌 등) 을 남자 4명, 여자 4명 선정했다. 한 명의 연예인 당 최대한 정면에서 얼굴이 나온 사진 10장을 수집했다.</p>
+                    <p>선정된 연예인 목록:</p>
+                    <div class = "figures">
+                        <figure class = "single-figure" style = "width: 60%;">
+                            <img src = "../images/projects/AI_animal-face/figure5.png">
+                            <figcaption>Figure 5</figcaption>
+                        </figure>
+                    </div>
+                    <p class = "caption3">각 동물상에 해당하는 연예인들은 인터넷 검색 및 주관적인 의견에 기반해 선정되었기 때문에 매우 주관적인 지표임을 알린다.</p>
+                    <br>
+
+                    <p><strong>과정 2</strong>. 구글에서 제공하는 ‘Teachable Machine’ (https://teachablemachine.withgoogle.com/) 을 이용해 남자 동물상과 여자 동물상을 판단할 머신을 각각 하나씩 만든 후, 각각의 동물상마다 하나의 클래스를 부여하고 수집한 사진들을 업로드해 학습시켜 주었다.</p>
+                    <div class = "figures">
+                        <figure class = "double-figure" style = "width: 49%;">
+                            <img src = "../images/projects/AI_animal-face/figure6.png">
+                            <figcaption>Figure 6</figcaption>
+                        </figure>
+                        <figure class = "double-figure" style = "width: 49%;">
+                            <img src = "../images/projects/AI_animal-face/figure7.png">
+                            <figcaption>Figure 7</figcaption>
+                        </figure>
+                    </div>
+                    <br>
+
+                    <p><strong>과정 3</strong>. 학습이 끝난 후, 각각의 머신을 드라이브에 업로드해 URL을 통해 언제든 접근할 수 있도록 추출해주었다.</p>
+                    <div class = "figures">
+                        <figure class = "double-figure" style = "width: 40%;">
+                            <img src = "../images/projects/AI_animal-face/figure8.png">
+                            <figcaption>Figure 8</figcaption>
+                        </figure>
+                        <figure class = "double-figure" style = "width: 40%;">
+                            <img src = "../images/projects/AI_animal-face/figure9.png">
+                            <figcaption>Figure 9</figcaption>
+                        </figure>
+                    </div>
+                    <p>소스코드 (순서대로 남자와 여자 동물상 머신의 코드):</p>
+                    <script src="https://gist.github.com/Kid7ho/6e94056f9f42c072b6f7448444aa0e15.js"></script>
+                    <script src="https://gist.github.com/Kid7ho/7b2ec00d9aae97b8a9ad0d3cfd29576a.js"></script>
+                    <br>
+
+                    <p><strong>과정 4</strong>. 온라인으로 IDE를 만들어 개발할 수 있는 ‘Groom IDE’ (https://ide.goorm.io/) 를 이용해 HTML 언어로 ‘3번’ 과정에서 업로드한 머신들을 사용해 원하는 사진의 동물상을 분석할 수 있는 서버를 구축했다.</p>
+                    <div class = "figures">
+                        <figure class = "single-figure" style = "width: 35%;">
+                            <img src = "../images/projects/AI_animal-face/figure10.png">
+                            <figcaption>Figure 10</figcaption>
+                        </figure>
+                    </div>
+                    <p class = "caption5">본 웹사이트 구축에 사용된 소스코드는 https://ide-run.goorm.io/workspace/Animal-Face?language=kor 에서 확인할 수 있다.</p>
+                    <br>
+                    <p>소스코드 설명:</p>
+                    <p>1&rpar; 웹사이트 상단에 “getbootstrap” 이라는 사이트에서 제공하는 ‘navbar’ 소스코드를 이용해 각각의 동물상의 특징을 설명하는 사이트들과 연결시켜 버튼 클릭시 해당 웹사이트로 이동할 수 있도록 만들었다.</p>
+                    <p class = "caption3">본 소스코드는 작성자가 사용 및 수정을 허가한 소스코드이다.</p>
+                    <p>2&rpar; 토글 버튼을 이용해 성별을 선택할 수 있도록 만든 후, 선택된 성별에 따라 연결된 머신의 URL 주소를 변경시켰다. 따라서 ‘여성' 을 선택한 경우 여자 연예인을 기반으로 학습된 머신이 호출되고, ‘남성' 을 선택한 경우 남자 연예인을 기반으로 학습된 머신이 호출이 된다.</p>
+                    <p>3&rpar; “codeopen.io” 에 올라와 있는 ‘Aaron Vanston’ 이라는 사람이 작성한 업로드 버튼 소스코드를 사용해 버튼을 눌러 원하는 사진을 웹사이트에 업로드할 수 있도록 만들었다.</p>
+                    <p class = "caption3">본 소스코드는 작성자가 사용 및 수정을 허가한 소스코드이다.</p>
+                    <p>4&rpar; 업로드된 사진을 학습된 머신을 통해 분석한 후, 가장 근접한 동물상이 무엇인지를 화면에 출력하고 분석된 동물상의 확률이 각각 그래프의 형태로 출력되도록 만들었다.</p>
+                    <div class = "figures">
+                        <figure class = "single-figure" style = "width: 60%;">
+                            <img src = "../images/projects/AI_animal-face/figure11.png">
+                            <figcaption>Figure 11</figcaption>
+                        </figure>
+                    </div>
+
+                    <hr>
+
+                    <p class = "section">IV. 개발 결과</p>
+                    <p><strong>결과 1</strong>. 동물상을 테스트할 수 있는 나만의 웹사이트를 구축하게 되었다. Link: <a href = "https://animal-face-dvrcz.run.goorm.io/Animal-Face/index.html">https://animal-face-dvrcz.run.goorm.io/Animal-Face/index.html</a></p>
+                    <div class = "figures">
+                        <figure class = "single-figure" style = "width: 55%;">
+                            <img src = "../images/projects/AI_animal-face/figure12.png">
+                            <figcaption>Figure 12</figcaption>
+                        </figure>
+                    </div>
+                    <br>
+                    <p><strong>결과 2</strong>. 성별을 선택한 후, 원하는 사진을 업로드하게 되면 이식해둔 머신에 의해 해당 인물 사진이 어떤 동물상에 가장 유사한지를 그래프를 통해 볼 수 있다.</p>
+                    <div class = "figures">
+                        <figure class = "double-figure" style = "width: 40%;">
+                            <img src = "../images/projects/AI_animal-face/figure13.png">
+                            <figcaption>Figure 13</figcaption>
+                        </figure>
+                        <figure class = "double-figure" style = "width: 40%;">
+                            <img src = "../images/projects/AI_animal-face/figure14.png">
+                            <figcaption>Figure 14</figcaption>
+                        </figure>
+                    </div>
+                    
+                    <hr>
+
+                    <p class = "section">V. 결론</p>
+                    <p class = "subsection">1. 최종 정리 및 의견</p>
+                    <p>어떤 이들은 ‘컴퓨터가 사람보다 계산을 잘하는 것은 당연한 일’ 이라고 알파고의 승리를 가볍게 치부하기도 한다. 하지만 알파고는 단순히 브루트 포스의 방식을 통해 인류를 상대로 승리한 것이 아닌 MCTS, Value Network 와 같은 알고리즘들을 적용시켜 탐색의 수를 압도적으로 줄인 단순한 컴퓨터 그 이상의 존재였음을 연구 및 분석을 통해 알 수 있었다.</p>
+                    <p>알파고에 대해 분석하며 한편으로는 이세돌과의 4차전에서 패배한 이유에 대해 조금은 유추할 수 있었다. 인간이 둘 가능성이 높은 수만을 탐색하는 알파고이기에 이세돌의 보통 인간 또는 프로 바둑 기사라면 두지 않은 수에 당황해 탐색을 정확히 하지 못했기 때문이라 예측할 수 있었다.</p>
+                    <p>알파고에 대해 공부하며 과연 인공지능의 한계는 어디까지일지 의문을 갖게 되었다. 최근 알파고를 의료, 기후 변화 예측, 자율 주행 자동차 등 다양한 분야에 적용할 것이라는 구글의 발표를 통해 인공지능이 얼마나 초월적인 성능을 앞으로 보여줄지, 또 얼마나 큰 변화를 가져올지에 대해 한편으로는 기대감이, 한편으로는 인간으로서 어떤 방식으로 미래 사회에 경쟁력을 갖추어야 할지에 대한 고민과 걱정이 들기도 했다.</p>
+                    <p>머신 러닝을 이용한 웹 서버를 만들며 머신 러닝이나 딥 러닝 같은 보통은 접근하기 어려운 분야들도 이제는 쉽게 개발하거나 접할 수 있는 기회들이 많아졌다는 생각이 들었다. 전문 지식이 충분하지 않아도, 코딩 능력이 출중하지 않아도 쉽고 간편하게 이용할 수 있다는 점에서 정말로 인류가 코딩 분야에서 큰 발전을 하고 있다는 것을 몸소 느낄 수 있었다.</p>
+                    <br>
+                    
+                    <p class = "subsection">2. 연구 및 개발 한계점</p>
+                    <p><strong>1&rpar; 연구 한계점</strong></p>
+                    <p>알파고를 개발한 딥마인드는 논문 (Mastering the game of Go with deep neural networks and tree search) 과 여러 미디어에 2015년 프로 바둑 기사 판 후이와의 대국에서 사용된 버전의 알파고에 대해서만 설명했기 때문에, 이세돌과의 대국 혹은 그 후에 어떤 알고리즘적 발전이 있었는지, 또 이세돌과의 4번째 대국 패배를 통해 그들이 무엇을 배우고 느꼈는지에 대한 내용을 알아볼 수 없다는 한계점을 지닌다.</p>
+                    <br>
+                    <p><strong>2&rpar; 개발 한계점</strong></p>
+                    <p>한 동물상을 학습시키는데 대표 연예인 한 명당 10장, 즉 총 40장만을 사용했기 때문에 압도적으로 학습 데이터가 부족해 학습된 머신이 정확하게 동물상을 판단하지 못했다는 한계점을 지닌다. 이에 동일한 인물의 다른 사진을 분석할 경우 다른 동물상이 나오는 현상이 종종 발생했다.</p>
+                    <p>사용된 모든 사진들이 인물의 정면 모습만을 찍고 있지는 않고, 흑백이지 않기 때문에 사진의 각도, 색깔, 배경, 옷, 악세사리 등이 변수로 개입되었을 가능성이 높다는 한계점을 지닌다.</p>
+                    <p>ex&rpar; 아이린 (Red Velvet) 은 사슴상으로 머신을 학습시켰지만, 다른 사진이 주어졌을 때 다른 결과가 도출되기도 했다.</p>
+                    <div class = "figures">
+                        <figure class = "single-figure" style = "width: 40%;">
+                            <img src = "../images/projects/AI_animal-face/figure15.png">
+                            <figcaption>Figure 15</figcaption>
+                        </figure>
+                    </div>
+                    
+                    <hr>
+
+                    <p class = "section">마무리</p>
+                    <p>인공지능이나 프로그래밍에 대해 잘 모르는 사람이 보면 고등학교 2학년 수준이라고는 생각이 들지 않을 수 있을 정도로 굉장히 짜임새 있으며 잘 만들어진 실험이자 보고서라는 생각이 들었다. 하지만 지금 컴퓨터과학과를 재학하고 있는 입장에서 이 보고서를 다시 들여다보면, 논문을 분석하는데 있어서 깊이가 전혀 없다는 것을 알 수 있다. 논문의 내용을 이해하고 글을 작성했다기 보다는, 다른 사람들이 해당 논문을 최대한 쉽게 이해할 수 있도록 추상적으로 변환한 내용에 대해서 정말 수박 겉핥기 수준으로만 이해했다는 느낌을 받을 수 있다. 하지만 애초에 논문을 처음으로 읽어보며, 인공지능에 대한 배경지식이 부족하고, 수학적인 기초 지식이 부족했던 그때 당시로는 할 수 있는 최선을 다했다는 생각이 든다. 이에 <span class = "bold italic">Mastering the game of Go with deep neural networks and tree search</span>을 배경지식이 더 많이 쌓인 지금, 다시 한 번 읽어보면 얼마나 이해할 수 있을까 라는 호기심이 들게되는 시간이었다.</p>
+                    <p>직접 학습한 '동물상 테스트'에 대해 이야기를 해보자면, 사실은 타인이 만든 작품을 거의 그대로 모당했다고 될 정도로 독창성은 없는 실험이라는 생각이 든다. 유튜버 '조코딩'님이 만든 '동물상 테스트'를 학습 데이터와 분류 종류만 바꿨기 때문에 조금은 더 신박하고 창의력 있는 주제에 대해 인공지능을 학습했으면 어땠을까 라는 생각이 든다 ('조코딩'님이 개발한 동물상 테스트는 다음 사이트에서 직접 확인해볼 수 있다, <a href = "https://animalface.site/ko/index.html">https://animalface.site/ko/index.html</a>). 또한 그 당시에는 인공지능을 직접 구현할 자신이 없어서 'Teachable Machine'이라는 이미 만들어진 인공지능을 활용했지만, 같은 데이터를 직접 인공지능을 구축해 학습시킨 다음, 'Teachable Machine'과의 성능 비교를 해보는 것도 좋을 것 같다는 생각이 들었다.</p>
+                    <p>당시 학습한 Teachable Machine과 동물상 테스트 사이트는 사용한 사이트들이 리뉴얼되는 과정에서 데이터가 모두 소실되었다. 때문에 직접 해당 모듈들을 사용해볼 수 없어 아쉽지만, 이렇게 보고서의 형태로라도 매우 꼼꼼하게 작성해두어서 다행이라는 생각이 든다. 앞으로는 노력을 들여 수행하거나 개발한 작업들이 사라지거나 이리저리 흩어지지 않도록 이 블로그에 모두 잘 기록해두어야겠다고 다시금 다짐하게 된다.</p>
+                </div>
+
+                <div id = "search">
+                    <ul class = "tag">
+                        <li>Artificial Intelligence</li>
+                        <li>AlphaGO</li>
+                        <li>Animal Face</li>
+                        <li>Teachable Machine</li>
+                    </ul>
+                    <div class = "category"></div>
+                    <div class = "next_project"></div>
+                    <div class = "recent">최근 글:</div>
+                    <div class = "new_project"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class = "logo">JIMMY</div>
+
+            <p>@Copyright 2023 Jin-Myoung Hyun. All rights reserved.</p>
+            <br>
+            <p>Address: 155, Dongpangyo-ro, Bundang-gu, Seongnam-si, Gyeonggi-do, Republic of Korea</p>
+            <p>E-mail: jinmyoung.hyun@gmail.com</p>
+            <p>Tel: 010-4015-3961</p>
+        </footer>
+    </body>
+</html>
