@@ -1,6 +1,16 @@
 [
     {
         "id": 1,
+        "title": "Personal Blog",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Websites", "Personal Blog"],
+        "tag_class": ["tag_web", "tag_personal-blog"],
+        "date": "2023.11.20",
+        "image": "images/projects/web_personal-blog/main.png",
+        "link": "projects/web_personal-blog.html"
+    },
+    {
+        "id": 2,
         "title": "Molly Molly",
         "author": "Jin-Myoung Hyun",
         "tag": ["Unity", "Molly Molly"],
@@ -10,7 +20,7 @@
         "link": "projects/unity_molly-molly.html"
     },
     {
-        "id": 2,
+        "id": 3,
         "title": "Flappy Bird",
         "author": "Jin-Myoung Hyun",
         "tag": ["Unity", "Flappy Bird"],
@@ -20,7 +30,7 @@
         "link": "projects/unity_flappy-bird.html"
     },
     {
-        "id": 3,
+        "id": 4,
         "title": "Kinetic Wall Clock",
         "author": "Jin-Myoung Hyun",
         "tag": ["Unity", "Kinetic Wall Clock"],
@@ -30,7 +40,7 @@
         "link": "projects/unity_kinetic-wall-clock.html"
     },
     {
-        "id": 4,
+        "id": 5,
         "title": "Tile-Game",
         "author": "Jin-Myoung Hyun",
         "tag": ["Unity", "Tile Game"],
@@ -38,5 +48,25 @@
         "date": "2024.01.21",
         "image": "images/projects/unity_tile-game/main.png",
         "link": "projects/unity_tile-game.html"
+    },
+    {
+        "id": 6,
+        "title": "Hexavity",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Unity", "Hexavity"],
+        "tag_class": ["tag_unity", "tag_hexavity"],
+        "date": "2024.01.28",
+        "image": "images/projects/unity_hexavity/main.png",
+        "link": "projects/unity_hexavity.html"
+    },
+    {
+        "id": 7,
+        "title": "알파고(AlphaGo)에 사용된 알고리즘 분석 및 동물상 테스트 인공지능 학습",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Artificial Intelligence", "Animal Face"],
+        "tag_class": ["tag_AI", "tag_animal-face"],
+        "date": "2024.01.28",
+        "image": "images/projects/AI_animal-face/main.png",
+        "link": "projects/AI_animal-face.html"
     }
 ]
