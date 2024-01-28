@@ -28,35 +28,35 @@
         
         <main>
             <section id = "contents">
-                <div class = "title" style = "background-image: url(../images/articles/baekjoon_1000/main.png);">
+                <div class = "title" style = "background-image: url(../images/articles/baekjoon_1260/main.png);">
                     <button class = "return" type = "button" onclick = "location.href = '../articles.html'">&lt; Get Back to Articles</button>
-                    <div class = "text_black">백준 1000. A+B</div>
+                    <div class = "text_black">백준 1260. DFS와 BFS</div>
                 </div>
                 
                 <div id = "content">
                     <div class = "info">
-                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · Algorithms / Mathematics · 2023.11.19
+                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · Algorithms / DFS / BFS · 2024.01.28
                     </div>
                     
                     <hr>
 
-                    <p class = "caption2">백준 1000. A+B: <a href = "https://www.acmicpc.net/problem/1000">https://www.acmicpc.net/problem/14940</a></p>
+                    <p class = "caption2">백준 1260. DFS와 BFS: <a href = "https://www.acmicpc.net/problem/1260">https://www.acmicpc.net/problem/1260</a></p>
                     
                     <hr>
 
-                    <p><strong>문제:</strong></p>
-                    <p>두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.</p>
+                    <p class = "section">문제:</p>
+                    <p>그래프를 DFS로 탐색한 결과와 BFS로 탐색한 결과를 출력하는 프로그램을 작성하시오. 단, 방문할 수 있는 정점이 여러 개인 경우에는 정점 번호가 작은 것을 먼저 방문하고, 더 이상 방문할 수 있는 점이 없는 경우 종료한다. 정점 번호는 1번부터 N번까지이다.</p>
                     <br>
-                    <p><strong>입력:</strong></p>
-                    <p>첫째 줄에 A와 B가 주어진다. (0 &lt; A, B &lt; 10)</p>
+                    <p class = "section">입력:</p>
+                    <p>첫째 줄에 정점의 개수 N(1 ≤ N ≤ 1,000), 간선의 개수 M(1 ≤ M ≤ 10,000), 탐색을 시작할 정점의 번호 V가 주어진다. 다음 M개의 줄에는 간선이 연결하는 두 정점의 번호가 주어진다. 어떤 두 정점 사이에 여러 개의 간선이 있을 수 있다. 입력으로 주어지는 간선은 양방향이다.</p>
                     <br>
                     <p class = "section">출력:</p>
-                    <p>첫째 줄에 A+B를 출력한다.</p>
+                    <p>첫째 줄에 DFS를 수행한 결과를, 그 다음 줄에는 BFS를 수행한 결과를 출력한다. V부터 방문된 점을 순서대로 출력하면 된다.</p>
 
                     <hr>
 
                     <p class = "section">풀이:</p>
-                    <p>2개의 입력을 받아 합을 출력하면 되는 단순한 문제이다. 입력으로 두 개의 정수가 공백으로 구분되어 주어지기 때문에 각 언어의 'split' 기능 이용해 두 정수를 분리하고 각각의 정수를 변수에 담아 합을 출력한다.</p>
+                    <p>단순히 주어진 입력을 DFS와 BFS를 통해 탐색해보면 되는 문제이다. 이때 주의할 것은 탐색을 할 때 정점 번호가 작은 것을 먼저 방문하도록 DFS와 BFS를 구현해야 한다는 점이다.</p>
 
                     <hr>
 
@@ -72,13 +72,13 @@
                             <li class = "tab_link" data-tab = "tab7"><img src = "../images/articles/baekjoon/tab7.png" alt = "JavaScript">JavaScript</li>
                         </ul>
 
-                        <div id = "tab1" class = "tab_content current"><script src = "https://gist.github.com/Kid7ho/55b025e016df8b10448a8a350c075397.js"></script></div>
-                        <div id = "tab2" class = "tab_content"><script src = "https://gist.github.com/Kid7ho/0318f4ad36f2317ffac44c74241f40f0.js"></script></div>
-                        <div id = "tab3" class = "tab_content"><script src = "https://gist.github.com/Kid7ho/73152d8cd0a21d16cc84eadfe116c6e9.js"></script></div>
-                        <div id = "tab4" class = "tab_content"><script src = "https://gist.github.com/Kid7ho/36467e0d10738b3744292c38ca311b35.js"></script></div>
-                        <div id = "tab5" class = "tab_content"><script src = "https://gist.github.com/Kid7ho/d9244798b7c1a73267a7ca9cf553c201.js"></script></div>
-                        <div id = "tab6" class = "tab_content"><script src = "https://gist.github.com/Kid7ho/84ace66a64fe34b3206095effddfc7b4.js"></script></div>
-                        <div id = "tab7" class = "tab_content"><script src = "https://gist.github.com/Kid7ho/2e41c5748325cad85da967d38a12e2fd.js"></script></div>
+                        <div id = "tab1" class = "tab_content current"><script src="https://gist.github.com/Kid7ho/90ee8da10910b071ea821b66867800e9.js"></script></div>
+                        <div id = "tab2" class = "tab_content"><script src="https://gist.github.com/Kid7ho/a69e8fa05f6624a736e0043bfbe8a288.js"></script></div>
+                        <div id = "tab3" class = "tab_content"><script src="https://gist.github.com/Kid7ho/0a1666251effedfb2e3bcb16bd51c730.js"></script></div>
+                        <div id = "tab4" class = "tab_content"><script src="https://gist.github.com/Kid7ho/7b8bf1d88ed7ce2a668645d00b9c753f.js"></script></div>
+                        <div id = "tab5" class = "tab_content"><script src="https://gist.github.com/Kid7ho/c120f1ac19acd5cb937ccb65287ffd2b.js"></script></div>
+                        <div id = "tab6" class = "tab_content">Not Ready</div>
+                        <div id = "tab7" class = "tab_content">Not Ready</div>
                     </div>
                 </div>
 
