@@ -45,24 +45,93 @@
                     <hr>
 
                     <p class = "section">2. First Experiment: Zero-shot Prompting vs Few-shot Prompting</p>
+
                     <p class = "subsection">2.1. Planning Experiment</p>
                     <p>For our first experiment, we will check the performance difference between Zero-shot Prompting and Few-shot Prompting. In order to check whether Language Models' reasoning ability improves proportionally to the number of shots, we will implement Zero-shot, Five-shot, Ten-shot and calculate the accuracy of the models, respectively.</p>
                     <p>In order to implement Zero-shot, Five-shot, and Ten-shot Prompting, we will run the source code in Step 1-1. Since in these prompting, we will not implement Chain-of-Thought. Therefore, we will only split the actual answer from the dataset using the 'split("\#\#\#\#")[-1]' function. By calling the 'construct\_prompt()' function, we made Zero-shot, Five-shot, and Ten-shot Prompting models. Then we will run source codes on Step 1-2., Step 1-3., Step 1-4. to calculate the accuracy of each model. We will run 50 inputs on each model and since running these models only once can lead us to do hasty generalization, we will repeat the experiment 5 times.</p>
+                    <br>
+
                     <p class = "subsection">2.2. Experiment Result</p>
                     <p>The following is the result of the experiment:</p>
-                    <p>Table 1</p>
+                    <div class = "figures">
+                        <figure class = "single-figure" style = "width: 40%;">
+                            <img src = "../images/articles/research_lm-implementation/figure1.png">
+                            <figcaption>Figure 1</figcaption>
+                        </figure>
+                    </div>
                     <p>You can check the prompt of each model and the actual result of each model on the attached files (prompt\_0shot.txt, result\_0shot\_direct.json, etc.). For the actual result, even though we have run the same source code 5 times, only the last one is attached.</p>
                     <p>Let's analyze the result. By checking the average accuracy each model produced, we can see that Few-shot prompting does improve reasoning ability compared to Zero-shot prompting. Also, we can check that increasing the number of shots may not always proportionally increase reasoning ability. However, we can not generalize that as the number of shots increases, the reasoning ability stays the same due to the reasons that will be stated later on (Check 2.3. Limitations).</p>
+                    <br>
+
                     <p class = "subsection">2.3. Limitations</p>
                     <p>Let's think about the limitations of the experiment. First of all, as stated above, we repeated the experiment 5 times to avoid hasty generalization. However, 5 times of repetition may also not be enough to avoid hasty generalization. If we repeat the experiment more than 100 times, it may change the result. In the same sense, we only tested 50 inputs per model, which will not be enough amount of inputs.</p>
                     <p>Secondly, the limitation is that we only used the GSM8K dataset. Since only one kind of dataset was being used, the model trained might have been overfitted by the dataset.</p>
                     <p>Lastly, the process of splitting the answer from the result from each model made some errors. For example, if we check 'result\_5shot\_direct.json', the prediction extracted for question \#3 is '\$250,000'. Also, for question \#15, the prediction extracted is '25\%'. Since the answer stored in the dataset is just an integer that doesn't have any measurement in front or after the number and it also doesn't have a 'comma' between every 3 digits. Therefore, even if the actual prediction was correct while comparing the prediction with the actual answer, the source code might have assumed such a case 'wrong' which makes the accuracy of the model lower than the actual. Therefore, those are the limitations of Experiment 1.</p>
 
-                    ...
+                    <hr>
+
+                    <p class = "section">3. Second Experiment: Standard Prompting vs Chain-of-Thought Prompting</p>
+                    
+                    <p class = "subsection">3.1. Planning Experiment</p>
+                    <p>For our next experiment, let’s check whether ’Chain-of-Thought Prompting’ does improve the reasoning ability of the Language Model compared to standard prompting. In order to check such a fact, we will use a dataset that has a reasoning step on the answer. In order to use such a dataset, we will use the GSM8K dataset extracted in Step 0-2. and replace the keyword ’####’ with ’The answer is’ (Check Step 2-1. for source code). This way, each answer in the dataset contains a reasoning step. By calling the ’construct prompt() CoT’ function, we made Five-shot with CoT, Ten-shot with CoT Prompting models. We will run 50 inputs on each model and repeat the same experiment 5 times.</p>
+                    <p>We will get the accuracy of the Five-shot and Ten-shot Prompting model that does not implement Chain-of-Thought from the first experiment.</p>
+                    <p>Since we trained each model in Chain-of-Though Prompting, the answer each model produces is in a sentence. Therefore, we will extract what is assumed to be the actual answer each model produces and compare that number with the actual answer (Check Step 2-2. and Step 2-3. for source code, the entire answer each model produces for each question is printed on the console of Step 2-2. and Step 2-3. while calculating the accuracy).</p>
+                    <br>
+
+                    <p class = "subsection">3.2. Experiment Result</p>
+                    <p>The following is the result of the experiment:</p>
+                    <div class = "figures">
+                        <figure class = "single-figure" style = "width: 40%;">
+                            <img src = "../images/articles/research_lm-implementation/figure2.png">
+                            <figcaption>Figure 2</figcaption>
+                        </figure>
+                    </div>
+                    <p>You can check the prompt of each model and the actual result of each model on the attached files (prompt 5shot CoT.txt, result 5shot CoT direct.json, etc.). For the actual result, even though we have run the same source code 5 times, only the last one is attached.</p>
+                    <br>
+                    <p>Let’s analyze the result. By checking the average accuracy each model produced, we can see that by implementing Chain-of-Thought, there are meaningful increases in the models’ accuracies. Therefore, we can assume that CoT prompting does improve the reasoning ability of the Language Model. Also, we can check that as the number of shots increases, CoT prompting improves the accuracy more. However, just as stated in 2.2. Experiment Result, it is too early to generalize that as the number of shots increases, the reasoning ability always increases due to the reasons that will be stated later on (Check 3.3. Limitations).</p>
+                    <br>
+
+                    <p class = "subsection">3.3. Limitations</p>
+                    <p>Let’s think about the limitations. First of all, we can easily see that this experiment shares the limitations with the first experiment. In detail, both of the experiments share the first and second limitations stated in 2.3. Limitations.</p>
+                    <p>Secondly, and most importantly, it is very hard to extract the final answer each model produces. Let’s look at some examples to see why it is hard to extract the final answer.</p>
+                    <div class = "figures">
+                        <figure class = "single-figure" style = "width: 40%;">
+                            <img src = "../images/articles/research_lm-implementation/figure3.png">
+                            <figcaption>Figure 3</figcaption>
+                        </figure>
+                    </div>
+                    <p>The above chart shows some examples of answers produced by the Five-shot with Chain-of-Thought Prompting model (Check Step 2-2.). As we can see, some of the answers end with the statement ”answer is”. However, if we check all of the answers models produce by looking at the console of each model, we can see that most of the answers terminate even before the final result is calculated. This tells us that a few reasoning steps are missing for many of the answers. Also even if all of the reasoning steps exist, the way each answer represents the final answer is different. Therefore, it is very hard to extract the final answer produced by the model with a consistent pattern.</p>
+                    <p>In order to extract what is most likely to be the actual answer in this experiment, the source code iterates each answer from the back and extracts the number that appears first as the final answer. Also, to avoid the third limitation of the first experiment, the source code ignores the ’comma’ between numbers and ignores measurement symbols. Even so, since the extracted answer can never be guaranteed to be the actual final answer, the calculated accuracy may be different from the actual accuracy. Thus, we can not 100% be sure that Chain-of-Though prompting improves the reasoning ability and can not be sure that the reasoning ability increases proportionally to the number of shots.</p>
 
                     <hr>
 
+                    <p class = "section">4. Third Experiment: Chain-of-Thought Prompting in various Model Scale</p>
                     
+                    <p class = "subsection">4.1. Planning Experiment</p>
+                    <p>For our last experiment, we will check whether the Chain-of-Thought prompting is an emerging ability of model scale. We will use OPT-350M, OPT-1.3B, OPT-2.7B, and LLaMA2-7B to check such facts (Check Step 0-1. for the source code to implement those models). We will use a Ten-shot with CoT prompting as the basis prompting for this experiment. Since we already have the result of LLaMA2-7B from experiment 2, we will use the result from experiment 2 and will calculate the accuracy of OPT-350M, OPT-1.3B, and OPT-2.7B by only changing the model on the source code used in experiment 2 (Check Step 3-1., Step 3-2. Step 3-3. for full source codes).</p>
+                    <br>
+                    
+                    <p class = "subsection">4.2. Experiment Result</p>
+                    <p>The following is the result of the experiment:</p>
+                    <div class = "figures">
+                        <figure class = "single-figure" style = "width: 40%;">
+                            <img src = "../images/articles/research_lm-implementation/figure4.png">
+                            <figcaption>Figure 4</figcaption>
+                        </figure>
+                    </div>
+                    <p>You can check the prompt of each model and the actual result of each model on the attached files (prompt 10shot CoT.txt, result 10shot CoT direct opt1 3b.json, etc.). For the actual result, even though we have run the same source code 5 times, only the last one is attached.</p>
+                    <p>Let’s analyze the result. In theory, the reasoning ability of the model should increase as the size of the model increases. However, for OPT-1.3B, the opposite of our expectations happened. The average accuracy of OPT-1.3B was actually lower than OPT-350M (We will talk about the reason why for OPT-1.3B the result was different from our expectation in 4.3. Limitations.). But in general, we can see that as the size of the model increases, the accuracy of the model increases. Therefore, we can assume that the size of the parameter that has been used to train each model affects the ability of such models to read and understand the prompt better to solve the given task. We can also find out that, even if the size of the model becomes twice as large, it doesn’t mean that the accuracy becomes twice as large too.</p>
+                    <br>
+
+                    <p class = "subsection">4.3. Limitations</p>
+                    <p>Now let’s think about the limitations of the experiment. The third experiment shares all the limitations of 3.3. Limitations. The scale of the experiment is too small to generalize and overfitting might occur. Also, it is very hard to extract the final answer.</p>
+                    <p>One thing that is noticeable is that, for many of the answers that OPT models produce, the same line is duplicated over lines (You can check such fact by looking at the console of Step 3-1., Step 3-2., Step 3-3.). Therefore, we can assume that some step of reasoning is missing or is replicated. Due to the above reasons, we can predict that even though OPT-1.3B should have higher accuracy than OPT-350M in theory, the actual result was lower. Also, since the accuracies of each model are not assured to be precise, we can not extract a precise mathematical relation between the size of the model and the accuracy. We can only assume that as the size of the model increases, the accuracy will also increase without knowing how much it will increase in detail.</p>
+                    
+                    <hr>
+
+                    <p class = "section">5. Conclusion</p>
+                    <p>By conducting the experiment 1, 2, and 3, we were able to check the fact that few-show prompting, Chain-of-Thought prompting, and model scale affects the models’ reasoning ability. If we compare how much each implementation affects the accuracy of the model, we can find out that implementing in Few-shot affects the accuracy the most, followed by the scale of the model, and Chain-of-Thought prompting.</p>
+                    <p>However, as we reasoned above, the experiments had some crucial limitations. Therefore, it will be very important to scale the experiments up on a large scale and to find a better way to extract the final answer from the model’s answer. Also making sure the model doesn’t miss any of the reasoning steps will change the result on a large scale. Implementing a new comparing algorithm so that the source code can decide whether the model’s final answer is equal to the actual answer in more of a flexible way will make the experiments’ results more reliable too.</p>
                 </div>
 
                 <div id = "search">

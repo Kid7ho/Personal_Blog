@@ -158,5 +158,15 @@
         "date": "2024.01.21",
         "image": "images/articles/research_language-compare/main.jpg",
         "link": "articles/research_language-compare.html"
+    },
+    {
+        "id": 17,
+        "title": "백준 1260. DFS와 BFS",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Algorithms", "DFS / BFS"],
+        "tag_class": ["tag_alg", "tag_dbfs"],
+        "date": "2024.01.28",
+        "image": "images/articles/baekjoon_1260/main.png",
+        "link": "articles/baekjoon_1260.html"
     }
 ]
