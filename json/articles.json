@@ -168,5 +168,15 @@
         "date": "2024.01.28",
         "image": "images/articles/baekjoon_1260/main.png",
         "link": "articles/baekjoon_1260.html"
+    },
+    {
+        "id": 18,
+        "title": "백준 2331. 반복수열",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Algorithms", "Mathematics"],
+        "tag_class": ["tag_alg", "tag_math"],
+        "date": "2024.01.28",
+        "image": "images/articles/baekjoon_2331/main.png",
+        "link": "articles/baekjoon_2331.html"
     }
 ]
