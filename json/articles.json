@@ -51,26 +51,6 @@
     },
     {
         "id": 6,
-        "title": "Transformer 논문 리뷰: Attention Is All You Need",
-        "author": "Jin-Myoung Hyun",
-        "tag": ["Research", "NLP"],
-        "tag_class": ["tag_research", "tag_NLP"],
-        "date": "2023.12.31",
-        "image": "images/articles/research_transformer-review/main.jpg",
-        "link": "articles/research_transformer-review.html"
-    },
-    {
-        "id": 7,
-        "title": "BERT 논문 리뷰: Pre-training of Deep Bidirectional Transformers for Language Understanding",
-        "author": "Jin-Myoung Hyun",
-        "tag": ["Research", "NLP"],
-        "tag_class": ["tag_research", "tag_NLP"],
-        "date": "2023.12.31",
-        "image": "images/articles/research_bert-review/main.png",
-        "link": "articles/research_bert-review.html"
-    },
-    {
-        "id": 8,
         "title": "[CS224N 리뷰] Lecture 1: Word Vectors",
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "NLP"],
@@ -80,7 +60,7 @@
         "link": "articles/research_CS224N-lecture1.html"
     },
     {
-        "id": 9,
+        "id": 7,
         "title": "[CS224N 리뷰] Lecture 2: Neural Classifiers",
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "NLP"],
@@ -90,7 +70,7 @@
         "link": "articles/research_CS224N-lecture2.html"
     },
     {
-        "id": 10,
+        "id": 8,
         "title": "[CS224N 리뷰] Lecture 3: Backprop and Neural Networks",
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "NLP"],
@@ -100,7 +80,7 @@
         "link": "articles/research_CS224N-lecture3.html"
     },
     {
-        "id": 11,
+        "id": 9,
         "title": "[CS224N 리뷰] Lecture 5: Dependency Parser, Neural Network, and Language Model",
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "NLP"],
@@ -110,7 +90,7 @@
         "link": "articles/research_CS224N-lecture5.html"
     },
     {
-        "id": 12,
+        "id": 10,
         "title": "[CS224N 리뷰] Lecture 6: RNN & LSTM",
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "NLP"],
@@ -120,7 +100,7 @@
         "link": "articles/research_CS224N-lecture6.html"
     },
     {
-        "id": 13,
+        "id": 11,
         "title": "[CS224N 리뷰] Lecture 7: Translation, Seq2Seq, Attention",
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "NLP"],
@@ -130,7 +110,7 @@
         "link": "articles/research_CS224N-lecture7.html"
     },
     {
-        "id": 14,
+        "id": 12,
         "title": "[CS224N 리뷰] Lecture 8: Self-Attention and Transformer",
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "NLP"],
@@ -140,7 +120,7 @@
         "link": "articles/research_CS224N-lecture8.html"
     },
     {
-        "id": 15,
+        "id": 13,
         "title": "Python Pandas를 이용해 NBA 2020-2021 시즌 데이터 분석 및 시각화",
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "ETC"],
@@ -150,7 +130,7 @@
         "link": "articles/research_nba2.html"
     },
     {
-        "id": 16,
+        "id": 14,
         "title": "C, Python 3, Java 비교 분석과 각 언어의 가능성 탐구",
         "author": "Jin-Myoung Hyun",
         "tag": ["Research", "ETC"],
@@ -160,7 +140,7 @@
         "link": "articles/research_language-compare.html"
     },
     {
-        "id": 17,
+        "id": 15,
         "title": "백준 1260. DFS와 BFS",
         "author": "Jin-Myoung Hyun",
         "tag": ["Algorithms", "DFS / BFS"],
@@ -170,7 +150,7 @@
         "link": "articles/baekjoon_1260.html"
     },
     {
-        "id": 18,
+        "id": 16,
         "title": "백준 2331. 반복수열",
         "author": "Jin-Myoung Hyun",
         "tag": ["Algorithms", "Mathematics"],
@@ -180,7 +160,7 @@
         "link": "articles/baekjoon_2331.html"
     },
     {
-        "id": 19,
+        "id": 17,
         "title": "백준 4963. 섬의 개수",
         "author": "Jin-Myoung Hyun",
         "tag": ["Algorithms", "DFS / BFS"],
@@ -190,7 +170,7 @@
         "link": "articles/baekjoon_4963.html"
     },
     {
-        "id": 20,
+        "id": 18,
         "title": "백준 10451. 순열 사이클",
         "author": "Jin-Myoung Hyun",
         "tag": ["Algorithms", "DFS / BFS"],
@@ -200,7 +180,7 @@
         "link": "articles/baekjoon_10451.html"
     },
     {
-        "id": 21,
+        "id": 19,
         "title": "백준 16956. 늑대와 양",
         "author": "Jin-Myoung Hyun",
         "tag": ["Algorithms", "Mathematics"],
@@ -210,3 +190,41 @@
         "link": "articles/baekjoon_16956.html"
     }
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+{
+    "id": 6,
+    "title": "Transformer 논문 리뷰: Attention Is All You Need",
+    "author": "Jin-Myoung Hyun",
+    "tag": ["Research", "NLP"],
+    "tag_class": ["tag_research", "tag_NLP"],
+    "date": "2023.12.31",
+    "image": "images/articles/research_transformer-review/main.jpg",
+    "link": "articles/research_transformer-review.html"
+},
+{
+    "id": 7,
+    "title": "BERT 논문 리뷰: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    "author": "Jin-Myoung Hyun",
+    "tag": ["Research", "NLP"],
+    "tag_class": ["tag_research", "tag_NLP"],
+    "date": "2023.12.31",
+    "image": "images/articles/research_bert-review/main.png",
+    "link": "articles/research_bert-review.html"
+},
+*/
