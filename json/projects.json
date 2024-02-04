@@ -68,5 +68,15 @@
         "date": "2024.01.28",
         "image": "images/projects/AI_animal-face/main.png",
         "link": "projects/AI_animal-face.html"
+    },
+    {
+        "id": 8,
+        "title": "Tank Game",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Unity", "Tank Game"],
+        "tag_class": ["tag_unity", "tag_tank-game"],
+        "date": "2024.02.04",
+        "image": "images/projects/unity_tank-game/main.png",
+        "link": "projects/unity_tank-game.html"
     }
 ]
