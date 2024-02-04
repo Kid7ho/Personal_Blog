@@ -28,35 +28,41 @@
         
         <main>
             <section id = "contents">
-                <div class = "title" style = "background-image: url(../images/articles/);">
+                <div class = "title" style = "background-image: url(../images/articles/baekjoon_16956/main.png);">
                     <button class = "return" type = "button" onclick = "location.href = '../articles.html'">&lt; Get Back to Articles</button>
-                    <div class = "text_black">...</div>
+                    <div class = "text_black">백준 16956. 늑대와 양</div>
                 </div>
                 
                 <div id = "content">
                     <div class = "info">
-                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · #### / #### · ####.##.##
+                        <strong><a href = "../about.html">Jin-Myoung Hyun</a></strong> · Algorithms / Mathematics · 2024.02.04
                     </div>
                     
                     <hr>
 
-                    <p class = "caption2">백준 ####. ####: <a href = "https://www.acmicpc.net/problem">https://www.acmicpc.net/problem</a></p>
+                    <p class = "caption2">백준 16956. 늑대와 양: <a href = "https://www.acmicpc.net/problem/16956">https://www.acmicpc.net/problem/16956</a></p>
                     
                     <hr>
 
                     <p class = "section">문제:</p>
-                    <p>...</p>
+                    <p>크기가 RxC인 목장이 있고, 목장은 1x1 크기의 칸으로 나누어져 있다. 각각의 칸에는 비어있거나, 양 또는 늑대가 있다. 양은 이동하지 않고 위치를 지키고 있고, 늑대는 인접한 칸을 자유롭게 이동할 수 있다. 두 칸이 인접하다는 것은 두 칸이 변을 공유하는 경우이다.</p>
+                    <p>목장에 울타리를 설치해 늑대가 양이 있는 칸으로 갈 수 없게 하려고 한다. 늑대는 울타리가 있는 칸으로는 이동할 수 없다. 울타리를 설치해보자.</p>
                     <br>
                     <p class = "section">입력:</p>
-                    <p>...</p>
+                    <p>첫째 줄에 목장의 크기 R, C가 주어진다.</p>
+                    <p>둘째 줄부터 R개의 줄에 목장의 상태가 주어진다. '.'는 빈 칸, 'S'는 양, 'W'는 늑대이다.</p>
                     <br>
                     <p class = "section">출력:</p>
-                    <p>...</p>
+                    <p>늑대가 양이 있는 칸으로 갈 수 없게 할 수 있다면 첫째 줄에 1을 출력하고, 둘째 줄부터 R개의 줄에 목장의 상태를 출력한다. 울타리는 'D'로 출력한다. 울타리를 어떻게 설치해도 늑대가 양이 있는 칸으로 갈 수 있다면 첫째 줄에 0을 출력한다.</p>
+                    <p class = "section">제한:</p>
+                    <p>1 ≤ R, C ≤ 500</p>
 
                     <hr>
 
                     <p class = "section">풀이:</p>
-                    <p>...</p>
+                    <p>해당 문제에서 울타리를 어떻게 설치하더라도 '늑대'가 '양'이 있는 칸으로 이동할 수 있는 경우는 언제일까? 바로 '늑대'와 '양'이 있는 칸이 서로 인접한 경우이다. 때문에 탐색을 진행하면서 '늑대'들과 '양'들이 서로 한 곳에서라도 인접해있다면 울타리를 설치할 수 없다고 출력하면 된다.</p>
+                    <p>만약 울타리를 설치할 수 있다면, 어떻게 설치해야 할까? 이 문제가 난이도가 높지 않은 이유는 바로 설치할 수 있는 울타리 개수의 제한이 없다는 점이다. 즉, 만약 울타리를 설치할 수 있는 환경이라는 점이 판단이 되면, '늑대'와 '양'으로 채워져있지 않은 빈 공간들에 <span class = "red bold">모두 '울타리'를 세워도 무방</span>하다는 것이다.</p>
+                    <p>위 풀이를 코드를 통해 직접 구현한 것이 다음과 같다.</p>
                     
                     <hr>
 
@@ -72,11 +78,11 @@
                             <li class = "tab_link" data-tab = "tab7"><img src = "../images/articles/baekjoon/tab7.png" alt = "JavaScript">JavaScript</li>
                         </ul>
 
-                        <div id = "tab1" class = "tab_content current">Not Available Yet</div>
-                        <div id = "tab2" class = "tab_content">Not Available Yet</div>
-                        <div id = "tab3" class = "tab_content">Not Available Yet</div>
-                        <div id = "tab4" class = "tab_content">Not Available Yet</div>
-                        <div id = "tab5" class = "tab_content">Not Available Yet</div>
+                        <div id = "tab1" class = "tab_content current"><script src="https://gist.github.com/Kid7ho/deaf698af2e297beb8ef7c7d1197d6cf.js"></script></div>
+                        <div id = "tab2" class = "tab_content"><script src="https://gist.github.com/Kid7ho/2d8ad8f61ecb9f40eb986b730764f529.js"></script></div>
+                        <div id = "tab3" class = "tab_content"><script src="https://gist.github.com/Kid7ho/6947fbc264cdfcb2f3c6f45710b20d3d.js"></script></div>
+                        <div id = "tab4" class = "tab_content"><script src="https://gist.github.com/Kid7ho/696b59acd7fe206aa61d6485f7c90cdb.js"></script></div>
+                        <div id = "tab5" class = "tab_content"><script src="https://gist.github.com/Kid7ho/579f0f79c7ea9725cbe906004a05f890.js"></script></div>
                         <div id = "tab6" class = "tab_content">Not Available Yet</div>
                         <div id = "tab7" class = "tab_content">Not Available Yet</div>
                     </div>
@@ -84,11 +90,8 @@
 
                 <div id = "search">
                     <ul class = "tag">
-                        <li>#</li>
-                        <li>#</li>
-                        <li>#</li>
-                        <li>#</li>
-                        <li>#</li>
+                        <li>#백준</li>
+                        <li>#수학</li>
                     </ul>
                     <div class = "category"></div>
                     <div class = "next_article"></div>
