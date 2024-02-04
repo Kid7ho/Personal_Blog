@@ -178,5 +178,35 @@
         "date": "2024.01.28",
         "image": "images/articles/baekjoon_2331/main.png",
         "link": "articles/baekjoon_2331.html"
+    },
+    {
+        "id": 19,
+        "title": "백준 4963. 섬의 개수",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Algorithms", "DFS / BFS"],
+        "tag_class": ["tag_alg", "tag_dbfs"],
+        "date": "2024.02.04",
+        "image": "images/articles/baekjoon_4963/main.png",
+        "link": "articles/baekjoon_4963.html"
+    },
+    {
+        "id": 20,
+        "title": "백준 10451. 순열 사이클",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Algorithms", "DFS / BFS"],
+        "tag_class": ["tag_alg", "tag_dbfs"],
+        "date": "2024.02.04",
+        "image": "images/articles/baekjoon_10451/main.png",
+        "link": "articles/baekjoon_10451.html"
+    },
+    {
+        "id": 21,
+        "title": "백준 16956. 늑대와 양",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Algorithms", "Mathematics"],
+        "tag_class": ["tag_alg", "tag_math"],
+        "date": "2024.02.04",
+        "image": "images/articles/baekjoon_16956/main.png",
+        "link": "articles/baekjoon_16956.html"
     }
 ]
