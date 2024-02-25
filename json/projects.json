@@ -88,5 +88,25 @@
         "date": "2024.02.25",
         "image": "images/projects/unity_angry-bird/main.png",
         "link": "projects/unity_angry-bird.html"
+    },
+    {
+        "id": 10,
+        "title": "Omok",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Unity", "Omok"],
+        "tag_class": ["tag_unity", "tag_omok"],
+        "date": "2024.02.25",
+        "image": "images/projects/unity_omok/main.png",
+        "link": "projects/unity_omok.html"
+    },
+    {
+        "id": 11,
+        "title": "Othello",
+        "author": "Jin-Myoung Hyun",
+        "tag": ["Unity", "Othello"],
+        "tag_class": ["tag_unity", "tag_othello"],
+        "date": "2024.02.25",
+        "image": "images/projects/unity_othello/main.png",
+        "link": "projects/unity_othello.html"
     }
 ]
