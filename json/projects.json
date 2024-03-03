@@ -114,7 +114,7 @@
         "title": "쓰레기 공작소",
         "author": "Jin-Myoung Hyun",
         "tag": ["Unity", "Trash Collect"],
-        "tag_class": ["tag_unity", "tag_trash-collect"],
+        "tag_class": ["tag_web", "tag_trash-collect"],
         "date": "2024.03.03",
         "image": "images/projects/web_trash-collect/main.jpeg",
         "link": "projects/web_trash-collect.html"
