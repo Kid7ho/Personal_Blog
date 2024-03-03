@@ -108,15 +108,5 @@
         "date": "2024.02.25",
         "image": "images/projects/unity_othello/main.png",
         "link": "projects/unity_othello.html"
-    },
-    {
-        "id": 12,
-        "title": "Omok - Unity ML Agent를 통해 인공지능 부여하기",
-        "author": "Jin-Myoung Hyun",
-        "tag": ["Unity", "Omok"],
-        "tag_class": ["tag_unity", "tag_omok"],
-        "date": "2024.03.03",
-        "image": "images/projects/unity_omok_ml-agent/main.png",
-        "link": "projects/unity_omok_ml-agent.html"
     }
 ]
