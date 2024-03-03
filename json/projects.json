@@ -111,7 +111,7 @@
     },
     {
         "id": 12,
-        "title": "쓰레기 공작소",
+        "title": "쓰레기 공작소: 인터넷 프로그래밍 팀 프로젝트",
         "author": "Jin-Myoung Hyun",
         "tag": ["Unity", "Trash Collect"],
         "tag_class": ["tag_web", "tag_trash-collect"],
