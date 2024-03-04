@@ -126,17 +126,25 @@
                     </div>
                     <ul class = "non-number_list">
                         <li>유저가 매시업 서버에 데이터를 보낸다.</li>
-                        <li><span class = "bold blue">이미지를 통한 쓰레기 분리수거 정보 제공</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;매시업 서버가 받은 이미지 정보를 Teachable Machine Model을 통해 가장 유사한 쓰레기 분류를 얻는다.</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;쓰레기의 분류에 따라 분리수거 데이터를 제공한다.</li>
-                        <li><span class = "bold blue">사용자 거주지에 따른 쓰레기 배출 날짜와 위치 제공</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;매시업 서버가 사용자의 거주지 유형과 쓰레기 유형 정보를 얻는다.</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;매시업 서버가 Geolocation API를 통해 사용자 위치 정보를 얻는다.</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;Kakao Map API를 통해 사용자 위치의 지역을 알아내고 그 지역에 해당되는 쓰레기 배출 날짜와 요일을 제공한다.</li>
-                        <li><span class = "bold blue">사용자가 분리수거 정보를 얻을 때 도감을 채우고 소셜미디어에 공유</span></li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;매시업 서버가 받은 이미지 정보를 DeepAI Image Similarity API를 통해서 어떤 쓰레기와 가장 유사한지 얻어낸다.</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;사진과 유사한 쓰레기들의 리스트를 뽑아낸 뒤 사용자로부터 사진에 있는 쓰레기의 종류를 알아낸다.</li>
-                        <li>&nbsp;&nbsp;&nbsp;&nbsp;해당되는 쓰레기에 대한 정보를 제공한다. 또한, Kakao Share API를 통해 SNS에 관련 정보를 업로드 할 수 있다.</li>
+                        <ol class = "number_list">
+                            <li>이미지를 통한 쓰레기 분리수거 정보 제공</li>
+                            <ul class = "non-number_list">
+                                <li>매시업 서버가 받은 이미지 정보를 Teachable Machine Model을 통해 가장 유사한 쓰레기 분류를 얻는다.</li>
+                                <li>쓰레기의 분류에 따라 분리수거 데이터를 제공한다.</li>
+                            </ul>
+                            <li>사용자 거주지에 따른 쓰레기 배출 날짜와 위치 제공</li>
+                            <ul class = "non-number_list">
+                                <li>매시업 서버가 사용자의 거주지 유형과 쓰레기 유형 정보를 얻는다.</li>
+                                <li>매시업 서버가 Geolocation API를 통해 사용자 위치 정보를 얻는다.</li>
+                                <li>Kakao Map API를 통해 사용자 위치의 지역을 알아내고 그 지역에 해당되는 쓰레기 배출 날짜와 요일을 제공한다.</li>
+                            </ul>
+                            <li>사용자가 분리수거 정보를 얻을 때 도감을 채우고 소셜미디어에 공유</li>
+                            <ul class = "non-number_list">
+                                <li>매시업 서버가 받은 이미지 정보를 DeepAI Image Similarity API를 통해서 어떤 쓰레기와 가장 유사한지 얻어낸다.</li>
+                                <li>사진과 유사한 쓰레기들의 리스트를 뽑아낸 뒤 사용자로부터 사진에 있는 쓰레기의 종류를 알아낸다.</li>
+                                <li>해당되는 쓰레기에 대한 정보를 제공한다. 또한, Kakao Share API를 통해 SNS에 관련 정보를 업로드 할 수 있다.</li>
+                            </ul>
+                        </ol>
                     </ul>
                     <br>
 
@@ -211,19 +219,280 @@
 
                     <p class = "section" style = "text-align: center;">인터넷프로그래밍 프로젝트 보고서</p><br>
 
+                    <p class = "section">1. 매시업 아키텍처</p>
+                    <div class = "figures">
+                        <figure style = "width: 60%;">
+                            <img src = "../images/projects/web_trash-collect/figure1.png">
+                            <figcaption>Figure 1</figcaption>
+                        </figure>
+                    </div>
+                    <ol class = "number_list">
+                        <li>이미지를 통한 쓰레기 분리수거 정보 제공</li>
+                        <ul class = "non-number_list">
+                            <li>분리배출 종류에 따른 사진 데이터셋을 이용해 Teachable Machine Model을 학습시킨다.</li>
+                            <li>매시업 서버가 받은 이미지 정보를 학습된 Teachable Machine Model에 전송하고, Model을 실행시켜 가장 유사한 분리배출 분류를 획득 및 추출된 분류를 다시 서버로 전송한다.</li>
+                            <li>미리 만들어둔 분리배출 정보 json 파일에서 해당 쓰레기가 포함되는 분리배출 분류의 분리배출 방법을 추출해서 화면에 출력한다.</li>
+                        </ul>
+                        <li>사용자 거주지에 따른 쓰레기 배출 날짜와 위치 제공</li>
+                        <ul class = "non-number_list">
+                            <li>매시업 서버가 사용자의 거주지 유형에 대한 정보를 얻고, Kakao Map API를 통해 위치 좌표에 대한 정보를 얻는다.</li>
+                            <li>매시업 서버가 Geolocation API를 통해 사용자 위치 정보를 얻는다.</li>
+                            <li>Kakao Map API와 서울시 법정동 위치 정보를 연결해 구역을 나눈다.</li>
+                            <li>Kakao Map API를 통해 사용자 위치의 행정구역을 알아내고, 다른 지역과 구분되는 해당 지역의 쓰레기 배출 날짜와 요일 정보를 제공한다.</li>
+                        </ul>
+                        <li>사용자가 분리수거 정보를 얻을 때 도감을 채우고 소셜미디어에 공유</li>
+                        <ul class = "non-number_list">
+                            <li>매시업 서버가 이미지 정보를 유저로부터 받으면, 유저의 로그인 정보를 토대로 DB에서 해당 유저의 도감 등록 데이터를 받아온다.</li>
+                            <li>입력받은 이미지 정보를 사진 유사도 비교 API를 활용해 이미지와 가장 유사한 물건의 이름을 추출한다. 추출한 이름이 만약 해당 유저가 아직 도감에 등록하지 않은 아이템들의 목록 안에 존재한다면, 위 쓰레기를 도감에 새로 등록하고 DB에 유저의 도감 데이터를 동기화한다.</li>
+                            <li>도감은 DB에서 해당 유저가 등록한 쓰레기들에 대해 도감 아이템 정보 json을 기반으로 사진, 분리배출 분류, 자세한 설명 등을 보여준다. </li>
+                            <li>이때, Kakao Share API를 통해 도감의 내용을 SNS에 업로드 및 공유할 수 있다.</li>
+                        </ul>
+                    </ol>
+                    <br>
 
+                    <p class = "section">2. 전체 시스템 구성</p>
+                    <ul class = "non-number_list">
+                        <li><strong>홈</strong> (home.ejs & home.css)</li>
+                        <ul class = "non-number_list">
+                            <li>웹 페이지 설명</li>
+                            <ul class = "non-number_list">
+                                <li>해당 웹에 대한 간단한 설명 소개</li>
+                            </ul>
+                            <li>다른 페이지와 연결</li>
+                            <ul class = "non-number_list">
+                                <li>로그인, 회원 정보 수정, 지도, 스캔, 도감 시스템으로 연결되는 버튼 구성</li>
+                            </ul>
+                            <li>header.ejs와 public/images에 있는 이미지를 이용해 공통적으로 사용할 수 있는 헤더 구성</li>
+                        </ul>
+                        <li><strong>로그인</strong> (login.ejs & login.css & login.js)</li>
+                        <ul class = "non-number_list">
+                            <li>로그인 / 회원가입 기능</li>
+                            <ul class = "non-number_list">
+                                <li>회원가입 기능을 통해 유저들에 대한 정보를 DB와 연결</li>
+                                <ul class = "non-number_list">
+                                    <li>DB에 User.js 형식의 유저 데이터와 Wiki.js 형식의 도감 아이템에 대한 데이터가 연결</li>
+                                    <li>유저의 아이디, 비밀번호, 이메일, 프로필 사진 등의 정보를 저장</li>
+                                    <li>유저가 도감에 존재하는 아이템 중 어떤 아이템을 등록했는지에 대한 목록을 저장</li>
+                                </ul>
+                                <li>회원가입시 8가지 프로필 사진 중 하나 선택 가능</li>
+                                <ul class = "non-number_list">
+                                    <li>public/images/profile에 있는 사진들을 프로필 사진으로 이용</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                        <li><strong>회원 정보</strong> (profile.ejs & profile-edit.ejs & profile.css)</li>
+                        <ul class = "non-number_list">
+                            <li>회원 프로필 기능 (profile.ejs & profile.css)</li>
+                            <ul class = "non-number_list">
+                                <li>회원의 프로필 사진, 닉네임, 등급, 도감에 등록한 쓰레기의 종류 등을 확인 가능</li>
+                                <li>회원의 등급은 도감에 등록한 쓰레기의 수에 따라 ‘Rookie’, ‘Skilled’, ‘Expert’로 구분</li>
+                            </ul>
+                            <li>회원 정보 수정 기능 (profile-edit.ejs & profile.css)</li>
+                            <ul class = "non-number_list">
+                                <li>회원의 정보 중 이메일, 비밀번호, 프로필 사진을 변경</li>
+                            </ul>
+                        </ul>
+                        <li><strong>지도</strong> (map.ejs & map.css & map.js)</li>
+                        <ul class = "non-number_list">
+                            <li>행정 구역에 따른 분리배출 장소 및 시간 정보 확인 기능</li>
+                            <ul class = "non-number_list">
+                                <li>지도를 통한 위치 선택 기능</li>
+                                <ul class = "non-number_list">
+                                    <li>서울시 지도를 표시하고 클릭을 했을 때 위치 좌표를 추출할 수 있도록 카카오맵 API 사용</li>
+                                    <li>카카오맵 API와 직접 제작한 서울시 법정동별 좌표 정보 데이터를 이용해 서울시의 특정 동을 선택할 수 있도록 구현</li>
+                                    <ul class = "non-number_list">
+                                        <li>seoul_map.geojson에서 서울을 구성하는 구들의 위치 정보를 추출하고, seoul_sig.geojson에서 각각의 동들의 위치 정보를 추출해 카카오맵 API 위에 출력</li>
+                                    </ul>
+                                </ul>
+                                <li>현재 위치를 통한 위치 선택 기능</li>
+                                <ul class = "non-number_list">
+                                    <li>모바일 Geolocation API를 이용해 카카오맵을 통해 장소를 선택하지 않아도 현재 자신의 위치를 선택할 수 있도록 연결</li>
+                                </ul>
+                                <li>주택의 형태 선택 기능</li>
+                                <ul class = "non-number_list">
+                                    <li>버튼을 통해 확인하고 싶은 주택의 형태를 선택</li>
+                                </ul>
+                                <li>입력을 종합해 정보 출력</li>
+                                <ul class = "non-number_list">
+                                    <li>직접 제작한 서울시 법정동별 분리배출 시간 및 장소 정보 데이터를 기반으로 선택된 행정구역에서 해당 주택에 거주하는 사람이 일반쓰레기, 음식폐기물, 재활용품, 대형폐기물을 언제 그리고 어디에 버릴 수 있는지에 대한 정보를 확인할 수 있도록 창 구현</li>
+                                    <ul class = "non-number_list">
+                                        <li>입력된 주택의 형태와 행정구역을 바탕으로 recycling_data.json에서 분리배출 시간 및 장소 정보를 추출</li>
+                                        <li>modal.ejs를 통해 분리배출 정보를 출력 출력</li>
+                                    </ul>
+                                </ul>
+                            </ul>
+                        </ul>
+                        <li><strong>스캔</strong> (scan.ejs & scan.css & scan.js)</li>
+                        <ul class = "non-number_list">
+                            <li>쓰레기 촬영 및 분리배출 방법 제시 기능</li>
+                            <ul class = "non-number_list">
+                                <li>제안서에 표시한 분리수거 쓰레기 사진 데이터셋, 음식물쓰레기 사진 데이터셋, 그리고 직접 선별한 일반쓰레기 사진 데이터셋을 기반으로 Teachable Machine Model을 학습 (일반쓰레기의 경우 데이터셋이 존재하지 않아 일반쓰레기에 분류되는 여러 쓰레기들의 사진을 직접 수집)</li>
+                                <li>카메라 API를 이용해 사진을 촬영할 수 있도록 구현</li>
+                                <li>촬영된 사진을 학습된 Teachable Machine Model에 전송하고 가장 확률이 높은 분리배출 분류를 Teachable Machine Model에서 추출</li>
+                                <li>직접 제작한 분류를 분리배출 방법 데이터에서 추출된 분리배출 분류를 찾고, 해당 분리배출 분류의 자세한 분리배출 방법을 화면에 출력</li>
+                                <ul class = "non-number_list">
+                                    <li>public/images/trash_type에 있는 사진들을 이용해 분리배출 분류에 해당되는 사진을 출력</li>
+                                    <li>description.json에서 분리배출 분류에 해당되는 분리배출 정보를 찾아 출력</li>
+                                </ul>
+                            </ul>
+                            <li>도감에 새로운 쓰레기를 등록하는 기능</li>
+                            <ul class = "non-number_list">
+                                <li>유저가 입력한 사진을 유사도 비교 API에 전송해 가장 유사한 종류의 아이템 이름을 추출</li>
+                                <li>추출된 아이템 이름이 유저가 도감에 아직 등록되지 않은 아이템들의 목록에 존재하면, 도감에 해당 쓰레기를 새로 등록</li>
+                                <ul class = "non-number_list">
+                                    <li>DB에 해당 유저의 도감 등록 쓰레기 목록을 동기화</li>
+                                </ul>
+                                <li>해당 쓰레기가 도감에 등록되었다는 문구를 출력</li>
+                            </ul>
+                        </ul>
+                        <li><strong>도감</strong> (wikis.ejs & encyclopedia.ejs & wiki.css & encyclopedia.css)</li>
+                        <ul class = "non-number_list">
+                            <li>도감 아이템 목록 (wikis.ejs & wiki.css)</li>
+                            <ul class = "non-number_list">
+                                <li>로그인 기능을 통해 구현된 유저 정보를 기반으로 DB에 접근해 해당 유저가 등록한 도감 아이템의 리스트에 접근</li>
+                                <li>유저가 이미 등록한 쓰레기 아이템들은 아이템의 이름, 분리배출 종류, 사진이 정상적으로 출력되도록 구현</li>
+                                <ul class = "non-number_list">
+                                    <li>encyclopedia.json을 이용해 각각의 아이템의 이름, 분리배출 종류, 사진에 대한 정보를 이용</li>
+                                    <li>public/images/wiki에 있는 사진들을 이용해 해당되는 아이템의 사진 출력</li>
+                                </ul>
+                                <li>유저가 아직 등록하지 않은 쓰레기 아이템은 아이템의 이름, 분리배출 종류를 ‘???’로 표기하고 사진을 흐리게 출력</li>
+                            </ul>
+                            <li>도감 아이템의 상세 정보 기능 (encyclopedia.ejs & encyclopedia.css)</li>
+                            <ul class = "non-number_list">
+                                <li>도감 아이템 목록에서 하나의 아이템을 누르면, 해당 아이템의 이름, 도감 번호, 사진, 분리배출 종류, 상세한 분리배출 방법 등이 적혀 있는 페이지로 전환</li>
+                                <ul class = "non-number_list">
+                                    <li>encyclopedia.json에서 해당되는 아이템을 찾고 아이템에 대한 모든 정보를 출력</li>
+                                </ul>
+                                <li>DB에 접근해 해당 아이템을 도감에 등록한 유저들의 목록에 접근해 목록을 페이지 하단에 출력</li>
+                            </ul>
+                            <li>공유하기 기능</li>
+                            <ul class = "non-number_list">
+                                <li>카카오톡 공유 API를 이용해 유저가 도감에 존재하는 아이템을 다른 친구들에게 공유할 수 있도록 구현</li>
+                                <li>‘아이템 이름', ‘아이템 상세 설명', ‘웹으로 이동' 순서대로 카카오톡 메세지가 전송될 수 있도록 구현</li>
+                            </ul>
+                        </ul>
+                        <li>index.js를 통해 모든 API들 연결</li>
+                    </ul>
+                    <br>
 
+                    <p class = "section">3. 서비스 시나리오 별 실행 결과</p>
+                    <ol class = "number_list">
+                        <li>쓰레기를 버리려고 하는데 해당 쓰레기를 어떻게 분리배출해야 하는지 모르는 유저 A</li>
+                        <p>유저 A는 떡볶이를 배달시켰다. 떡볶이는 플라스틱 배달용기에 담겨 배달이 왔는데, 아무리 배달용기를 닦아도 양념이 배달용기 벽 부분에 딱 달라붙어 제거되지 않았다. 유저 A는 음식물이 붙어 있는 배달용기를 플라스틱으로 재활용해야 하는지 일반 쓰레기로 버려야 하는지 헷갈리는 상황이다. 이때 유저 A는 인터넷에 직접 검색할 필요 없이, ‘쓰레기 공작소'의 스캔 기능을 사용해 양념이 묻은 배달 용기의 사진을 찍어 어떤 분리배출 분류에 포함이 되는지, 해당 분류를 분리배출하는 올바른 방법 등을 간편하게 확인할 수 있다.</p>
+                        <div class = "figures">
+                            <figure style = "width: 20%;">
+                                <img src = "../images/projects/web_trash-collect/figure2.jpeg">
+                                <figcaption>Figure 2</figcaption>
+                            </figure>
+                            <figure style = "width: 20%;">
+                                <img src = "../images/projects/web_trash-collect/figure3.jpeg">
+                                <figcaption>Figure 3</figcaption>
+                            </figure>
+                            <figure style = "width: 20%;">
+                                <img src = "../images/projects/web_trash-collect/figure4.jpeg">
+                                <figcaption>Figure 4</figcaption>
+                            </figure>
+                        </div>
+                        <li>‘쓰레기 공작소'의 쓰레기 도감을 완성하고 싶은 유저 B</li>
+                        <p>유저 B는 ‘쓰레기 공작소'를 자주 활용하는 유저이다. 그와 그의 친구들은 서로 협력해 ‘쓰레기 공작소'의 도감을 전부 완성하고자 한다. 유저 B는 기존에 검색한 적이 없는 쓰레기들의 분리배출 분류를 ‘쓰레기 공작소’의 사진 기능을 활용해 확인하고 새로운 쓰레기 X를 도감에 등록하게 된다. 유저 B는 도감 기능에 들어가서 자신이 지금까지 등록한 쓰레기들 중에서 방금 등록한 쓰레기 X를 클릭한다. 새로 등록된 쓰레기가 어떤 분리배출 분류에 해당되는지, 쓰레기 X의 상세한 정보를 확인한 유저 B는 하단에 존재하는 ‘해당 쓰레기를 도감에 등록한 유저’에서 자신의 친구들의 아이디를 찾아 본다. 자신의 친구들이 쓰레기 X를 아직 도감에 등록하지 못했다는 것을 깨달은 유저 B는 도감의 ‘공유하기’ 버튼을 통해 간편하게 친구들에게 쓰레기 X에 대한 내용을 공유한다.</p>
+                        <div class = "figures">
+                            <figure style = "width: 20%;">
+                                <img src = "../images/projects/web_trash-collect/figure5.jpeg">
+                                <figcaption>Figure 5</figcaption>
+                            </figure>
+                            <figure style = "width: 20%;">
+                                <img src = "../images/projects/web_trash-collect/figure6.jpeg">
+                                <figcaption>Figure 6</figcaption>
+                            </figure>
+                            <figure style = "width: 20%;">
+                                <img src = "../images/projects/web_trash-collect/figure7.jpeg">
+                                <figcaption>Figure 7</figcaption>
+                            </figure>
+                            <figure style = "width: 20%;">
+                                <img src = "../images/projects/web_trash-collect/figure8.jpeg">
+                                <figcaption>Figure 8</figcaption>
+                            </figure>
+                        </div>
+                        <div class = "figures">
+                            <figure style = "width: 20%;">
+                                <img src = "../images/projects/web_trash-collect/figure9.jpeg">
+                                <figcaption>Figure 9</figcaption>
+                            </figure>
+                            <figure style = "width: 20%;">
+                                <img src = "../images/projects/web_trash-collect/figure10.jpeg">
+                                <figcaption>Figure 10</figcaption>
+                            </figure>
+                            <figure style = "width: 20%;">
+                                <img src = "../images/projects/web_trash-collect/figure11.jpeg">
+                                <figcaption>Figure 11</figcaption>
+                            </figure>
+                        </div>
+                        <li>현재 거주하고 있는 지역구에서 특정 쓰레기를 어디에 어떻게 버려야 하는지 모르는 유저</li>
+                        <ol class = "number_list">
+                            <li>현재 거주하고 있는 지역구에서 특정 쓰레기를 어디에 어떻게 버려야 하는지 모르는 유저</li>
+                            <p>유저 C는 강남구 논현동으로 이사를 왔다. 플라스틱 배달 용기가 굉장히 많이 쌓여 있지만, 부동산에서 쓰레기를 무슨 요일에 어떤 장소에 버려야 하는지 알려주지 않아 버리지 못하고 있는 상황이다. 이때 유저 C는 ‘쓰레기 공작소'의 지도 기능에서 ‘일반 주택’ 유형을 선택하고 지도에 표시되는 현재 위치를 기반으로 자신이 거주하고 있는 구체적인 행정 구역을 선택할 수 있다. 이를 통해 강남구 논현동에서는 일반 주택에서 재활용품을 언제 배출해야 하는지와 어디에 배출해야 하는지에 대한 정보를 쉽게 확인할 수 있다.</p>
+                            <div class = "figures">
+                                <figure style = "width: 20%;">
+                                    <img src = "../images/projects/web_trash-collect/figure12.jpeg">
+                                    <figcaption>Figure 12</figcaption>
+                                </figure>
+                                <figure style = "width: 20%;">
+                                    <img src = "../images/projects/web_trash-collect/figure13.jpeg">
+                                    <figcaption>Figure 13</figcaption>
+                                </figure>
+                                <figure style = "width: 20%;">
+                                    <img src = "../images/projects/web_trash-collect/figure14.jpeg">
+                                    <figcaption>Figure 14</figcaption>
+                                </figure>
+                                <figure style = "width: 20%;">
+                                    <img src = "../images/projects/web_trash-collect/figure15.jpeg">
+                                    <figcaption>Figure 15</figcaption>
+                                </figure>
+                            </div>
+                            <li>음식점을 운영하고 있는 유저 D</li>
+                            <p>유저 D는 서울 서대문구 연희동에 음식점을 새로 차렸다. 음식물 쓰레기가 많이 쌓여 있으나 일반 주택과 달리 음식점은 다른 장소에 쓰레기를 배출해야 한다는 소문을 들어 쓰레기를 무작위로 버리기 애매한 상황이다. 이때 유저 D는 ‘쓰레기 공작소’의 지도 기능에서 ‘가로변상가’ 유형을 선택하고 지도에서 연희동을 찾아 클릭하면 연희동에서는 음식점에서 음식폐기물을 언제 배출해야 하는지와 어디에 배출해야 하는지에 대한 정보를 쉽게 확인할 수 있다.</p>
+                            <div class = "figures">
+                                <figure style = "width: 20%;">
+                                    <img src = "../images/projects/web_trash-collect/figure16.jpeg">
+                                    <figcaption>Figure 16</figcaption>
+                                </figure>
+                                <figure style = "width: 20%;">
+                                    <img src = "../images/projects/web_trash-collect/figure17.jpeg">
+                                    <figcaption>Figure 17</figcaption>
+                                </figure>
+                                <figure style = "width: 20%;">
+                                    <img src = "../images/projects/web_trash-collect/figure18.jpeg">
+                                    <figcaption>Figure 18</figcaption>
+                                </figure>
+                                <figure style = "width: 20%;">
+                                    <img src = "../images/projects/web_trash-collect/figure19.jpeg">
+                                    <figcaption>Figure 19</figcaption>
+                                </figure>
+                            </div>
+                        </ol>
+                    </ol>
+                    <br>
 
+                    <p class = "section">4. 해결하기 어려웠던 부분</p>
+                    <ul class = "non-number_list">
+                        <li>지도 API를 이용해 서울시를 동 별로 구분하는 과정에서 서울시를 구성하는 동들의 위치 좌표를 추출해야 했는데, 이 과정에서 행정동과 법정동이 분리되어 있다는 것을 처음 깨닫게 되었다. 이에 법정동을 기준으로 동들의 위치 좌표를 추출했는데, 서울시 각 구역의 행정 사이트에서 분리배출 시간과 장소 정보를 추출하는 과정에서 어떤 구는 법정동을 기준으로 나누었고 또 다른 구는 행정동을 기준으로 분리배출 기준을 나누었다. 때문에 위치 정보와 분리배출 시간 및 장소 정보의 차이를 하나로 통합하는 작업이 까다로웠다.</li><br>
+                        <li>지도 기능을 구현하는 과정에서, 분리배출에 대한 규정이 행정구역마다 다르기 때문에 서울시를 행정구역과 법정동 단위로 나누어야 했다. 이때 법정동의 벡터 위치 정보를 수정없이 그냥 추출 및 사용하면, 연산해야 하는 도형의 점의 개수가 과도하게 많아 웹사이트에 부하가 걸려 사이트가 터져버리는 문제가 발생했다. 때문에 도형의 모양은 거의 비슷하게 유지되지만 점의 개수를 최대한 줄여주는 방법을 찾아야만 했고, 결과적으로 ‘Ramer-Douglas Peucker’ 근사화 알고리즘을 이용해야 했다.</li><br>
+                        <li>처음 제안서를 작성하는 단계에서 Teachable Machine API를 이용하면 쉽게 인공지능을 학습시킬 수 있을 것이라 예상했으며, 자료 검색을 하는 단계에서 많은 양의 쓰레기 사진 데이터셋을 구할 수 있었기 때문에 학습된 인공지능의 정확도가 나름 높을 것으로 예상했었다. 하지만 막상 인공지능을 학습시키려고 해당 API를 사용해보니, 따로 프로그램으로써 작동하는 것이 아니라 웹으로 작동하는 것이기 때문에 기존에 찾은 많은 양의 사진을 모두 넣으면 웹이 멈춰버리는 문제가 발생해 학습에 사용되는 사진의 수를 대폭 줄여야만 했다. 뿐만 아니라, 찾은 사진 데이터셋들을 나름대로 분석하는 과정에서 정제되지 않은 적합하지 않은 데이터들 역시 굉장히 많아 수작업을 통해 일일이 걸러줘야 했다. 일반쓰레기에 대한 사진 데이터셋은 아무리 찾아봐도 존재하지 않아, 직접 일반쓰레기들의 사진을 수백장 검색 및 다운받아야만 했다. 인공지능의 정확도를 높이기 위해서는 해당 문제들을 해결해야만 했기 때문에 예상보다 많은 시간을 투자해야 했다.</li>
+                    </ul>
+
+                    <br style = "height: 15px;">
                     <hr>
+                    <br style = "height: 15px;">
 
                     <p class = "section">마무리:</p>
-                    <p>...</p>
+                    <p>프로젝트를 진행하는 당시에는 너무나도 힘들었지만, 처음에 무에서 유를 창조해야 한다고 생각하며 막막했을 때와는 달리 너무나도 만족스러운 결과물이 나와 뿌듯했다. 빠듯한 시간이라는 압박감과 팀 프로젝트라는 불편한 상황 속에서 독창적이며 퀄리티 높은 웹사이트를 만들어야 한다는 점에서 실제로 회사에 입사해 프로젝트를 진행할 때 이런 방식으로 흘러가겠다는 생각이 많이 들었다. 팀원들과의 지속적인 커뮤니케이션의 필요, 원활한 업무 분담을 하는 방법, 다양한 상충되는 의견들을 하나로 화합하는 방법 등 실제 현상에서도 굉장히 중요하게 작용하는 여러 요소들에 대해 미리 간접적으로 체험해볼 수 있었다는 점에서 굉장히 귀중한 경험이 되었다고 생각하고, 코딩 실력을 제외한 여러 방면에서도 한 층 더 성장할 수 있는 계기가 되었다고 생각한다. 프로그래머가 되기 위해서는 단순히 프로그래밍 실력만 키우면 되는 것이 아니라는 점을 몸소 깨달을 수 있었던 프로젝트였다.</p>
                 </div>
 
                 <div id = "search">
                     <ul class = "tag">
                         <li>#Trash Collect</li>
                         <li>#Internet Programming</li>
+                        <li>#Yonsei University</li>
                         <li>#CSI2109</li>
                         <li>#Web Programming</li>
                     </ul>

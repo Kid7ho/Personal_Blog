@@ -183,9 +183,17 @@
 #contents #content ol.number_list {
     padding-left: 2.5em;
 }
-
 #contents #content ul.non-number_list {
     padding-left: 2.5em;
+}
+
+#contents #content ol.number_list p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#contents #content ul.non-number_list p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 #contents #content .figures {
