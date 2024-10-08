@@ -139,7 +139,7 @@ function init(posts) {
 
         finalGroup.reverse();
         
-        const displayUnitPosts = 6;
+        const displayUnitPosts = 8;
         let startIndex = displayedPosts;
         let endIndex = Math.min((displayedPosts + displayUnitPosts), finalGroup.length + 1);
         displayedPosts = endIndex;
