@@ -84,11 +84,11 @@ main {
     background: none;
     outline: none!important;
     cursor: pointer;    
-    
-    & svg.submit-button {
-        width: 100%; height: 100%;
-        fill: #5a6674;
-    }
+}
+#category .details .search-form .search-button svg {
+    width: 100%;
+    height: 100%;
+    fill: #5a6674;
 }
 /* */
 
