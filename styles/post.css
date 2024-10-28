@@ -485,7 +485,7 @@
     padding-bottom: 15px;
 }
 #contents #search .new_article article {
-    width: 21%; height: 225px;
+    width: 21%; height: 250px;
 
     margin: 0 auto;
     overflow: hidden;
@@ -555,7 +555,7 @@
     list-style-type: none;
     text-align: center;
 
-    overflow: scroll;
+    overflow: hidden;
 }
 #contents #search .new_article article a ul.tag_article li {
     min-width: 50px; height: 22px;
